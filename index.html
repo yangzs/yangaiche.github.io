@@ -1,12 +1,470 @@
----
-　　layout: default
-　　title: 我的Blog
----
-#hello
-　　<h2>{{ page.title }}</h2>
-　　<p>最新文章ddd</p>
-　　<ul>
-　　　　{% for post in site.posts %}
-　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
-　　　　{% endfor %}
-　　</ul>
+
+	    <html>
+	      <head>
+				  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+	        <title>index</title>
+					
+					<link href="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/style/github-bf51422f4bb36427d391e4b75a1daa083c2d840e.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/style/github2-d731afd4f624c99a4b19ad69f3083cd6d02b81d5.css" media="all" rel="stylesheet" type="text/css"/>
+					<link href="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/css/zTreeStyle/zTreeStyle.css" media="all" rel="stylesheet" type="text/css"/>
+			
+				  <style>
+					pre {
+					    counter-reset: line-numbering;
+					    border: solid 1px #d9d9d9;
+					    border-radius: 0;
+					    background: #fff;
+					    padding: 0;
+					    line-height: 23px;
+					    margin-bottom: 30px;
+					    white-space: pre;
+					    overflow-x: auto;
+					    word-break: inherit;
+					    word-wrap: inherit;
+					}
+
+					pre a::before {
+					  content: counter(line-numbering);
+					  counter-increment: line-numbering;
+					  padding-right: 1em; /* space after numbers */
+					  width: 25px;
+					  text-align: right;
+					  opacity: 0.7;
+					  display: inline-block;
+					  color: #aaa;
+					  background: #eee;
+					  margin-right: 16px;
+					  padding: 2px 10px;
+					  font-size: 13px;
+					  -webkit-touch-callout: none;
+					  -webkit-user-select: none;
+					  -khtml-user-select: none;
+					  -moz-user-select: none;
+					  -ms-user-select: none;
+					  user-select: none;
+					}
+
+					pre a:first-of-type::before {
+					  padding-top: 10px;
+					}
+
+					pre a:last-of-type::before {
+					  padding-bottom: 10px;
+					}
+
+					pre a:only-of-type::before {
+					  padding: 10px;
+					}
+			
+					.highlight { background-color: #ffffcc } /* RIGHT */
+					</style>
+	      </head>
+	      <body>
+				  <div>
+							<div style='width:25%;'>
+									<ul id="tree" class="ztree" style='width:100%'>
+		
+									</ul>
+							</div>
+			        <div id='readme' style='width:70%;margin-left:20%;'>
+			          	<article class='markdown-body'>
+			            	<style>.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f0f0f0; }
+.highlight .c { color: #60a0b0; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #007020; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #007020 } /* Comment.Preproc */
+.highlight .c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #007020 } /* Keyword.Pseudo */
+.highlight .kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #902000 } /* Keyword.Type */
+.highlight .m { color: #40a070 } /* Literal.Number */
+.highlight .s { color: #4070a0 } /* Literal.String */
+.highlight .na { color: #4070a0 } /* Name.Attribute */
+.highlight .nb { color: #007020 } /* Name.Builtin */
+.highlight .nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.highlight .no { color: #60add5 } /* Name.Constant */
+.highlight .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.highlight .ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #007020 } /* Name.Exception */
+.highlight .nf { color: #06287e } /* Name.Function */
+.highlight .nl { color: #002070; font-weight: bold } /* Name.Label */
+.highlight .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #062873; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #bb60d5 } /* Name.Variable */
+.highlight .ow { color: #007020; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #40a070 } /* Literal.Number.Bin */
+.highlight .mf { color: #40a070 } /* Literal.Number.Float */
+.highlight .mh { color: #40a070 } /* Literal.Number.Hex */
+.highlight .mi { color: #40a070 } /* Literal.Number.Integer */
+.highlight .mo { color: #40a070 } /* Literal.Number.Oct */
+.highlight .sb { color: #4070a0 } /* Literal.String.Backtick */
+.highlight .sc { color: #4070a0 } /* Literal.String.Char */
+.highlight .sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #4070a0 } /* Literal.String.Double */
+.highlight .se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #4070a0 } /* Literal.String.Heredoc */
+.highlight .si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.highlight .sx { color: #c65d09 } /* Literal.String.Other */
+.highlight .sr { color: #235388 } /* Literal.String.Regex */
+.highlight .s1 { color: #4070a0 } /* Literal.String.Single */
+.highlight .ss { color: #517918 } /* Literal.String.Symbol */
+.highlight .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #bb60d5 } /* Name.Variable.Class */
+.highlight .vg { color: #bb60d5 } /* Name.Variable.Global */
+.highlight .vi { color: #bb60d5 } /* Name.Variable.Instance */
+.highlight .il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
+<h1>api</h1>
+
+<h2>有的没的</h2>
+
+<h3>接口权限</h3>
+
+<p>在报头 API-Access-Token中</p>
+
+<h3>接口版本管理</h3>
+
+<p>在链接中指定
+http://192.168.1.1:8000/<strong><em>v1</em></strong>/api/xxx</p>
+
+<h3>错误返回格式</h3>
+<div class="highlight"><pre><span class="p">{</span>
+
+    <span class="nt">&quot;error_msg&quot;</span><span class="p">:</span> <span class="s2">&quot;An active access token must be used to query information about the current user.&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;error_type&quot;</span><span class="p">:</span> <span class="s2">&quot;OAuthException&quot;</span><span class="p">,</span> 
+    <span class="nt">&quot;error_code&quot;</span><span class="p">:</span> <span class="mi">2500</span> <span class="err">//由服务器定义</span>
+
+<span class="p">}</span>
+</pre></div>
+<h3>所有信息组织结构</h3>
+<div class="highlight"><pre><span class="p">{</span>
+<span class="nt">&quot;user_info&quot;</span><span class="p">:</span>
+<span class="p">{</span>
+    <span class="nt">&quot;basic&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1233333</span><span class="p">,</span>
+        <span class="nt">&quot;phone_number&quot;</span><span class="p">:</span><span class="s2">&quot;15010111335&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;刘正青&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;gender&quot;</span><span class="p">:</span><span class="s2">&quot;male&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;avatar_img&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="nt">&quot;location&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="mf">12333.1231231</span><span class="p">,</span>
+        <span class="nt">&quot;longtitude&quot;</span><span class="p">:</span><span class="mf">1231231.1232</span><span class="p">,</span>
+        <span class="nt">&quot;province_name&quot;</span><span class="p">:</span><span class="s2">&quot;湖南&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city_name&quot;</span><span class="p">:</span><span class="s2">&quot;长沙&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;district_name&quot;</span><span class="p">:</span><span class="s2">&quot;雨花区&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;stree_name&quot;</span><span class="p">:</span><span class="s2">&quot;芙蓉东路&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="s2">&quot;国际大厦&quot;</span>
+        <span class="p">},</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;cars&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;licence&quot;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;province&quot;</span><span class="p">:</span><span class="s2">&quot;京&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="s2">&quot;RB0718&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;bought_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span> 
+            <span class="nt">&quot;miles&quot;</span><span class="p">:</span><span class="mi">12333</span><span class="p">,</span>
+            <span class="nt">&quot;chassis_numher&quot;</span><span class="p">:</span><span class="s2">&quot;HIBIY797DFS77&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;engine_number&quot;</span><span class="p">:</span><span class="s2">&quot;DFUSODFND567DFSDN-SDFC&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;brand&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;途观&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;model&quot;</span><span class="p">:</span><span class="s2">&quot;豪华版 2.0T&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;brand_img_url&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+
+            <span class="nt">&quot;scores&quot;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;whole_score&quot;</span><span class="p">:</span><span class="mi">78</span><span class="p">,</span>
+                <span class="nt">&quot;parts&quot;</span><span class="p">:[</span>
+                <span class="p">{</span>
+                    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;轮胎&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;需更换&quot;</span><span class="p">,</span>
+                    <span class="nt">&quot;used_hours&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
+                    <span class="nt">&quot;usrd_miles&quot;</span><span class="p">:</span><span class="mi">123</span><span class="p">,</span>
+                    <span class="nt">&quot;score&quot;</span><span class="p">:</span><span class="mi">80</span><span class="p">,</span>
+                    <span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;破损严重,建议更换&quot;</span><span class="p">,</span>
+                <span class="p">}</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;coupons&quot;</span><span class="p">:</span>
+    <span class="p">[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;已用&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="s2">&quot;37123322&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;value&quot;</span><span class="p">:</span><span class="mf">99.00</span><span class="p">,</span>
+            <span class="nt">&quot;expired_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="nt">&quot;check_reports&quot;</span><span class="p">:</span>
+<span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+        <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;报告单&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;complete_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;car&quot;</span><span class="p">:{</span>
+            <span class="nt">&quot;car_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;licence&quot;</span><span class="p">:</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;province&quot;</span><span class="p">:</span><span class="s2">&quot;京&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;number&quot;</span><span class="p">:</span><span class="s2">&quot;RB0718&quot;</span>
+            <span class="p">},</span>
+            <span class="nt">&quot;bought_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;miles&quot;</span><span class="p">:</span><span class="mi">12333</span><span class="p">,</span>
+            <span class="nt">&quot;chassis_numher&quot;</span><span class="p">:</span><span class="s2">&quot;HIBIY797DFS77&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;engine_number&quot;</span><span class="p">:</span><span class="s2">&quot;DFUSODFND567DFSDN-SDFC&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;brand&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;category&quot;</span><span class="p">:</span><span class="s2">&quot;途观&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;mode&quot;</span><span class="p">:</span><span class="s2">&quot;豪华版 2.0T&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;brand_img_url&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="nt">&quot;reports&quot;</span><span class="p">:</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;电瓶电压及寿命检测&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;合格&quot;</span><span class="p">,</span><span class="err">//已修复//未修复</span>
+                <span class="nt">&quot;stars&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+                <span class="nt">&quot;status_comment&quot;</span><span class="p">:</span><span class="s2">&quot;华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;imgs&quot;</span><span class="p">:</span>
+                <span class="p">[</span>
+                    <span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+                <span class="p">]</span>
+            <span class="p">},</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+<span class="p">},</span>
+<span class="nt">&quot;order_infos&quot;</span><span class="p">:[</span>
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;常规保养&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;初检中&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;keeper_name&quot;</span><span class="p">:</span><span class="s2">&quot;张师傅&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;_place_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span> <span class="err">//</span>  <span class="err">下单时间</span>
+    <span class="nt">&quot;start_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>  <span class="err">//</span> <span class="err">接单时间</span>
+    <span class="nt">&quot;order_services&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;保养&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;机滤通用&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;升&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit_count&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="mf">123.00</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;order_flow&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;接车&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;已完成&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;complete_time&quot;</span><span class="p">:</span><span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;location&quot;</span><span class="p">:</span><span class="s2">&quot;中关村南大街&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;imgs&quot;</span><span class="p">:[</span>
+            <span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;http://www.baidu.com/b.png&quot;</span><span class="p">,</span>
+            <span class="p">]</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;保养&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;未完成&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+    <span class="nt">&quot;client_feedback&quot;</span><span class="p">:</span>
+    <span class="p">{</span>
+        <span class="nt">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;非常不错,下次再来!&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;keeper_stars&quot;</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span>
+        <span class="nt">&quot;order_stars&quot;</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="p">}</span>
+<span class="p">],</span>
+<span class="nt">&quot;carcare_book&quot;</span><span class="p">:[</span>
+<span class="p">{</span>
+    <span class="nt">&quot;car_id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;history&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;miles&quot;</span><span class="p">:</span><span class="mi">10000</span><span class="p">,</span>
+            <span class="nt">&quot;events&quot;</span><span class="p">:[</span>
+            <span class="p">{</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;检测机滤&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;status&quot;</span><span class="p">:</span><span class="s2">&quot;未完成&quot;</span><span class="p">,</span><span class="err">//完成,</span>
+            <span class="p">}</span>
+            <span class="p">]</span>
+        <span class="p">}</span>
+    <span class="p">]</span>
+<span class="p">}</span>
+<span class="p">],</span>
+
+<span class="p">}</span>
+</pre></div>
+<p>#公共数据</p>
+
+<h2>车辆例表</h2>
+
+<h3>获取</h3>
+<div class="highlight"><pre><span class="err">GET</span> <span class="err">/api/brands</span>
+<span class="p">{</span>
+        <span class="nt">&quot;brands&quot;</span><span class="p">:</span>
+        <span class="p">[</span>
+            <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+             <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;img_url&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+             <span class="nt">&quot;categories&quot;</span><span class="p">:</span>
+             <span class="p">[</span>
+                <span class="p">{</span>
+                <span class="nt">&quot;brand_name&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;途观&quot;</span><span class="p">,</span>
+                <span class="nt">&quot;modoles&quot;</span><span class="p">:[</span>
+                     <span class="s2">&quot;豪华版 2.0T&quot;</span><span class="p">,</span>
+                     <span class="s2">&quot;豪华版 3.0T&quot;</span>
+                <span class="p">],</span>
+                <span class="p">}</span>
+             <span class="p">],</span>
+             <span class="p">}</span>
+        <span class="p">],</span>
+
+<span class="p">}</span>
+</pre></div>
+<h3>过滤</h3>
+<div class="highlight"><pre><span class="err">GET</span> <span class="err">/api/brands?name=</span><span class="s2">&quot;大众&quot;</span>
+<span class="p">{</span>
+<span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+ <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;img_url&quot;</span><span class="p">:</span><span class="s2">&quot;http://www.baidu.com/a.png&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;categories&quot;</span><span class="p">:</span>
+ <span class="p">[</span>
+    <span class="p">{</span>
+    <span class="nt">&quot;brand_name&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;途观&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;modoles&quot;</span><span class="p">:[</span>
+         <span class="s2">&quot;豪华版 2.0T&quot;</span><span class="p">,</span>
+         <span class="s2">&quot;豪华版 3.0T&quot;</span>
+    <span class="p">],</span>
+    <span class="p">}</span>
+ <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+<h3>增改</h3>
+<div class="highlight"><pre><span class="err">POST</span> <span class="err">/api/brands</span>
+<span class="err">BODY</span>
+<span class="p">{</span>
+ <span class="nt">&quot;brand_name&quot;</span><span class="p">:</span><span class="s2">&quot;大众&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;categorie_name&quot;</span><span class="p">:</span><span class="s2">&quot;途观&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;modole_name&quot;</span><span class="p">:</span><span class="s2">&quot;豪华版 3.0T&quot;</span><span class="p">,</span>
+ <span class="nt">&quot;img_base64&quot;</span><span class="p">:</span><span class="s2">&quot;sklfjsfsdon&quot;</span><span class="p">,</span>
+<span class="p">}</span>
+</pre></div>
+<h3>删除</h3>
+<div class="highlight"><pre><span class="err">DELETE</span>  <span class="err">/api/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span>
+<span class="err">DELETE</span>  <span class="err">/api/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span>
+<span class="err">DELETE</span>  <span class="err">/api/brands/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">/categories/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span><span class="err">/modoles/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span>
+</pre></div>
+<h2>支付</h2>
+<div class="highlight"><pre><span class="err">POST</span>  <span class="err">/api/payment/</span><span class="p">{</span><span class="err">id</span><span class="p">}</span>
+<span class="p">{</span>
+
+<span class="p">}</span>
+</pre></div>
+<h2>订单</h2>
+
+<h2>评价</h2>
+
+<h2>车</h2>
+
+<h2>优惠券</h2>
+
+<h2>优惠码</h2>
+
+<h2>手机验证码</h2>
+<div class="highlight"><pre><span class="err">GET</span>  <span class="err">api/phone_verify/</span><span class="mi">15010111335</span>
+</pre></div>
+<h2>加入购物车</h2>
+<div class="highlight"><pre><span class="err">POST</span>  <span class="err">api/cart/</span>
+<span class="p">{</span>
+    <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;常规保养&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;car_id&quot;</span><span class="p">,</span><span class="err">1,</span>
+     <span class="nt">&quot;contact_name&quot;</span><span class="p">:</span><span class="s2">&quot;王语嫣&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;contact_phone_number&quot;</span><span class="p">:</span><span class="s2">&quot;15010111335&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;use_coupon_id&quot;</span><span class="p">:[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
+     <span class="nt">&quot;serivces&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;机油&quot;</span><span class="p">,</span>
+        <span class="p">},</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;机滤&quot;</span><span class="p">,</span>
+        <span class="p">}</span>
+     <span class="p">]</span>
+     <span class="s2">&quot;comment&quot;</span><span class="p">:</span><span class="s2">&quot;要两瓶&quot;</span><span class="p">,</span>
+     <span class="nt">&quot;pick_time_segment&quot;</span><span class="p">:[</span>
+        <span class="s2">&quot;2011-08-21T18:02:52.249Z&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2011-08-21T18:03:52.249Z&quot;</span>
+     <span class="p">],</span>
+     <span class="nt">&quot;location&quot;</span><span class="p">:{</span>
+        <span class="nt">&quot;latitude&quot;</span><span class="p">:</span><span class="mf">12333.1231231</span><span class="p">,</span>
+        <span class="nt">&quot;longtitude&quot;</span><span class="p">:</span><span class="mf">1231231.1232</span><span class="p">,</span>
+        <span class="nt">&quot;province_name&quot;</span><span class="p">:</span><span class="s2">&quot;湖南&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;city_name&quot;</span><span class="p">:</span><span class="s2">&quot;长沙&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;district_name&quot;</span><span class="p">:</span><span class="s2">&quot;雨花区&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;stree_name&quot;</span><span class="p">:</span><span class="s2">&quot;芙蓉东路&quot;</span><span class="p">,</span>
+        <span class="nt">&quot;location_name&quot;</span><span class="p">:</span><span class="s2">&quot;国际大厦&quot;</span>
+        <span class="p">},</span>
+    <span class="nt">&quot;order_services&quot;</span><span class="p">:[</span>
+        <span class="p">{</span>
+            <span class="nt">&quot;id&quot;</span><span class="p">:</span><span class="mi">12</span><span class="p">,</span>
+            <span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="s2">&quot;保养&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;name&quot;</span><span class="p">:</span><span class="s2">&quot;机滤通用&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit&quot;</span><span class="p">:</span><span class="s2">&quot;升&quot;</span><span class="p">,</span>
+            <span class="nt">&quot;unit_count&quot;</span><span class="p">:</span><span class="mi">1</span><span class="p">,</span>
+            <span class="nt">&quot;price&quot;</span><span class="p">:</span><span class="mf">123.00</span><span class="p">,</span>
+        <span class="p">}</span>
+    <span class="p">],</span>
+<span class="p">}</span>
+</pre></div>
+			          	</article>
+			        </div>
+					</div>
+	      </body>
+	    </html>
+			<script type="text/javascript" src="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/js/jquery-1.4.4.min.js"></script>
+			<script type="text/javascript" src="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/js/jquery.ztree.all-3.5.min.js"></script>
+			<script type="text/javascript" src="/Library/Ruby/Gems/2.0.0/gems/tocmd-0.4.1/vendor/toc/js/ztree_toc.js"></script>
+			<SCRIPT type="text/javascript" >
+			<!--
+			$(document).ready(function(){
+				$('#tree').ztree_toc({
+					is_auto_number:true,
+					documment_selector:'.markdown-body'
+				});
+			});
+			//-->
+			</SCRIPT>
+	  
