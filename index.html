@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-<title>Hello API</title>
+<title>YAC open API v1.0</title>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 </head>
 <xmp theme="Slate"  style="display:none;" toc>
-
-# words
+# basic
+## terminology
 + order 订单
 + service 服务,订单里面包含各种服务
 + flow   流程,服务的时间流程
 
-#access token
+##access token
 在报头 API-Access-Token中
 
-# version control
+## version control
 在链接中指定
 http://192.168.1.1:8000/v1/xxx
 
-# error return
+## error return
 ```json
 {
     "error_msg": "An active access token must be used to query information about the current user.",
@@ -26,14 +26,17 @@ http://192.168.1.1:8000/v1/xxx
     "error_code": 2500 //由服务器定义
 }
 ```
-
-#GET alipay/:code
+#API
+##GET auth_code
+args:
+?src=ali
+?src=weixin
 Req:
-code:阿里授权码
+auth_code:第三方渠道授权码
 
-#GET wexin/:code
 
-#POST register
+
+##POST register
 ```json
 {
    "name" : "刘正青",
@@ -44,13 +47,13 @@ code:阿里授权码
 }
 ```
 
-#PUT login
+##PUT login
 ```json
 {
    "OpenId" : "JFSDFODNFOj",
 }
 ```
-#GET user_info/:id
+##GET user_info/:id
 ```json
 {
 "user_info":
@@ -225,7 +228,7 @@ code:阿里授权码
 }
 ```
  
-#GET brands
+##GET brands
 ```json
 [
    {
@@ -249,7 +252,7 @@ code:阿里授权码
 ```
  
  
-#GET wechatpay/:orderid
+##GET wechatpay/:orderid
 ```json
 {
 "appId":"wxd930ea5d5a258f4f",
@@ -271,7 +274,7 @@ Res
 }
 ```
 
-#POST  payment
+##POST  payment
 ```json
 Req:
 {
@@ -285,7 +288,7 @@ Res:
 }
 ```
 
-#GET orders
+##GET orders
 
 ```json
 {
@@ -337,14 +340,14 @@ Res:
 }
 
 ```
-#DELETE order/:order_id
-``json
+##DELETE order/:order_id
+```json
 Res:
 {
     "status":"OK" 
 }
 ```
-#POST orders
+##POST orders
 request:
 ```json
 {
@@ -419,7 +422,7 @@ response
 }
 ```
  
-#POST feedback
+##POST feedback
 ```json
 {
     "order_id":1,
@@ -431,14 +434,14 @@ response
     }
 }
 ```
-#DELETE car/:car_id
+##DELETE car/:car_id
 ```json
 Res:
 {
     "status":"OK"
 }
 ```
-#POST car
+##POST car
 REQ:
 ```json
 {
@@ -481,7 +484,7 @@ Res:
 ```
  
 
-#GET coupons
+##GET coupons
 ```json 
 {
  "coupons":
@@ -497,7 +500,7 @@ Res:
     }
 ```
 
-#POST coupon
+##POST coupon
     兑换优惠码
 Req:
 ```json
@@ -521,7 +524,7 @@ Res:
 }
 ```
 
-#POST phone_code_request
+##POST tel_code_request
     请求手机验证码
 ```json
 {
@@ -529,7 +532,7 @@ Res:
 }
 ```
 
-#POST phone_code_verification
+##POST tel_code_confirmation
     核实手机验证码
 ```json
 {
@@ -539,7 +542,7 @@ Res:
 
 
 
-#GET services/:id
+##GET services/:id
 RES:
 ```json
 [    {
@@ -576,7 +579,7 @@ RES:
 
 ```
 
-#POST cart
+##POST cart
 REQ:
 ```json
 {
