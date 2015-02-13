@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <html>
-<title>Hello Strapdown</title>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+<title>Hello API</title>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=utf-8">
+</head>
 
 
-<xmp theme="united"  style="display:none;" toc>
-
-#Don`t user Chinese In this Table
-
-# api
+<xmp theme="Slate"  style="display:none;" toc>
 
 #  access token
 
@@ -17,19 +16,25 @@
 # version control
 
 在链接中指定
-http://192.168.1.1:8000/***v1***/api/xxx
+http://192.168.1.1:8000/v1/xxx
 
-### error return 
+# error return
 ```json
 {
 
-    "error_msg": "An active access token must be used to query information about the current user.", 
-    "error_type": "OAuthException", 
+    "error_msg": "An active access token must be used to query information about the current user.",
+    "error_type": "OAuthException",
     "error_code": 2500 //由服务器定义
- 
 }
 ```
-### all data in one
+
+#GET alipay/:code
+Req:
+code:阿里授权码
+
+#GET wexin/:code
+
+#GET user_info/:id
 ```json
 {
 "user_info":
@@ -202,37 +207,12 @@ http://192.168.1.1:8000/***v1***/api/xxx
 
 }
 ```
-# public data
-## brand
-###  get
-```json
-GET /api/brands
-{
-        "brands":
-        [
-            {
-            "id":1,
-             "name":"大众",
-             "img_url":"http://www.baidu.com/a.png",
-             "categories":
-             [
-                {
-                "brand_name":"大众",
-                "name":"途观",
-                "modoles":[
-                     "豪华版 2.0T",
-                     "豪华版 3.0T"
-                ],
-                }
-             ],
-             }
-        ],
+ 
+#GET brands
 
-}
-```
-### filter
+AUG: name   
+SAMPLE: brands?name="大众"
 ```json
-GET /api/brands?name="大众"
 {
 "id":1,
  "name":"大众",
@@ -252,9 +232,8 @@ GET /api/brands?name="大众"
 
 ```
 
-### add or update
+#POST brands
 ```json
-POST /api/brands
 BODY
 {
  "brand_name":"大众",
@@ -264,18 +243,30 @@ BODY
 }
 
 ```
-
-### delete
+ 
+#GET wechatpay/:orderid
 ```json
-DELETE  /api/brands/{id}
-DELETE  /api/brands/{id}/categories/{id}
-DELETE  /api/brands/{id}/categories/{id}/modoles/{id}
-```
+WeixinJSBridge.invoke('getBrandWCPayRequest',{
+"appId":"wxd930ea5d5a258f4f",
+"timeStamp": "1399514976",
+"nonceStr": "e7d161ac8d8a76529d39d9f5b4249ccb",
+"package":
+"bank_type=WX&body=%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95&fee_ty
+pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240b
+65810859cbf2a8d9f76a638c0a3&partner=1900000109&spbill_create_ip=196.168.1.1&total_fee=
+1&sign=7F77B507B755B3262884291517E380F8",
+"signType" : "SHA1",
+"paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
+},function(res){
+// 返回res.err_msg,取值
+// get_brand_wcpay_request:cancel 用户取消
+// get_brand_wcpay_request:fail 发送失败
+// get_brand_wcpay_request:ok 发送成功
+WeixinJSBridge.log(res.err_msg);
+alert(res.err_code+res.err_desc);
+});
 
-## payment
-```json
-
-POST  /api/payment/{id}
+POST  /payment/{id}
 {
 
 }
@@ -283,23 +274,243 @@ POST  /api/payment/{id}
 ```
 
 
-## order
 
-## comment
-
-## car
-
-## coupon
-
-## coupon code
-
-## phone verify code
+#GET orders/detail/
 ```json
-GET  api/phone_verify/15010111335
+[  {
+    "id": 462,
+    "number": "BY20141226155812778",
+    "createTime": 1419580692000,
+    "lastModified": 1419580708000,
+    "pickUpTime": null,
+    "pickUpAddress": null,
+    "giveBackTime": null,
+    "giveBackAddress": null,
+    "carServiceType": "Maintenance",
+    "carServiceOrderSource": null,
+    "carUserId": 2138,
+    "carId": 1554,
+    "carNumber": "津rb0718",
+    "carModelId": 610,
+    "carModelName": "标致 408 2.0L",
+    "carEngineNumber": null,
+    "carVehicleNumber": null,
+    "customerName": "刘正青",
+    "customerPhoneNumber": "15010111335",
+    "customerIdentityCardNumber": null,
+    "operatorUserId": 5,
+    "operatorUserName": "李凌玥",
+    "driverUserId": null,
+    "driverUserName": null,
+    "driverUserAddress": null,
+    "repairerUserId": null,
+    "repairerUserName": null,
+    "repairerUserAddress": null,
+    "supplierId": null,
+    "supplierName": null,
+    "supplierAddress": null,
+    "status": "Accepted",
+    "description": null,
+    "couponId": null,
+    "channelId": null,
+    "channelName": null,
+    "paid": false,
+    "paidSum": null,
+    "payNumber": null,
+    "cash": null,
+    "items": null
+}]
+
 ```
-## add to cart
+
+#POST orders
+request:
 ```json
-POST  api/cart/
+{
+    "pickUpAddress": "当代家园",
+    "carServiceType": "Detection",
+    "carId": 1554,
+    "carNumber": "Ê¥•rb0718",
+    "carModelName": "标致 408 2.0L",
+    "carModelLogo": "13",
+    "customerName": "刘正青",
+    "customerPhoneNumber": "15010111335",
+    "description": null,
+    "paid": false,
+    "items": [{
+        "name": "一元检测",
+        "servicePrice": 0,
+        "productPrice": 1,
+        "productTax": 0,
+        "quantity": 1,
+        "productId": 3
+    }]
+}
+```
+response
+```json
+{
+    "id": 839,
+    "number": "ZX20150213142042544",
+    "createTime": 1423808442550,
+    "lastModified": 1423808442550,
+    "pickUpTime": null,
+    "pickUpAddress": "测试",
+    "giveBackTime": null,
+    "giveBackAddress": null,
+    "carServiceType": "Detection",
+    "carServiceOrderSource": null,
+    "carUserId": 2138,
+    "carId": 1554,
+    "carNumber": "津rb0718",
+    "carModelId": 610,
+    "carModelName": "标致 408 2.0L",
+    "carEngineNumber": null,
+    "carVehicleNumber": null,
+    "customerName": "测试",
+    "customerPhoneNumber": "15010111335",
+    "customerIdentityCardNumber": null,
+    "operatorUserId": null,
+    "operatorUserName": null,
+    "driverUserId": null,
+    "driverUserName": null,
+    "driverUserAddress": null,
+    "repairerUserId": null,
+    "repairerUserName": null,
+    "repairerUserAddress": null,
+    "supplierId": null,
+    "supplierName": null,
+    "supplierAddress": null,
+    "status": "Created",
+    "description": null,
+    "couponId": null,
+    "channelId": null,
+    "channelName": null,
+    "paid": false,
+    "paidSum": null,
+    "payNumber": null,
+    "cash": null,
+    "items": [{
+        "id": 1378,
+        "createTime": 1423808442553,
+        "lastModified": 1423808442553,
+        "name": "服务费",
+        "description": "服务费1",
+        "servicePrice": 0.0,
+        "productPrice": 1.0,
+        "productTax": 0.0,
+        "quantity": 1,
+        "orderId": 839,
+        "productId": 3
+    }]
+}
+```
+ 
+#POST comment
+
+#POST client_car
+REQ:
+```json
+{
+    "car_model_id": carModelId,
+    "car_number": carNumber,
+    "bought_time": buyDate,
+    "miles": mileage,
+    }
+```
+
+#GET client/cars
+Res:
+```json
+[
+{
+    "id":18,
+    "mileage":98888.0,
+    "buyDate":1230768000000,
+    "carNumber":"京NH2009",
+    "vehicleNumber":null,
+    "engineNumber":null,
+    "description":null,
+    "carModelId":209,
+    "carModelName":"宝马7系 2004款 760Li",
+    "carModelLogo":"6"
+},
+]
+```
+
+
+#GET /coupons
+
+#POST /coupon/:code
+
+#POST phone_code_request/:phone_number
+
+#POST phone_code_verify/:phone_code
+
+#POST register
+
+
+```json
+{
+   "name" : null,
+   "gender" : null,
+   "phoneNumber" : phoneNumber,
+   "providerName" : "Alipay",
+   "providerOpenId" : "JDFOSDNFSDOFJ"
+}
+```
+
+#PUT login
+```json
+{
+   "OpenId" : "JFSDFODNFOj",
+}
+```
+
+#GET services/:id
+
+RES:
+```json
+[    {
+    "carModelId": 610,
+    "carServiceType": "Maintenance",
+    "product": {
+        "id": 9,
+        "createTime": 1414807200000,
+        "lastModified": 1416383463000,
+        "type": "EngineOil",
+        "name": "蓝壳",
+        "description": "蓝壳",
+        "price": 68.0,
+        "tax": 2.0
+    },
+    "quantity": 4,
+    "price": 0.0
+}, {
+    "carModelId": 610,
+    "carServiceType": "Maintenance",
+    "product": {
+        "id": 10,
+        "createTime": 1414807200000,
+        "lastModified": 1414807200000,
+        "type": "EngineOil",
+        "name": "黄壳",
+        "description": "黄壳",
+        "price": 40.0,
+        "tax": 2.0
+    },
+    "quantity": 4,
+    "price": 0.0
+}]
+
+```
+
+
+
+
+#POST cart/
+REQ:
+```json
 {
     "name":"常规保养",
      "car_id",1,
@@ -343,6 +554,6 @@ POST  api/cart/
 ```
 
 </xmp>
-
+<!-- <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script> -->
 <script src="http://ndossougbe.github.io/strapdown/dist/strapdown.js"></script>
 </html>
