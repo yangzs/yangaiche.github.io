@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html>
-
 <title>Hello API</title>
 <head>
 <meta http-equiv="content-type" content="text/html;charset=utf-8">
 </head>
-
-
 <xmp theme="Slate"  style="display:none;" toc>
 
-#  access token
+# words
++ order 订单
++ service 服务,订单里面包含各种服务
++ flow   流程,服务的时间流程
 
+#access token
 在报头 API-Access-Token中
 
 # version control
-
 在链接中指定
 http://192.168.1.1:8000/v1/xxx
 
 # error return
 ```json
 {
-
     "error_msg": "An active access token must be used to query information about the current user.",
     "error_type": "OAuthException",
     "error_code": 2500 //由服务器定义
@@ -34,6 +33,23 @@ code:阿里授权码
 
 #GET wexin/:code
 
+#POST register
+```json
+{
+   "name" : "刘正青",
+   "gender" : "male",
+   "phoneNumber" : "15010111335",
+   "providerName" : "Alipay",
+   "providerOpenId" : "JDFOSDNFSDOFJ"
+}
+```
+
+#PUT login
+```json
+{
+   "OpenId" : "JFSDFODNFOj",
+}
+```
 #GET user_info/:id
 ```json
 {
@@ -148,8 +164,9 @@ code:阿里授权码
     "id":1,
     "name":"常规保养",
     "status":"初检中",
+    "keeper_id",123,
     "keeper_name":"张师傅",
-    "_place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+    "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
     "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
     "order_services":[
         {
@@ -188,7 +205,7 @@ code:阿里授权码
 
 }
 ],
-"carcare_book":[
+"carcare_book":[ //保养手册
 {
     "car_id":1,
     "history":[
@@ -209,44 +226,32 @@ code:阿里授权码
 ```
  
 #GET brands
-
-AUG: name   
-SAMPLE: brands?name="大众"
 ```json
-{
-"id":1,
- "name":"大众",
- "img_url":"http://www.baidu.com/a.png",
- "categories":
- [
-    {
-    "brand_name":"大众",
-    "name":"途观",
-    "modoles":[
-         "豪华版 2.0T",
-         "豪华版 3.0T"
+[
+   {
+    "id":1,
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "brand_name":"大众",
+       "name":"途观",
+       "modoles":[
+            "豪华版 2.0T",
+            "豪华版 3.0T"
+       ],
+       }
     ],
-    }
- ],
-}
-
-```
-
-#POST brands
-```json
-BODY
-{
- "brand_name":"大众",
- "categorie_name":"途观",
- "modole_name":"豪华版 3.0T",
- "img_base64":"sklfjsfsdon",
-}
+   }
+]
 
 ```
  
+ 
 #GET wechatpay/:orderid
 ```json
-WeixinJSBridge.invoke('getBrandWCPayRequest',{
+{
 "appId":"wxd930ea5d5a258f4f",
 "timeStamp": "1399514976",
 "nonceStr": "e7d161ac8d8a76529d39d9f5b4249ccb",
@@ -257,218 +262,284 @@ pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240
 1&sign=7F77B507B755B3262884291517E380F8",
 "signType" : "SHA1",
 "paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
-},function(res){
-// 返回res.err_msg,取值
-// get_brand_wcpay_request:cancel 用户取消
-// get_brand_wcpay_request:fail 发送失败
-// get_brand_wcpay_request:ok 发送成功
-WeixinJSBridge.log(res.err_msg);
-alert(res.err_code+res.err_desc);
-});
-
-POST  /payment/{id}
+}
+```
+Res
+```json
 {
+    //todo @王帅
+}
+```
 
+#POST  payment
+```json
+Req:
+{
+    "order_id":123,
+}
+```
+``json
+Res:
+{
+    "status":"OK"
+}
+```
+
+#GET orders
+
+```json
+{
+    "order_infos":[
+    {
+        "id":1,
+        "name":"常规保养",
+        "status":"初检中",
+        "keeper_name":"张师傅",
+        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+        "order_services":[
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00,
+            }
+        ],
+        "order_flow":[
+            {
+                "id" : 1,
+                "name":"接车",
+                "status":"已完成",
+                "complete_time":"2011-08-21T18:02:52.249Z",
+                "location":"中关村南大街",
+                "imgs":[
+                "http://www.baidu.com/a.png",
+                "http://www.baidu.com/b.png",
+                ]
+            },
+            {
+                "id" : 2,
+                "name":"保养",
+                "status":"未完成",
+            }
+        ],
+        "client_feedback":
+        {
+            "comment":"非常不错,下次再来!",
+            "keeper_stars":4,
+            "order_stars":5,
+        }
+    
+    }
+    ]
 }
 
 ```
-
-
-
-#GET orders/detail/
-```json
-[  {
-    "id": 462,
-    "number": "BY20141226155812778",
-    "createTime": 1419580692000,
-    "lastModified": 1419580708000,
-    "pickUpTime": null,
-    "pickUpAddress": null,
-    "giveBackTime": null,
-    "giveBackAddress": null,
-    "carServiceType": "Maintenance",
-    "carServiceOrderSource": null,
-    "carUserId": 2138,
-    "carId": 1554,
-    "carNumber": "津rb0718",
-    "carModelId": 610,
-    "carModelName": "标致 408 2.0L",
-    "carEngineNumber": null,
-    "carVehicleNumber": null,
-    "customerName": "刘正青",
-    "customerPhoneNumber": "15010111335",
-    "customerIdentityCardNumber": null,
-    "operatorUserId": 5,
-    "operatorUserName": "李凌玥",
-    "driverUserId": null,
-    "driverUserName": null,
-    "driverUserAddress": null,
-    "repairerUserId": null,
-    "repairerUserName": null,
-    "repairerUserAddress": null,
-    "supplierId": null,
-    "supplierName": null,
-    "supplierAddress": null,
-    "status": "Accepted",
-    "description": null,
-    "couponId": null,
-    "channelId": null,
-    "channelName": null,
-    "paid": false,
-    "paidSum": null,
-    "payNumber": null,
-    "cash": null,
-    "items": null
-}]
-
+#DELETE order/:order_id
+``json
+Res:
+{
+    "status":"OK" 
+}
 ```
-
 #POST orders
 request:
 ```json
 {
-    "pickUpAddress": "当代家园",
-    "carServiceType": "Detection",
-    "carId": 1554,
-    "carNumber": "Ê¥•rb0718",
-    "carModelName": "标致 408 2.0L",
-    "carModelLogo": "13",
-    "customerName": "刘正青",
-    "customerPhoneNumber": "15010111335",
-    "description": null,
-    "paid": false,
-    "items": [{
-        "name": "一元检测",
-        "servicePrice": 0,
-        "productPrice": 1,
-        "productTax": 0,
-        "quantity": 1,
-        "productId": 3
-    }]
+    "order_type":"care",
+    "order_name":"常规保养",
+    "car_id":1555,
+    "keeper_id":123,
+    "pick_location":"曼陀山庄20号",
+    "phone_number":"1501011335",
+    "contact_name":"小龙女",
+    "paid":false,
+    "order_services":[
+        {
+            "type":"保养",
+            "name":"机滤通用",
+            "unit":"升",
+            "unit_count":1,
+            "price":123.00,
+        }
+    ],
+    "comment":"早点来"
 }
+
 ```
 response
 ```json
 {
-    "id": 839,
-    "number": "ZX20150213142042544",
-    "createTime": 1423808442550,
-    "lastModified": 1423808442550,
-    "pickUpTime": null,
-    "pickUpAddress": "测试",
-    "giveBackTime": null,
-    "giveBackAddress": null,
-    "carServiceType": "Detection",
-    "carServiceOrderSource": null,
-    "carUserId": 2138,
-    "carId": 1554,
-    "carNumber": "津rb0718",
-    "carModelId": 610,
-    "carModelName": "标致 408 2.0L",
-    "carEngineNumber": null,
-    "carVehicleNumber": null,
-    "customerName": "测试",
-    "customerPhoneNumber": "15010111335",
-    "customerIdentityCardNumber": null,
-    "operatorUserId": null,
-    "operatorUserName": null,
-    "driverUserId": null,
-    "driverUserName": null,
-    "driverUserAddress": null,
-    "repairerUserId": null,
-    "repairerUserName": null,
-    "repairerUserAddress": null,
-    "supplierId": null,
-    "supplierName": null,
-    "supplierAddress": null,
-    "status": "Created",
-    "description": null,
-    "couponId": null,
-    "channelId": null,
-    "channelName": null,
-    "paid": false,
-    "paidSum": null,
-    "payNumber": null,
-    "cash": null,
-    "items": [{
-        "id": 1378,
-        "createTime": 1423808442553,
-        "lastModified": 1423808442553,
-        "name": "服务费",
-        "description": "服务费1",
-        "servicePrice": 0.0,
-        "productPrice": 1.0,
-        "productTax": 0.0,
-        "quantity": 1,
-        "orderId": 839,
-        "productId": 3
-    }]
+   "order": {
+        "id":1,
+        "name":"常规保养",
+        "status":"初检中",
+        "keeper_id":123,
+        "keeper_name":"张师傅",
+        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+        "order_services":[
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00,
+            }
+        ],
+        "order_flow":[
+            {
+                "id" : 1,
+                "name":"接车",
+                "status":"已完成",
+                "complete_time":"2011-08-21T18:02:52.249Z",
+                "location":"中关村南大街",
+                "imgs":[
+                "http://www.baidu.com/a.png",
+                "http://www.baidu.com/b.png",
+                ]
+            },
+            {
+                "id" : 2,
+                "name":"保养",
+                "status":"未完成",
+            }
+        ],
+        "client_feedback":
+        {
+            "comment":"非常不错,下次再来!",
+            "keeper_stars":4,
+            "order_stars":5,
+        }
+    
+    }
 }
 ```
  
-#POST comment
-
-#POST client_car
+#POST feedback
+```json
+{
+    "order_id":1,
+    "client_feedback":
+    {
+        "comment":"非常不错,下次再来!",
+        "keeper_stars":4,
+        "order_stars":5,
+    }
+}
+```
+#DELETE car/:car_id
+```json
+Res:
+{
+    "status":"OK"
+}
+```
+#POST car
 REQ:
 ```json
 {
-    "car_model_id": carModelId,
-    "car_number": carNumber,
-    "bought_time": buyDate,
-    "miles": mileage,
+      
+    "licence":
+    {
+        "province":"京",
+        "number":"RB0718"
+    },
+    "bought_time":"2011-08-21T18:02:52.249Z", 
+    "miles":12333,
+    "chassis_numher":"HIBIY797DFS77",
+    "engine_number":"DFUSODFND567DFSDN-SDFC",
+    "brand":"大众",
+    "category":"途观",
+    "model":"豪华版 2.0T",
+}
+```
+Res:
+```json
+{
+    "car":
+    {
+      "id":1,
+      "licence":
+      {
+          "province":"京",
+          "number":"RB0718"
+      },
+      "bought_time":"2011-08-21T18:02:52.249Z", 
+      "miles":12333,
+      "chassis_numher":"HIBIY797DFS77",
+      "engine_number":"DFUSODFND567DFSDN-SDFC",
+      "brand":"大众",
+      "category":"途观",
+      "model":"豪华版 2.0T",
+      "brand_img_url":"http://www.baidu.com/a.png",
+    }
+}
+```
+ 
+
+#GET coupons
+```json 
+{
+ "coupons":
+    [
+        {
+            "id":1,
+            "status":"已用",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z",
+        }
+    ]
     }
 ```
 
-#GET client/cars
+#POST coupon
+    兑换优惠码
+Req:
+```json
+{
+"code":"dfdfson",
+}
+```
 Res:
 ```json
-[
 {
-    "id":18,
-    "mileage":98888.0,
-    "buyDate":1230768000000,
-    "carNumber":"京NH2009",
-    "vehicleNumber":null,
-    "engineNumber":null,
-    "description":null,
-    "carModelId":209,
-    "carModelName":"宝马7系 2004款 760Li",
-    "carModelLogo":"6"
-},
-]
-```
+ "coupon":
 
+        {
+            "id":1,
+            "status":"已用",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z",
+        }
 
-#GET /coupons
-
-#POST /coupon/:code
-
-#POST phone_code_request/:phone_number
-
-#POST phone_code_verify/:phone_code
-
-#POST register
-
-
-```json
-{
-   "name" : null,
-   "gender" : null,
-   "phoneNumber" : phoneNumber,
-   "providerName" : "Alipay",
-   "providerOpenId" : "JDFOSDNFSDOFJ"
 }
 ```
 
-#PUT login
+#POST phone_code_request
+    请求手机验证码
 ```json
 {
-   "OpenId" : "JFSDFODNFOj",
+"phone_number":"15010111335"
 }
 ```
+
+#POST phone_code_verification
+    核实手机验证码
+```json
+{
+"phone_number":"15010111335"
+}
+```
+
+
 
 #GET services/:id
-
 RES:
 ```json
 [    {
@@ -505,10 +576,7 @@ RES:
 
 ```
 
-
-
-
-#POST cart/
+#POST cart
 REQ:
 ```json
 {
