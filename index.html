@@ -7,10 +7,17 @@
 <xmp theme="Slate"  style="display:none;" toc>
 # basic
 ## terminology
-+ order 订单
-+ service 服务,订单里面包含各种服务
-+ flow   流程,服务的时间流程
-+ <必填>{必须填以|分隔的某一项}[选填]
+ name | description
+ -----|-----------------------
+ order  |  订单,比如说保养+维修
+ service | 服务,**order**里面包含各种服务,比如说保养,验车
+ item   |   项,具体的服务项,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为项.
+ service_flow  |  服务时间流程,**service**的时间流程
+ order_flow   |   订单流程(管家端数据结构) **order**的时间流程
+ <>  |  必填
+ {}   | 必须填以竖线分隔的某一项
+ [] | 选填
+
 
 ##access token
 在报头 API-Access-Token中
@@ -29,24 +36,28 @@ http://192.168.1.1:8000/v1/xxx
 ```
 #API
 ##GET auth_code
-args:  
-+ ?src={ali|weixin}
 
-Req:
-auth_code:第三方渠道授权码
+获得第三方渠道授权码
+
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **src**   |string|required   |ali,werxin|
+http://192.168.1.1:8000/auto_code?src=ali
+ 
+
 
 ##POST media  
 
-+ head: Content-Type:multipart/form-data
+head:
 
-req:
-```json
-{
-"pic":  //binary
-}
+Content-Type|multipart/form-data
+-|-
 
-```
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **pic**   |binary|required   ||
 
+ 
 res:
 ```json
 {
@@ -62,23 +73,34 @@ res:
 
 
 ##POST register
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **name**   |string|required   ||名字
+     **gender**   |string|required   |male,female|性别
+      **tel_number**   |string|required   ||手机号
+       **open_id**   |string|optional   ||第三方id号
+ res:
 ```json
 {
-   "name" : "刘正青",
-   "gender" : "male",
-   "phoneNumber" : "15010111335",
-   "providerName" : "Alipay",
-   "providerOpenId" : "JDFOSDNFSDOFJ"
+    "id":1,//分配的用户id号
 }
 ```
 
 ##PUT login
-```json
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **open_id**   |string|optional   ||第三方id号
+
+ res:
+ ```json
 {
-   "OpenId" : "JFSDFODNFOj",
+    "id":1,//分配的用户id号
 }
 ```
+
+ 
 ##GET user_info/:id
+res:
 ```json
 {
 "user_info":
@@ -206,7 +228,7 @@ res:
             "price":123.00,
         }
     ],
-    "order_flow":[
+    "service_flow":[
         {
             "id" : 1,
             "name":"接车",
@@ -252,22 +274,83 @@ res:
 
 }
 ```
- 
-##GET brands
+##GET public_data
 ```json
-[
+{
+"brands":[
    {
-    "id":1,
     "name":"大众",
     "img_url":"http://www.baidu.com/a.png",
     "categories":
     [
        {
-       "brand_name":"大众",
        "name":"途观",
        "modoles":[
+        {
+            "id":1,
             "豪华版 2.0T",
-            "豪华版 3.0T"
+         }
+       ],
+       }
+    ],
+   }
+],
+"provinces":
+[
+    {
+
+    "name":"湖南",
+    "alias":"湘",
+    "support":true,//是否支持当前省
+    "cities":[
+        {
+            "city":"长沙",
+            "support":true,//是否支持当前市
+            "districts":
+            [
+              "芙蓉区",
+            ]
+        },
+
+]
+    }
+],
+"services":
+[
+    {
+        "id":1,
+        "name":"保养",
+        "items":
+        [
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "default_unit_count":1,//默认数量
+                "price":123.00,
+            }
+        ]
+    }
+],
+}
+```
+##GET brands
+res:
+```json
+[
+   {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "modoles":[
+          {
+            "id":1,  
+            "豪华版 2.0T",
+         }
        ],
        }
     ],
@@ -301,32 +384,57 @@ Res
 ```
 
 ##POST  payment
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **order_id**   |number|required || 订单号
+
+ res:
 ```json
-Req:
-{
-    "order_id":123,
-}
-```
-```json
-Res:
 {
     "status":"OK"
 }
 ```
-
-##GET orders
-
+##POST order/:order_id/services
 ```json
 {
-    "order_infos":[
-    {
+   "order_services":[   //service中分为各item
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00,
+            },
+            {   //其他
+                "type":"其他",
+                "name":"由管家自行填写",
+            }
+        ],
+}
+```
+
+##DELETE items/:item_id
+res:
+```json
+{
+    "status":"OK"
+}
+```
+##DELETE services/:service_id
+```json
+Res:
+{
+    "status":"OK" ,
+
+   "order":{
         "id":1,
         "name":"常规保养",
         "status":"初检中",
         "keeper_name":"张师傅",
         "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
         "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
-        "order_services":[
+        "order_services":[   //service中分为各item
             {
                 "id":12,
                 "type":"保养",
@@ -336,7 +444,109 @@ Res:
                 "price":123.00,
             }
         ],
-        "order_flow":[
+        "service_flow":[
+            {
+                "id" : 1,
+                "name":"接车",
+                "status":"已完成",
+                "complete_time":"2011-08-21T18:02:52.249Z",
+                "location":"中关村南大街",
+                "imgs":[
+                "http://www.baidu.com/a.png",
+                "http://www.baidu.com/b.png",
+                ]
+            },
+            {
+                "id" : 2,
+                "name":"保养",
+                "status":"未完成",
+            }
+        ],
+        "client_feedback":
+        {
+            "comment":"非常不错,下次再来!",
+            "keeper_stars":4,
+            "order_stars":5,
+        }
+    
+    }
+}
+```
+##GET orders/:id
+
+```json
+{
+    "order_infos":[
+    "user_info":
+    {
+
+        "id":1,
+        "basic":
+        {
+            "id":1233333,
+            "phone_number":"15010111335",
+            "name":"刘正青",
+            "gender":"male",
+            "avatar_img":"http://www.baidu.com/a.png",
+        },
+
+        "cars":
+        {
+            "id":1,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z", 
+            "miles":12333,
+            "chassis_numher":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://www.baidu.com/a.png",
+        }
+    },
+       "pick_loction":
+        {
+            "id":1,
+            "latitude":12333.1231231,
+            "longtitude":1231231.1232,
+            "province_name":"湖南",
+            "city_name":"长沙",
+            "district_name":"雨花区",
+            "stree_name":"芙蓉东路",
+            "location_name":"国际大厦"
+        },
+        "checkspot_location":
+        {
+            "id":1,
+            "latitude":12333.1231231,
+            "longtitude":1231231.1232,
+            "province_name":"湖南",
+            "city_name":"长沙",
+            "district_name":"雨花区",
+            "stree_name":"芙蓉东路",
+            "location_name":"国际大厦"
+        },
+        "name":"常规保养",
+        "status":"初检中",
+        "keeper_name":"张师傅",
+        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "book_time":"2011-08-21T18:02:52.249Z", //   预约时间
+        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+        "order_services":[   //service中分为各item
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00,
+            }
+        ],
+        "service_flow":[
             {
                 "id" : 1,
                 "name":"接车",
@@ -374,7 +584,11 @@ Res:
 }
 ```
 ##POST orders
-request:
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+
+req:
 ```json
 {
     "order_type":"care",
@@ -398,7 +612,7 @@ request:
 }
 
 ```
-response
+res:
 ```json
 {
    "order": {
@@ -419,7 +633,7 @@ response
                 "price":123.00,
             }
         ],
-        "order_flow":[
+        "service_flow":[
             {
                 "id" : 1,
                 "name":"接车",
@@ -449,6 +663,10 @@ response
 ```
  
 ##POST feedback
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
 ```json
 {
     "order_id":1,
@@ -468,7 +686,11 @@ Res:
 }
 ```
 ##POST cars
-REQ:
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+req:
 ```json
 [
     {
@@ -528,8 +750,12 @@ Res:
 ```
 
 ##POST coupons
-    兑换优惠码
-Req:
+兑换优惠码
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+req:
 ```json
 [
     {
@@ -538,7 +764,7 @@ Req:
     }
 ]
 ```
-Res:
+res:
 ```json
 [
     {
@@ -555,11 +781,10 @@ Res:
 
 ##POST tel_code_request
     请求手机验证码
-```json
-{
-"phone_number":"15010111335"
-}
-```
+   form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **tel_number**   |string|required   ||手机号
+
 
 ##POST tel_code_confirmation
     核实手机验证码
@@ -572,7 +797,7 @@ Res:
 
 
 ##GET services/:id
-RES:
+res:
 ```json
 [    {
     "carModelId": 610,
@@ -609,7 +834,10 @@ RES:
 ```
 
 ##POST cart
-REQ:
+   form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||json串
+ req
 ```json
 {
     "name":"常规保养",
