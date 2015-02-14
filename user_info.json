@@ -94,7 +94,7 @@
         [
             {
                 "name":"电瓶电压及寿命检测",
-                "status":"合格",//已修复//未修复
+                "status":"合格",
                 "stars":4,
                 "status_comment":"华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
                 "imgs":
@@ -129,8 +129,8 @@
         "avatar_img":"http://www.baidu.com/a.png",
     },
 
-    "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
-    "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+    "place_time":"2011-08-21T18:02:52.249Z", 
+    "start_time":"2011-08-21T18:02:52.249Z", 
     "order_services":[
         {
             "id":12,
@@ -168,7 +168,7 @@
 
 }
 ],
-"carcare_book":[ //保养手册
+"carcare_book":[ 
 {
     "car_id":1,
     "history":[
@@ -177,7 +177,7 @@
             "events":[
             {
                 "name":"检测机滤",
-                "status":"未完成",//完成,
+                "status":"未完成",
             }
             ]
         }
@@ -211,11 +211,11 @@
 
     "name":"湖南",
     "alias":"湘",
-    "support":true,//是否支持当前省
+    "support":true,
     "cities":[
         {
             "city":"长沙",
-            "support":true,//是否支持当前市
+            "support":true,
             "districts":
             [
               "芙蓉区",
@@ -237,7 +237,7 @@
                 "type":"保养",
                 "name":"机滤通用",
                 "unit":"升",
-                "default_unit_count":1,//默认数量
+                "default_unit_count":1,
                 "price":123.00,
             }
         ]
