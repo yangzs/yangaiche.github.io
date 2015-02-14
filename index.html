@@ -52,6 +52,7 @@ head:
 
 Content-Type|multipart/form-data
 -|-
+|
 
   parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -190,7 +191,7 @@ res:
             "engine_number":"DFUSODFND567DFSDN-SDFC",
             "brand":"大众",
             "category":"途观",
-            "mode":"豪华版 2.0T",
+            "model":"豪华版 2.0T",
             "brand_img_url":"http://www.baidu.com/a.png",
         },
         "reports":
@@ -214,8 +215,23 @@ res:
     "id":1,
     "name":"常规保养",
     "status":"初检中",
-    "keeper_id",123,
-    "keeper_name":"张师傅",
+    "keeper_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"张师傅",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+    },
+    "client_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+    },
+
     "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
     "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
     "order_services":[
@@ -275,6 +291,7 @@ res:
 }
 ```
 ##GET public_data
+res:
 ```json
 {
 "brands":[
@@ -288,7 +305,7 @@ res:
        "modoles":[
         {
             "id":1,
-            "豪华版 2.0T",
+            "model":豪华版 2.0T",
          }
        ],
        }
@@ -376,7 +393,7 @@ pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240
 "paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
 }
 ```
-Res
+res
 ```json
 {
     //todo @王帅
@@ -422,8 +439,9 @@ res:
 }
 ```
 ##DELETE services/:service_id
+res:
 ```json
-Res:
+
 {
     "status":"OK" ,
 
@@ -468,12 +486,17 @@ Res:
             "keeper_stars":4,
             "order_stars":5,
         }
-    
+    "additonal_imgs"[
+    {
+    "description":"左前轮有点问题",
+    "url":"http://www.baidu.com/a.png",
+    }
+    ]
     }
 }
 ```
 ##GET orders/:id
-
+res:
 ```json
 {
     "order_infos":[
@@ -481,6 +504,7 @@ Res:
     {
 
         "id":1,
+        ""
         "basic":
         {
             "id":1233333,
@@ -530,6 +554,7 @@ Res:
             "stree_name":"芙蓉东路",
             "location_name":"国际大厦"
         },
+        "paid":false,  //是否已支付
         "name":"常规保养",
         "status":"初检中",
         "keeper_name":"张师傅",
@@ -578,7 +603,7 @@ Res:
 ```
 ##DELETE orders/:order_id
 ```json
-Res:
+res:
 {
     "status":"OK" 
 }
@@ -679,8 +704,9 @@ res:
 }
 ```
 ##DELETE cars/:car_id
+res:
 ```json
-Res:
+
 {
     "status":"OK"
 }
@@ -710,7 +736,7 @@ req:
 ]
 
 ```
-Res:
+res:
 ```json
 [
     {
@@ -734,6 +760,7 @@ Res:
  
 
 ##GET coupons
+res:
 ```json 
 {
  "coupons":
@@ -788,9 +815,13 @@ res:
 
 ##POST tel_code_confirmation
     核实手机验证码
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **tel_code**   |string|required   ||手机验证码
+res:
 ```json
 {
-"phone_number":"15010111335"
+    "status":"OK" 
 }
 ```
 
@@ -832,12 +863,18 @@ res:
 }]
 
 ```
+res:
+```json
+{
+    "status":"OK" 
+}
+```
 
 ##POST cart
    form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||json串
- req
+ req:
 ```json
 {
     "name":"常规保养",
@@ -879,6 +916,13 @@ res:
     ],
 }
 
+```
+res:
+```json
+
+{
+    "status":"OK" 
+}
 ```
 
 </xmp>
