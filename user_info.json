@@ -1,218 +1,186 @@
 {
-    "user_info": {
-        "basic": {
-            "id": 1233333,
-            "phone_number": "15010111335",
-            "name": "刘正青",
-            "gender": "male",
-            "avatar_img": "http://www.baidu.com/a.png"
-        },
-        "location": [
-            {
-                "id": 1,
-                "latitude": 12333.1231231,
-                "longtitude": 1231231.1232,
-                "province_name": "湖南",
-                "city_name": "长沙",
-                "district_name": "雨花区",
-                "stree_name": "芙蓉东路",
-                "location_name": "国际大厦"
-            }
-        ],
-        "cars": [
-            {
-                "id": 1,
-                "licence": {
-                    "province": "京",
-                    "number": "RB0718"
-                },
-                "bought_time": "2011-08-21T18:02:52.249Z",
-                "miles": 12333,
-                "chassis_numher": "HIBIY797DFS77",
-                "engine_number": "DFUSODFND567DFSDN-SDFC",
-                "brand": "大众",
-                "category": "途观",
-                "model": "豪华版 2.0T",
-                "brand_img_url": "http://www.baidu.com/a.png",
-                "scores": {
-                    "whole_score": 78,
-                    "parts": [
-                        {
-                            "name": "轮胎",
-                            "status": "需更换",
-                            "used_hours": 123,
-                            "usrd_miles": 123,
-                            "score": 80,
-                            "comment": "破损严重,建议更换"
-                        }
-                    ]
-                }
-            }
-        ],
-        "coupons": [
-            {
-                "id": 1,
-                "status": "已用",
-                "number": "37123322",
-                "value": 99,
-                "expired_time": "2011-08-21T18:02:52.249Z"
-            }
-        ],
-        "check_reports": [
-            {
-                "id": 1,
-                "name": "报告单",
-                "complete_time": "2011-08-21T18:02:52.249Z",
-                "car": {
-                    "car_id": 1,
-                    "licence": {
-                        "province": "京",
-                        "number": "RB0718"
-                    },
-                    "bought_time": "2011-08-21T18:02:52.249Z",
-                    "miles": 12333,
-                    "chassis_numher": "HIBIY797DFS77",
-                    "engine_number": "DFUSODFND567DFSDN-SDFC",
-                    "brand": "大众",
-                    "category": "途观",
-                    "model": "豪华版 2.0T",
-                    "brand_img_url": "http://www.baidu.com/a.png"
-                },
-                "reports": [
-                    {
-                        "name": "电瓶电压及寿命检测",
-                        "status": "合格",
-                        "stars": 4,
-                        "status_comment": "华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
-                        "imgs": [
-                            "http://www.baidu.com/a.png"
-                        ]
-                    }
-                ]
-            }
-        ]
+"user_info":
+{
+    "basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
     },
-    "order_infos": [
+    "location":
+    [
         {
-            "id": 1,
-            "name": "常规保养",
-            "status": "初检中",
-            "keeper_basic": {
-                "id": 1233333,
-                "phone_number": "15010111335",
-                "name": "张师傅",
-                "gender": "male",
-                "avatar_img": "http://www.baidu.com/a.png"
+        "id":1,
+        "latitude":12333.1231231,
+        "longtitude":1231231.1232,
+        "province_name":"湖南",
+        "city_name":"长沙",
+        "district_name":"雨花区",
+        "stree_name":"芙蓉东路",
+        "location_name":"国际大厦"
+        },
+    ],
+    "cars":
+    [
+        {
+            "id":1,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
             },
-            "client_basic": {
-                "id": 1233333,
-                "phone_number": "15010111335",
-                "name": "刘正青",
-                "gender": "male",
-                "avatar_img": "http://www.baidu.com/a.png"
+            "bought_time":"2011-08-21T18:02:52.249Z", 
+            "miles":12333,
+            "chassis_numher":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://www.baidu.com/a.png",
+
+            "scores":
+            {
+                "whole_score":78,
+                "parts":[
+                {
+                    "name":"轮胎",
+                    "status":"需更换",
+                    "used_hours":123,
+                    "usrd_miles":123,
+                    "score":80,
+                    "comment":"破损严重,建议更换",
+                }
+                ]
             },
-            "place_time": "2011-08-21T18:02:52.249Z",
-            "start_time": "2011-08-21T18:02:52.249Z",
-            "order_services": [
-                {
-                    "id": 12,
-                    "type": "保养",
-                    "name": "机滤通用",
-                    "unit": "升",
-                    "unit_count": 1,
-                    "price": 123
-                }
-            ],
-            "service_flow": [
-                {
-                    "id": 1,
-                    "name": "接车",
-                    "status": "已完成",
-                    "complete_time": "2011-08-21T18:02:52.249Z",
-                    "location": "中关村南大街",
-                    "imgs": [
-                        "http://www.baidu.com/a.png",
-                        "http://www.baidu.com/b.png"
-                    ]
-                },
-                {
-                    "id": 2,
-                    "name": "保养",
-                    "status": "未完成"
-                }
-            ],
-            "client_feedback": {
-                "comment": "非常不错,下次再来!",
-                "keeper_stars": 4,
-                "order_stars": 5
-            }
+
         }
     ],
-    "carcare_book": [
+    "coupons":
+    [
         {
-            "car_id": 1,
-            "history": [
-                {
-                    "miles": 10000,
-                    "events": [
-                        {
-                            "name": "检测机滤",
-                            "status": "未完成"
-                        }
-                    ]
-                }
-            ]
+            "id":1,
+            "status":"已用",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z",
         }
     ],
-    "public_data": {
-        "brands": [
+"check_reports":
+[
+    {
+        "id":1,
+        "name":"报告单",
+        "complete_time":"2011-08-21T18:02:52.249Z",
+        "car":{
+            "car_id":1,
+            "licence":
             {
-                "name": "大众",
-                "img_url": "http://www.baidu.com/a.png",
-                "categories": [
-                    {
-                        "name": "途观",
-                        "modoles": [
-                            {
-                                "id": 1,
-                                "model": "豪华版 2.0T"
-                            }
-                        ]
-                    }
-                ]
-            }
-        ],
-        "provinces": [
+                "province":"京",
+                "number":"RB0718"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_numher":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://www.baidu.com/a.png",
+        },
+        "reports":
+        [
             {
-                "name": "湖南",
-                "alias": "湘",
-                "support": true,
-                "cities": [
-                    {
-                        "city": "长沙",
-                        "support": true,
-                        "districts": [
-                            "芙蓉区"
-                        ]
-                    }
+                "name":"电瓶电压及寿命检测",
+                "status":"合格",//已修复//未修复
+                "stars":4,
+                "status_comment":"华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
+                "imgs":
+                [
+                    "http://www.baidu.com/a.png",
                 ]
-            }
-        ],
-        "services": [
-            {
-                "id": 1,
-                "name": "保养",
-                "items": [
-                    {
-                        "id": 12,
-                        "type": "保养",
-                        "name": "机滤通用",
-                        "unit": "升",
-                        "default_unit_count": 1,
-                        "price": 123
-                    }
-                ]
-            }
+            },
         ]
     }
+]
+},
+"order_infos":[
+{
+    "id":1,
+    "name":"常规保养",
+    "status":"初检中",
+    "keeper_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"张师傅",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+    },
+    "client_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+    },
+
+    "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+    "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+    "order_services":[
+        {
+            "id":12,
+            "type":"保养",
+            "name":"机滤通用",
+            "unit":"升",
+            "unit_count":1,
+            "price":123.00,
+        }
+    ],
+    "service_flow":[
+        {
+            "id" : 1,
+            "name":"接车",
+            "status":"已完成",
+            "complete_time":"2011-08-21T18:02:52.249Z",
+            "location":"中关村南大街",
+            "imgs":[
+            "http://www.baidu.com/a.png",
+            "http://www.baidu.com/b.png",
+            ]
+        },
+        {
+            "id" : 2,
+            "name":"保养",
+            "status":"未完成",
+        }
+    ],
+    "client_feedback":
+    {
+        "comment":"非常不错,下次再来!",
+        "keeper_stars":4,
+        "order_stars":5,
+    }
+
+}
+],
+"carcare_book":[ //保养手册
+{
+    "car_id":1,
+    "history":[
+        {
+            "miles":10000,
+            "events":[
+            {
+                "name":"检测机滤",
+                "status":"未完成",//完成,
+            }
+            ]
+        }
+    ]
+}
+],
+
 }
