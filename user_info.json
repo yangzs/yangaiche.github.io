@@ -7,7 +7,7 @@
         "phone_number":"15010111335",
         "name":"刘正青",
         "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
+        "avatar_img":"http://www.baidu.com/a.png"
     },
     "location":
     [
@@ -20,7 +20,7 @@
         "district_name":"雨花区",
         "stree_name":"芙蓉东路",
         "location_name":"国际大厦"
-        },
+        }
     ],
     "cars":
     [
@@ -50,10 +50,10 @@
                     "used_hours":123,
                     "usrd_miles":123,
                     "score":80,
-                    "comment":"破损严重,建议更换",
+                    "comment":"破损严重,建议更换"
                 }
                 ]
-            },
+            }
 
         }
     ],
@@ -64,7 +64,7 @@
             "status":"已用",
             "number":"37123322",
             "value":99.00,
-            "expired_time":"2011-08-21T18:02:52.249Z",
+            "expired_time":"2011-08-21T18:02:52.249Z"
         }
     ],
 "check_reports":
@@ -87,20 +87,20 @@
             "brand":"大众",
             "category":"途观",
             "model":"豪华版 2.0T",
-            "brand_img_url":"http://www.baidu.com/a.png",
+            "brand_img_url":"http://www.baidu.com/a.png"
         },
         "reports":
         [
             {
                 "name":"电瓶电压及寿命检测",
-                "status":"合格",//已修复//未修复
+                "status":"合格",
                 "stars":4,
                 "status_comment":"华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
                 "imgs":
                 [
-                    "http://www.baidu.com/a.png",
+                    "http://www.baidu.com/a.png"
                 ]
-            },
+            }
         ]
     }
 ]
@@ -116,7 +116,7 @@
         "phone_number":"15010111335",
         "name":"张师傅",
         "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
+        "avatar_img":"http://www.baidu.com/a.png"
     },
     "client_basic":
     {
@@ -124,11 +124,11 @@
         "phone_number":"15010111335",
         "name":"刘正青",
         "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
+        "avatar_img":"http://www.baidu.com/a.png"
     },
 
-    "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
-    "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+    "place_time":"2011-08-21T18:02:52.249Z",
+    "start_time":"2011-08-21T18:02:52.249Z",
     "order_services":[
         {
             "id":12,
@@ -136,7 +136,7 @@
             "name":"机滤通用",
             "unit":"升",
             "unit_count":1,
-            "price":123.00,
+            "price":123.00
         }
     ],
     "service_flow":[
@@ -148,25 +148,25 @@
             "location":"中关村南大街",
             "imgs":[
             "http://www.baidu.com/a.png",
-            "http://www.baidu.com/b.png",
+            "http://www.baidu.com/b.png"
             ]
         },
         {
             "id" : 2,
             "name":"保养",
-            "status":"未完成",
+            "status":"未完成"
         }
     ],
     "client_feedback":
     {
         "comment":"非常不错,下次再来!",
         "keeper_stars":4,
-        "order_stars":5,
+        "order_stars":5
     }
 
 }
 ],
-"carcare_book":[ //保养手册
+"carcare_book":[
 {
     "car_id":1,
     "history":[
@@ -175,12 +175,12 @@
             "events":[
             {
                 "name":"检测机滤",
-                "status":"未完成",//完成,
+                "status":"未完成"
             }
             ]
         }
     ]
 }
-],
+]
 
 }
