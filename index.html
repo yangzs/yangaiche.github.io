@@ -293,7 +293,8 @@ res:
 ##GET public_data
 res:
 ```json
-{
+ 
+ {
 "brands":[
    {
     "name":"大众",
@@ -305,11 +306,11 @@ res:
        "models":[
         {
             "id":1,
-            "name":豪华版 2.0T",
+            "name":"豪华版 2.0T"
          }
-       ],
+       ]
        }
-    ],
+    ]
    }
 ],
 "provinces":
@@ -318,19 +319,18 @@ res:
 
     "name":"湖南",
     "alias":"湘",
-    "support":true,//是否支持当前省
+    "support": true,
     "cities":[
         {
             "city":"长沙",
-            "support":true,//是否支持当前市
+            "support":true,
             "districts":
             [
-              "芙蓉区",
+              "芙蓉区"
             ]
-        },
-
-]
-    }
+        }
+    ]
+}
 ],
 "services":
 [
@@ -344,13 +344,16 @@ res:
                 "type":"保养",
                 "name":"机滤通用",
                 "unit":"升",
-                "default_unit_count":1,//默认数量
-                "price":123.00,
+                "default_unit_count":1,
+                "price":123.00
             }
         ]
     }
-],
+]
 }
+
+
+ 
 ```
 ##GET brands
 res:
