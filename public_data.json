@@ -15,6 +15,70 @@
        ]
        }
     ]
+   },
+    {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
+   },
+    {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
+   },
+    {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
+   },
+    {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
    }
 ],
 "provinces":
@@ -48,33 +112,10 @@
                 "type":"保养",
                 "name":"机滤通用",
                 "unit":"升",
-                "default_unit_count":1,//默认数量
-                "price":123.00,
+                "default_unit_count":1,
+                "price":123.00
             }
         ]
     }
-],
-}
-```
-##GET brands
-res:
-```json
-[
-   {
-    "name":"大众",
-    "img_url":"http://www.baidu.com/a.png",
-    "categories":
-    [
-       {
-       "name":"途观",
-       "models":[
-          {
-            "id":1,  
-            "name":"豪华版 2.0T",
-         }
-       ],
-       }
-    ],
-   }
 ]
- 
+}
