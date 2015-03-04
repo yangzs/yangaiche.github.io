@@ -61,7 +61,7 @@ error
  20001|IDs is null|IDs参数为空
 
 #API
-##GET auth_code
+##GET open_id
 
 获得第三方渠道授权码
 
@@ -71,7 +71,11 @@ error
     **code**  |string|required   ||
 http://192.168.1.1:8000/auth_code?src=ali&code
  
-
+```json
+{
+"open_id":"12345"
+}
+```
 
 ##POST media  
 
