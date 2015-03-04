@@ -67,8 +67,8 @@ error
 
   parameter |type|level  |  enum| description
  -|-|-|-|-
-    **src**   |string|required   |ali,weixin,guoqing|
-http://192.168.1.1:8000/auto_code?src=ali&code=123456
+    **src**   |string|required   |ali,werxin|
+http://192.168.1.1:8000/auto_code?src=ali
  
 
 
@@ -99,17 +99,13 @@ res:
 
 
 
-##POST register/:open_id
+##POST register
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
-      **phone_number**   |string|required   ||手机号
+    **name**   |string|required   ||名字
+     **gender**   |string|required   |male,female|性别
+      **tel_number**   |string|required   ||手机号
        **open_id**   |string|optional   ||第三方id号
-req:
-```json
-{
-    "phone_number":"13800138000"
-}
-```
  res:
 ```json
 {
@@ -117,7 +113,7 @@ req:
 }
 ```
 
-##PUT login/:open_id
+##PUT login
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **open_id**   |string|optional   ||第三方id号
@@ -736,7 +732,7 @@ res:
 }
 ```
 ##POST cars
- 根据token来区分用户
+ 
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||请求参数,值为json串,见req
@@ -829,25 +825,18 @@ res:
 ]
 ```
 
-##POST tel_code_request/:phone_number
+##POST tel_code_request
     请求手机验证码
    form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **phone_number**   |string|required   ||手机号
+ **tel_number**   |string|required   ||手机号
 
 
 ##POST tel_code_confirmation
     核实手机验证码
-```json
-{
-    "phone_number":"13800138000",
-    "code":"666666"
-}
-```
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **phone_number**   |string|required   ||手机号
- **code**   |string|required   ||手机验证码
+ **tel_code**   |string|required   ||手机验证码
 res:
 ```json
 {
@@ -955,207 +944,6 @@ res:
 }
 ```
 
-## GET carservice/:car_model_id/:car_service_type
-根据服务类型(服务项)和车型id，获取所对应的商品列表   
-http://192.168.1.1:8000/carservice/209/Maintenance
-
-res:
-```json
-[
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 1,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "ServiceFee",
-            "name": "服务费",
-            "description": "服务费69",
-            "price": 0.01,
-            "tax": 0
-        },
-        "quantity": 1,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 4,
-            "createTime": 1414807200000,
-            "lastModified": 1416383676000,
-            "type": "EngineOil",
-            "name": "极护（推荐）",
-            "description": "极护",
-            "price": 90,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 6,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "金美孚（推荐）",
-            "description": "金美孚",
-            "price": 80,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 14,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "FuelFilter",
-            "name": "汽滤（时令）",
-            "description": "汽滤时令",
-            "price": 0,
-            "tax": 0
-        },
-        "quantity": 1,
-        "price": 40
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 108,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOilFilter",
-            "name": "机滤曼牌102",
-            "description": "机滤曼牌102",
-            "price": 102,
-            "tax": 0
-        },
-        "quantity": 1,
-        "price": 50
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 135,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "AirFilter",
-            "name": "空滤曼牌246",
-            "description": "空滤曼牌246",
-            "price": 246,
-            "tax": 0
-        },
-        "quantity": 1,
-        "price": 10
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 5,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "磁护",
-            "description": "磁护",
-            "price": 70,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 7,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "银美孚",
-            "description": "银美孚",
-            "price": 60,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 8,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "灰壳",
-            "description": "灰壳",
-            "price": 88,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 9,
-            "createTime": 1414807200000,
-            "lastModified": 1416383463000,
-            "type": "EngineOil",
-            "name": "蓝壳",
-            "description": "蓝壳",
-            "price": 48,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 10,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "黄壳",
-            "description": "黄壳",
-            "price": 40,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    },
-    {
-        "carModelId": 209,
-        "carServiceType": "Maintenance",
-        "product": {
-            "id": 11,
-            "createTime": 1414807200000,
-            "lastModified": 1414807200000,
-            "type": "EngineOil",
-            "name": "金嘉护",
-            "description": "金嘉护",
-            "price": 45,
-            "tax": 0
-        },
-        "quantity": 8,
-        "price": 0
-    }
-]
-```
 </xmp>
 <!-- <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script> -->
 <script src="http://ndossougbe.github.io/strapdown/dist/strapdown.js"></script>
