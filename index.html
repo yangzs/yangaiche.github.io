@@ -61,16 +61,21 @@ error
  20001|IDs is null|IDs参数为空
 
 #API
-##GET auth_code
+##GET open_id
 
 获得第三方渠道授权码
 
   parameter |type|level  |  enum| description
  -|-|-|-|-
     **src**   |string|required   |ali,werxin|
-http://192.168.1.1:8000/auto_code?src=ali
+    **code**  |string|required   ||
+http://192.168.1.1:8000/auth_code?src=ali&code
  
-
+```json
+{
+"open_id":"12345"
+}
+```
 
 ##POST media  
 
