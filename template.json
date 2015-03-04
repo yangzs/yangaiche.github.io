@@ -1,0 +1,18 @@
+{
+    "cars":{
+            "id":0,
+            "licence":
+            {
+                "province":"",
+                "number":""
+            },
+            "bought_time":"",
+            "miles":0,
+            "chassis_numher":"",
+            "engine_number":"",
+            "brand":"",
+            "category":"",
+            "model":"",
+            "brand_img_url":""
+    }
+}
