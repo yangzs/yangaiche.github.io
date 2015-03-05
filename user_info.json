@@ -1,4 +1,4 @@
-{
+﻿{
 "user_info":
 {
     "basic":
@@ -24,38 +24,6 @@
     ],
     "cars":
     [
-    {
-            "id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_numher":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://www.baidu.com/a.png",
-
-            "scores":
-            {
-                "whole_score":78,
-                "parts":[
-                {
-                    "name":"轮胎",
-                    "status":"需更换",
-                    "used_hours":123,
-                    "usrd_miles":123,
-                    "score":80,
-                    "comment":"破损严重,建议更换"
-                }
-                ]
-            }
-
-        },
         {
             "id":1,
             "licence":
@@ -65,7 +33,7 @@
             },
             "bought_time":"2011-08-21T18:02:52.249Z",
             "miles":12333,
-            "chassis_numher":"HIBIY797DFS77",
+            "chassis_number":"HIBIY797DFS77",
             "engine_number":"DFUSODFND567DFSDN-SDFC",
             "brand":"大众",
             "category":"途观",
@@ -97,6 +65,20 @@
             "number":"37123322",
             "value":99.00,
             "expired_time":"2011-08-21T18:02:52.249Z"
+        },
+          {
+            "id":1,
+            "status":"过期",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z"
+        },
+          {
+            "id":2,
+            "status":"未使用",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z"
         }
     ],
 "check_reports":
@@ -114,7 +96,7 @@
             },
             "bought_time":"2011-08-21T18:02:52.249Z",
             "miles":12333,
-            "chassis_numher":"HIBIY797DFS77",
+            "chassis_number":"HIBIY797DFS77",
             "engine_number":"DFUSODFND567DFSDN-SDFC",
             "brand":"大众",
             "category":"途观",
@@ -137,10 +119,10 @@
     }
 ]
 },
-"order_infos":[
+"orders":[
 {
     "id":1,
-    "name":"常规保养",
+    "name":"常规保养2",
     "status":"初检中",
     "keeper_basic":
     {
@@ -161,14 +143,42 @@
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
-    "order_services":[
+    "services":[
         {
-            "id":12,
-            "type":"保养",
-            "name":"机滤通用",
-            "unit":"升",
-            "unit_count":1,
-            "price":123.00
+        "type" :"maintanance",
+        "name" :"保养",
+        "items":[
+            {
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
+            }
+            ]
+        },
+          {
+        "type" :"maintanance",
+        "name" :"保养好长 ",
+        "items":[
+            {
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
+            }
+            ]
+        },
+          {
+        "type" :"maintanance",
+        "name" :"保养好长 ",
+        "items":[
+            {
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
+            }
+            ]
         }
     ],
     "service_flow":[
@@ -179,14 +189,21 @@
             "complete_time":"2011-08-21T18:02:52.249Z",
             "location":"中关村南大街",
             "imgs":[
-            "http://www.baidu.com/a.png",
-            "http://www.baidu.com/b.png"
+            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
+             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg",
+               "http://t3.qlogo.cn/mbloghead/b7cbb22b4465436e19a8/50.jpg",
+               "http://static.youku.com/index/img/header/yklogo.png"
             ]
         },
         {
             "id" : 2,
             "name":"保养",
-            "status":"未完成"
+            "status":"未完成",
+             "imgs":[
+            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
+             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg"
+            ]
+
         }
     ],
     "client_feedback":
