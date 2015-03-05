@@ -242,7 +242,7 @@ res:
     }
 ]
 },
-"order_infos":[
+"orders":[
 {
     "id":1,
     "name":"常规保养",
@@ -262,10 +262,21 @@ res:
         "name":"刘正青",
         "gender":"male",
         "avatar_img":"http://www.baidu.com/a.png",
+        "pick_location":{
+            "latitude":12333.1231231,
+            "longtitude":1231231.1232,
+            "province_name":"湖南",
+            "city_name":"长沙",
+            "district_name":"雨花区",
+            "street_name":"芙蓉东路",
+            "location_name":"国际大厦"
+        },
+    ,
     },
 
     "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
     "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+
     "services":[
         {
         "type" :"maintanance",
@@ -570,6 +581,7 @@ req:
 ```
 res:
 ```json
+//返回所有的优惠券
 [
     {
         "track_id":12,
