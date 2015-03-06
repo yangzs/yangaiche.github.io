@@ -11,7 +11,7 @@
  -----|-----------------------
  order  |  订单,比如说保养+维修
  service | 服务,**order**里面包含各种服务,比如说保养,验车
- item   |   项,具体的服务项,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为项
+ product   |  商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为项
  service_flow  |  服务时间流程,**service**的时间流程
  order_flow   |   订单流程(管家端数据结构) **order**的时间流程
  <>  |  必填
@@ -219,7 +219,7 @@ res
 ```
 
 
-##DELETE items/:item_id
+##DELETE products/:product_id
 res:
 ```json
 {
@@ -357,7 +357,7 @@ res:
  **phone_number**   |string|required   ||手机号
 
 res:
-meta return 
+meta return
 
 ##POST phone_code_confirmation
     核实手机验证码
@@ -365,13 +365,17 @@ form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **phone_code**   |string|required   ||手机验证码
 res:
-meta return 
+meta return
 
 
 
-##GET services/:car_id
+##GET products
+url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **car_id**   |string|required   ||车第3级id类型
+ **service_type**   |string|required   ||服务类型
 res:
-<object type="text/html" data="services.json" width=100% height="400"></object>
+<object type="text/html" data="products.json" width=100% height="450"></object>
 
 
  ##POST orders
@@ -396,9 +400,9 @@ req:
     "services":[
         {
         "type" :"maintanance",
-        "items":[
+        "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
@@ -437,9 +441,9 @@ res:
         {
         "type" :"maintanance",
         "name" :"保养",
-        "items":[
+          "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
@@ -554,13 +558,12 @@ res:
         "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
         "book_time":"2011-08-21T18:02:52.249Z", //   预约时间
         "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
-        "services":[    
+        "services":[
             {
                "type" :"maintanance",
-        "name" :"保养",
-        "items":[
+           "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
@@ -618,9 +621,9 @@ res:
         "id" :123,
         "type" :"maintanance",
         "name" :"保养",
-     "items":[
+       "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
@@ -669,9 +672,9 @@ res:
         "id" :123,
         "type" :"maintanance",
         "name" :"保养",
-        "items":[
+          "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
@@ -757,9 +760,9 @@ res:
         {
         "type" :"maintanance",
         "name" :"保养",
-        "items":[
+          "all_products":[
             {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
