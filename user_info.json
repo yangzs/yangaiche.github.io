@@ -215,20 +215,17 @@
 
 }
 ],
-"carcare_book":[
-{
-    "car_id":1,
-    "history":[
-        {
-            "miles":10000,
-            "events":[
-            {
-                "name":"检测机滤",
-                "status":"未完成"
-            }
-            ]
-        }
-    ]
-}
+"car_care_book":[
+	{
+	    "car_id":1,
+	    "history":[
+		{
+		    "miles":10000,
+		    "events":[
+			    "机滤","汽滤"
+		    ]
+		}
+	    ]
+	}
 ]
 }
