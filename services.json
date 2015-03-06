@@ -1,0 +1,22 @@
+﻿
+[
+{
+    "service_type": "Maintenance",
+    "service_name":"保养",
+    "items": [
+    {
+        "id": 9,
+        "type": "EngineOil",
+        "name": "蓝壳",
+        "description": "蓝壳",
+        "create_time": "2011-08-21T18:02:52.249Z",
+        "modified_time":"2011-08-21T18:02:52.249Z",
+        "labour_price": 68.0,
+        "unit":"升",
+        "unit_count":1,
+        "price": 68.0,
+        "tax": 2.0
+    }
+    ]
+}
+]
