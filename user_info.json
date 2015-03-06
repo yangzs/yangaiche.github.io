@@ -148,57 +148,9 @@
         {
         "type" :"maintanance",
         "name" :"保养",
-        "items":[
+          "all_products":[
             {
-                "type":"engine_oil",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            }
-        ]
-        },
-          {
-        "type" :"maintanance",
-        "name" :"保养好长 ",
-        "items":[
-            {
-                "type":"engine_oil",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            }
-        ]
-        },
-          {
-        "type" :"maintanance",
-        "name" :"保养好长 ",
-        "items":[
-            {
-                "type":"engine_oil",
+                "type":"0",
                 "name":"机油",
                 "products":[
                     {
