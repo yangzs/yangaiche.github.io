@@ -7,16 +7,17 @@
 <xmp theme="Slate"  style="display:none;" toc>
 # basic
 ## terminology
- name | description
- -----|-----------------------
- order  |  订单,比如说保养+维修
- service | 服务,**order**里面包含各种服务,比如说保养,验车
- product   |  商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为项
- service_flow  |  服务时间流程,**service**的时间流程
- order_flow   |   订单流程(管家端数据结构) **order**的时间流程
- <>  |  必填
- {}   | 必须填以竖线分隔的某一项
- [] | 选填
+ name          | description
+ --------------|-----------------------
+ product       | 商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为商品
+ service       | 服务,由n个product,按一定的线性时间结点组合而成,比如说保养,验车
+ order         | 订单,包含用户已经选购的服务,并带有相应的支付状态
+ package       | 包,由业务系统根据order里的服务时间结点上作优化,能合并则合并.只供管家看.
+ service_flow  | 服务流程,**service**的时间流程,线性时间结构
+ order_flow    | 订单流程(管家端数据结构) **order**的树状时间流程
+ <>            | 必填
+ {}            | 必须填以竖线分隔的某一项
+ []            | 选填
  
 
  
@@ -28,7 +29,7 @@
 在链接中指定
 http://192.168.1.1:8000/v1/xxx
 
-## order enum
+## service enum
 
  description		| value	| crm	| app	| h5
  -|-|
@@ -38,7 +39,7 @@ http://192.168.1.1:8000/v1/xxx
   管家保养维修		|3		|√		|√		|√
   检测服务			|4		|√		|√		|√
   上门救援服务		|5		|√		|√		|√
-  上门保养维修服务	|6		|√		|√		|√
+  上门保养维修服务	    |6		|√		|√		|√
   管家代办验车		|7		|√		|√		|√
   管家4S店保养维修	|8		|√		|		|
 
@@ -250,7 +251,6 @@ res:
 ##DELETE cars/:car_id
 res:
 ```json
-
 {
     "status":"OK"
 }
@@ -397,7 +397,7 @@ req:
     "contact_name":"小龙女",
 
     "paid":false,
-    "services":[
+    "orders":[
         {
         "type" :"maintanance",
         "all_products":[
@@ -447,7 +447,7 @@ res:
         "status":"初检中",
         "keeper_id":123,
         "keeper_name":"张师傅",
-        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "place_time":"2011-08-21T18:02:52.249Z",  // 下单时间
         "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
        "services":[
         {
@@ -658,6 +658,12 @@ res:
 }
 ```
 ##DELETE orders/:order_id
+req:
+```json
+[
+1,2,  // 订单编号
+]
+```
 ```json
 res:
 {
@@ -747,7 +753,8 @@ res:
  **data**   |json|required   ||json串
  req:
 ```json
-{
+[
+    {
     "name":"常规保养",
      "car_id",1,
      "contact_name":"王语嫣",
@@ -768,7 +775,7 @@ res:
         "street_name":"芙蓉东路",
         "location_name":"国际大厦"
         },
-    "services":[
+        "car":[
         {
         "type" :"maintanance",
         "name" :"保养",
@@ -794,7 +801,8 @@ res:
         ]
         }
     ],
-}
+    }
+]
 
 ```
 res:
