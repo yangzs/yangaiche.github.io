@@ -10,9 +10,9 @@
  name          | description
  --------------|-----------------------
  product       | 商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为商品
- service       | 服务,由n个product,按一定的线性时间结点组合而成,比如说保养,验车
- order         | 订单,包含用户已经选购的服务,并带有相应的支付状态
- package       | 包,由业务系统根据order里的服务时间结点上作优化,能合并则合并.只供管家看.
+ service       | 服务,由n个**product**,按一定的线性时间结点组合而成,比如说保养,验车
+ order         | 订单,包含用户已经选购的的1个或多个服务,并带有相应的支付状态
+ package       | 包,由业务系统根据**order**里的服务时间结点上作优化,能合并则合并.只供管家看.
  service_flow  | 服务流程,**service**的时间流程,线性时间结构
  order_flow    | 订单流程(管家端数据结构) **order**的树状时间流程
  <>            | 必填
@@ -221,6 +221,16 @@ res
 
 
 ##DELETE products/:product_id
+req:
+```json
+[
+1,2,  //product_id
+]
+
+
+```
+
+
 res:
 ```json
 {
@@ -627,8 +637,7 @@ res:
 
 ##POST services
 ```json
-{
- "services":[
+[
         {
         "id" :123,
         "type" :"maintanance",
@@ -653,11 +662,11 @@ res:
                 ]
             }
         ]
-        }
-    ]
-}
+    }
+]
+
 ```
-##DELETE orders/:order_id
+##DELETE order/:order_id
 req:
 ```json
 [
@@ -670,7 +679,7 @@ res:
     "status":"OK" 
 }
 ```
-##DELETE services/:service_id
+##DELETE service/:service_id
 res:
 
 ```json
