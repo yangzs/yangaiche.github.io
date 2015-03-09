@@ -18,9 +18,8 @@
  <>            | 必填
  {}            | 必须填以竖线分隔的某一项
  []            | 选填
- 
 
- 
+
 
 ##access token
 在报头 API-Access-Token中
@@ -94,7 +93,7 @@ http://192.168.1.1:8000/auth_code?src=ali&code
 }
 ```
 
-##POST media  
+##POST media
 
 head:
 
@@ -106,12 +105,12 @@ Content-Type|multipart/form-data
  -|-|-|-|-
     **pic**   |binary|required   ||
 
- 
+
 res:
 ```json
 {
 
-    "created_time":"2011-08-21T18:02:52.249Z", 
+    "created_time":"2011-08-21T18:02:52.249Z",
     "id": 1,
     "thumbnail_pic": "http://ww2.sinaimg.cn/thumbnail/6b85067djw6dbydsnam1xj.jpg",
     "bmiddle_pic": "http://ww2.sinaimg.cn/bmiddle/6b85067djw6dbydsnam1xj.jpg",
@@ -512,6 +511,92 @@ res:
     
     }
 }
+```
+##GET packages/:user_id
+res:
+```json
+{
+    "order_infos":[
+    "user_info":
+    {
+
+        "id":1,
+        ""
+        "basic":
+        {
+            "id":1233333,
+            "phone_number":"15010111335",
+            "name":"刘正青",
+            "gender":"male",
+            "avatar_img":"http://www.baidu.com/a.png",
+        },
+
+        "cars":
+        {
+            "id":1,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_number":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://www.baidu.com/a.png",
+        }
+    },
+       "pick_loction":
+        {
+            "id":1,
+            "latitude":12333.1231231,
+            "longtitude":1231231.1232,
+            "province_name":"湖南",
+            "city_name":"长沙",
+            "district_name":"雨花区",
+            "street_name":"芙蓉东路",
+            "location_name":"国际大厦"
+        },
+        "status":"初检中",
+        "keeper_name":"张师傅",
+        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "book_time":"2011-08-21T18:02:52.249Z", //   预约时间
+        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+        "orders":[
+        {
+           "id":1,
+           "parent_id":0,
+           "type" :"maintanance",
+           "all_products":[
+            {
+                "type":"0",
+                "name":"机油",
+                "products":[
+                    {
+                        "id": 9,
+                        "name": "蓝壳",
+                        "description": "蓝壳",
+                        "create_time": "2011-08-21T18:02:52.249Z",
+                        "modified_time":"2011-08-21T18:02:52.249Z",
+                        "labour_price": 68.0,
+                        "unit":"升",
+                        "unit_count":1,
+                        "price": 68.0,
+                        "tax": 2.0
+                    }
+                ]
+            }
+        ]
+            }
+        ]
+
+    }
+    ]
+}
+
 ```
 
 ##GET orders/:id
