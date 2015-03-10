@@ -73,6 +73,22 @@
 
     "products":[]
 },
+"cart_item":
+{
+
+      "id": 1,
+      "car_id": 1,
+      "service_type":"保养",
+      "products": [
+        {
+          "name": "机滤通用",
+          "unit": "升",
+          "unit_count": 1,
+          "price": 123.00,
+        }
+      ]
+
+    },
 "product":
     {
                 "id":0,
