@@ -173,11 +173,10 @@
       "service_name":"保养",
       "products": [
         {
-          "name": "机滤通用",
-          "unit": "升",
-          "unit_count": 1,
-          "price": 123.00,
-          "additoon":""
+          "product_id":0,
+          "product_name": "机滤通用",
+          "unit":"升",
+          "unit_count": 1
         }
       ]
     }
