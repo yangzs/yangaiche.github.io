@@ -169,43 +169,14 @@
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
-    "services":[
-        {
-        "type" :"maintanance",
-        "name" :"保养",
-        "items":[
+
+    "products":[
             {
                 "name":"机滤通用",
                 "unit":"升",
                 "unit_count":1,
                 "price":123.00
             }
-            ]
-        },
-          {
-        "type" :"maintanance",
-        "name" :"保养好长 ",
-        "items":[
-            {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
-            }
-            ]
-        },
-          {
-        "type" :"maintanance",
-        "name" :"保养好长 ",
-        "items":[
-            {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
-            }
-            ]
-        }
     ],
     "service_flow":[
         {
@@ -242,67 +213,37 @@
 }
 ],
 "cart":[
+   {"id":1,
+    "name":"常规保养2",
+    "status":"初检中",
+    "keeper_basic":
     {
-    "name":"常规保养",
-     "car_id":1,
-     "contact_name":"王语嫣",
-     "contact_phone_number":"15010111335",
-     "pick_time_segment":[
-        "2011-08-21T18:02:52.249Z",
-        "2011-08-21T18:03:52.249Z"
-     ],
-    "location":{
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"张师傅",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png"
+    },
+    "client_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+         "location":
+        {
         "latitude":12333.1231231,
         "longtitude":1231231.1232,
         "province_name":"湖南",
         "city_name":"长沙",
         "district_name":"雨花区",
-        "street_name":"芙蓉东路",
+        "stree_name":"芙蓉东路",
         "location_name":"国际大厦"
-        },
-    "orders":[
-                {
-                    "type" :"other",
-                    "name" :"其他",
-                    "all_products":
-                    [
-                        "加个脚垫*1",
-                        "加个超级玻璃水*2"
-                    ]
-                },
-                {
-                "type" :"maintanance",
-                "name" :"保养",
-                "all_products":
-                [
-                    {
-                        "type":"0",
-                        "name":"机油",
-                        "products":[
-                            {
-                                "id": 9,
-                                "name": "蓝壳",
-                                "description": "蓝壳",
-                                "create_time": "2011-08-21T18:02:52.249Z",
-                                "modified_time":"2011-08-21T18:02:52.249Z",
-                                "labour_price": 68.0,
-                                "unit":"升",
-                                "unit_count":1,
-                                "price": 68.0,
-                                "tax": 2.0
-                            }
-                        ]
-                    }
-                ]
-            }
-        ]
-    }
-],
-"carcare_book":[
-{
-    "car":
-    {
-        "id":1,
+        }
+    },
+     "car":{
+            "car_id":1,
             "licence":
             {
                 "province":"京",
@@ -314,18 +255,136 @@
             "engine_number":"DFUSODFND567DFSDN-SDFC",
             "brand":"大众",
             "category":"途观",
-            "model":"豪华版 2.0T"
-    },
-    "history":[
-        {
-            "miles":10000,
-            "events":[
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
+        },
+
+    "place_time":"2011-08-21T18:02:52.249Z",
+    "start_time":"2011-08-21T18:02:52.249Z",
+
+    "products":[
             {
-                "name":"检测机滤",
-                "status":"未完成"
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
             }
-            ]
+    ]
+    },
+    {"id":1,
+    "name":"常规保养2",
+    "status":"初检中",
+    "keeper_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"张师傅",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png"
+    },
+    "client_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+         "location":
+        {
+        "latitude":12333.1231231,
+        "longtitude":1231231.1232,
+        "province_name":"湖南",
+        "city_name":"长沙",
+        "district_name":"雨花区",
+        "stree_name":"芙蓉东路",
+        "location_name":"国际大厦"
         }
+    },
+     "car":{
+            "car_id":2,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB071998"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_number":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
+        },
+
+    "place_time":"2011-08-21T18:02:52.249Z",
+    "start_time":"2011-08-21T18:02:52.249Z",
+
+    "products":[
+            {
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
+            }
+    ]
+},
+    {"id":1,
+    "name":"常规保养2",
+    "status":"初检中",
+    "keeper_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"张师傅",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png"
+    },
+    "client_basic":
+    {
+        "id":1233333,
+        "phone_number":"15010111335",
+        "name":"刘正青",
+        "gender":"male",
+        "avatar_img":"http://www.baidu.com/a.png",
+         "location":
+        {
+        "latitude":12333.1231231,
+        "longtitude":1231231.1232,
+        "province_name":"湖南",
+        "city_name":"长沙",
+        "district_name":"雨花区",
+        "stree_name":"芙蓉东路",
+        "location_name":"国际大厦"
+        }
+    },
+     "car":{
+            "car_id":2,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0788"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_number":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
+        },
+
+    "place_time":"2011-08-21T18:02:52.249Z",
+    "start_time":"2011-08-21T18:02:52.249Z",
+
+    "products":[
+            {
+                "name":"机滤通用",
+                "unit":"升",
+                "unit_count":1,
+                "price":123.00
+            }
     ]
 }
 ]

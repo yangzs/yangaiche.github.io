@@ -1,8 +1,78 @@
-﻿{
+ {
 "brands":[
    {
     "name":"大众",
-    "img_url":"http://www.baidu.com/a.png",
+
+    "img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         },
+         {
+            "id":2,
+            "name":"豪华版 3.0T"
+         }
+       ]
+       },
+        {
+       "name":"途锐",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         },
+          {
+            "id":1,
+            "name":"豪华版 3.0T"
+         },
+          {
+            "id":1,
+            "name":"豪华版 5.0T"
+         }
+       ]
+       }
+    ]
+   },
+    {
+    "name":"大众",
+    "img_url":"http://logo.16888.com/logoimage/2007828223842619.jpg",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
+   } ,
+    {
+    "name":"benZ",
+    "img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
+    "categories":
+    [
+       {
+       "name":"BenZ",
+       "models":[
+        {
+            "id":1,
+            "name":"豪华版 2.0T"
+         }
+       ]
+       }
+    ]
+   },
+    {
+    "name":"保时捷",
+    "img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446890_porsche.jpg",
     "categories":
     [
        {
@@ -17,45 +87,41 @@
     ]
    }
 ],
-
-"time_segments":[  
-{
-    "week":0, 
-    "days_segments":[
-    "00:00-00:30"
-    ]
-}
-],
-
 "provinces":
 [
     {
-    "id":1,
+
     "name":"湖南",
     "alias":"湘",
-    "support":true,
+    "support": true,
     "cities":[
         {
-            "id":2,
-            "name":"长沙",
+            "city":"长沙",
             "support":true,
             "districts":
             [
-              {
-               "id":10,
-               "name":"芙蓉区",
-               "support":true,
-               "streets":[
-                 {
-                  "id":11,
-                  "name":"中关村南大街",
-                  "support":true
-                 }
-               ]
-              }
+              "芙蓉区"
             ]
         }
-]
+    ]
+}
+],
+"services":
+[
+    {
+        "id":1,
+        "name":"保养",
+        "items":
+        [
+            {
+                "id":12,
+                "type":"保养",
+                "name":"机滤通用",
+                "unit":"升",
+                "default_unit_count":1,
+                "price":123.00
+            }
+        ]
     }
 ]
 }
