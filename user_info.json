@@ -26,6 +26,7 @@
     [
         {
             "id":1,
+            "disabled":false,
             "licence":
             {
                 "province":"京",
@@ -87,22 +88,7 @@
         "id":1,
         "name":"报告单",
         "complete_time":"2011-08-21T18:02:52.249Z",
-        "car":{
-            "car_id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+        "car_id": 1,
         "reports":
         [
             {
@@ -150,22 +136,7 @@
         "location_name":"国际大厦"
         }
     },
-     "car":{
-            "car_id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+     "car_id":1,
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
@@ -242,22 +213,7 @@
         "location_name":"国际大厦"
         }
     },
-     "car":{
-            "car_id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+     "car_id":1,
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
@@ -300,22 +256,7 @@
         "location_name":"国际大厦"
         }
     },
-     "car":{
-            "car_id":2,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB071998"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+     "car_id":1,
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
@@ -358,22 +299,7 @@
         "location_name":"国际大厦"
         }
     },
-     "car":{
-            "car_id":2,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0788"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+     "car_id":1,
 
     "place_time":"2011-08-21T18:02:52.249Z",
     "start_time":"2011-08-21T18:02:52.249Z",
@@ -390,22 +316,7 @@
 ],
 "carcare_book":[
 {
-    "car":
-    {
-        "id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T"
-    },
+    "car_id":1,
     "history":[
         {
             "miles":10000,
