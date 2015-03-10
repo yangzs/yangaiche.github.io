@@ -395,54 +395,20 @@ res:
 req:
 ```json
 {
-    "order_type":"care",
-    "order_name":"常规保养",
-    "car_id":1555,
-    "keeper_id":123,
-    "pick_location":"曼陀山庄20号",
+    "contact_name":"张三",
+    "phone_number":"1381111111",
+    "location": {
+                    "latitude": 12333.1231231, 
+                    "longtitude": 1231231.1232, 
+                    "province_name": "湖南", 
+                    "city_name": "长沙", 
+                    "district_name": "雨花区", 
+                    "stree_name": "芙蓉东路", 
+                    "location_name": "国际大厦"
+                },
     "pick_time":"2011-08-21T18:02:52.249Z",
-    "pick_time_segment":"00:00-00:30"
-    "phone_number":"1501011335",
-    "contact_name":"小龙女",
-
-    "paid":false,
-    "orders":[
-        {
-        "type" :"maintanance",
-        "all_products":[
-            {
-                "type":"engine_oil",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            },
-             {
-                "type":"fee",
-                "name":"费用",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "服务费",
-                        "description": "费用",
-                        "price": 68.0,
-                    }
-                ]
-            }
-        ]
-        }
-    ],
+    "pick_time_segment":"00:00-00:30",
+    "cart_id":[1,2,3],
     "comment":"早点来"
 }
 
