@@ -6,6 +6,7 @@
     {
         "id": 9,
         "name": "蓝壳",
+        "recommanded":true,
         "description": "蓝壳",
         "create_time": "2011-08-21T18:02:52.249Z",
         "modified_time":"2011-08-21T18:02:52.249Z",
