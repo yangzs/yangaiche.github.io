@@ -110,14 +110,16 @@
     "id":1,
     "name":"常规保养2",
     "status":"初检中",
-    "keeper_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"张师傅",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
-    },
+    "keeper_basics":[
+	{
+		"id":1233333,
+		"phone_number":"15010111335",
+		"name":"张师傅",
+		"gender":"male",
+		"avatar_img":"http://www.baidu.com/a.png"
+	}
+    ]
+    
     "client_basic":
     {
         "id":1233333,
