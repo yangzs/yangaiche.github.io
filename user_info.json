@@ -387,5 +387,36 @@
             }
     ]
 }
+],
+"carcare_book":[
+{
+    "car":
+    {
+        "id":1,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_number":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T"
+    },
+    "history":[
+        {
+            "miles":10000,
+            "events":[
+            {
+                "name":"检测机滤",
+                "status":"未完成"
+            }
+            ]
+        }
+    ]
+}
 ]
 }
