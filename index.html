@@ -388,7 +388,7 @@ res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
 
 
- ##PUT orders
+ ##POST orders
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||请求参数,值为json串,见req
@@ -413,7 +413,7 @@ req:
       2
     ],
    "car_id",1,
-    "service_type": "maintanance",
+    "service_type": "1",
     "products": [
       {
        "id":1,
