@@ -1,4 +1,4 @@
-[
+﻿[
 {
     "type":"0",
     "name":"机油",
@@ -6,8 +6,9 @@
     {
         "id": 9,
         "name": "蓝壳",
+        "recommanded":true,
         "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
+        "create_time": "2011-08-21T18:02:52.249Z", 
         "modified_time":"2011-08-21T18:02:52.249Z",
         "labour_price": 68.0,
         "unit":"升",
@@ -18,7 +19,7 @@
     {
         "id": 9,
         "name": "灰壳",
-        "description": "蓝壳",
+        "description": "蓝壳", 
         "create_time": "2011-08-21T18:02:52.249Z",
         "modified_time":"2011-08-21T18:02:52.249Z",
         "labour_price": 68.0,

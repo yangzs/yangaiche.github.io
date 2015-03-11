@@ -2,7 +2,8 @@
 <html>
 <title>YAC open API v1.0</title>
 <head>
-<meta http-equiv="content-type" content="text/html;charset=utf-8">
+
+<meta http-equiv="content-type" content="charset=utf-8">
 </head>
 <xmp theme="Slate"  style="display:none;" toc>
 # basic
@@ -11,7 +12,7 @@
  --------------|-----------------------
  product       | 商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为商品
  service       | 服务,由n个**product**,按一定的线性时间结点组合而成,比如说保养,验车
- order         | 订单,包含用户已经选购的的1个或多个服务,并带有相应的支付状态
+ order         | 订单,具有相应的支付状态的服务
  package       | 包,由业务系统根据**order**里的服务时间结点上作优化,能合并则合并.只供管家看.
  service_flow  | 服务流程,**service**的时间流程,线性时间结构
  order_flow    | 订单流程(管家端数据结构) **order**的树状时间流程
@@ -151,12 +152,12 @@ res:
 ##GET user_info/:id
 res:
 
- <object type="text/html" data="user_info.json" width=100% height="4900"></object>
+ <object type="text/html" data="user_info.json" width=100% height="450"></object>
  
  
 ##GET public_data
 res:
-<object type="text/html" data="public_data.json" width=100% height="1200"></object>
+<object type="text/html" data="public_data.json" width=100% height="450"></object>
 
 ##GET brands
 res:
@@ -380,109 +381,57 @@ meta return
 
 ##GET products
 url_parameter |type|level  |  enum| description
- -|-|-|-|-
+ -|-|-|-|- 
  **car_model_id**   |string|required   ||车第3级id类型
  **service_type**   |string|required   ||服务类型
 res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
 
 
- ##POST orders
+ ##PUT orders
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||请求参数,值为json串,见req
 
 req:
 ```json
-{
-    "contact_name":"张三",
-    "phone_number":"1381111111",
+[
+  {
+    "contact_name": "张三",
+    "phone_number": "1381111111",
     "location": {
-                    "latitude": 12333.1231231, 
-                    "longtitude": 1231231.1232, 
-                    "province_name": "湖南", 
-                    "city_name": "长沙", 
-                    "district_name": "雨花区", 
-                    "stree_name": "芙蓉东路", 
-                    "location_name": "国际大厦"
-                },
-    "pick_time":"2011-08-21T18:02:52.249Z",
-    "pick_time_segment":"00:00-00:30",
-    "cart_id":[1,2,3],
-    "comment":"早点来"
-}
+      "latitude": 12333.1231231,
+      "longtitude": 1231231.1232,
+      "name": "豪情酒吧",
+      "address": "工人体育场西路7号"
+    },
+    "pick_time": "2011-08-21T18:02:52.249Z",
+    "pick_time_segment": "00:00-00:30",
+    "comment": "早点来",
+    "coupon_id_used": [
+      1,
+      2
+    ],
+   "car_id",1,
+    "service_type": "maintanance",
+    "products": [
+      {
+       "id":1,
+        "unit_count": 1
+      }
+    ]
+  }
+]
 
 ```
 res:
-```json
-{
-   "order": {
-        "id":1,
-        "name":"常规保养",
-        "status":"初检中",
-        "keeper_id":123,
-        "keeper_name":"张师傅",
-        "place_time":"2011-08-21T18:02:52.249Z",  // 下单时间
-        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
-       "services":[
-        {
-        "type" :"maintanance",
-        "name" :"保养",
-          "all_products":[
-            {
-                "type":"0",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            }
-        ]
-        }
-    ],
-        "service_flow":[
-            {
-                "id" : 1,
-                "name":"接车",
-                "status":"已完成",
-                "complete_time":"2011-08-21T18:02:52.249Z",
-                "location":"中关村南大街",
-                "imgs":[
-                "http://www.baidu.com/a.png",
-                "http://www.baidu.com/b.png",
-                ]
-            },
-            {
-                "id" : 2,
-                "name":"保养",
-                "status":"未完成",
-            }
-        ],
-        "client_feedback":
-        {
-            "comment":"非常不错,下次再来!",
-            "keeper_stars":4,
-            "order_stars":5,
-        }
-    
-    }
-}
-```
+<object type="text/html" data="orders.json" width=100% height="450"></object>
+
 ##GET packages/:user_id
 res:
 ```json
-{
-    "order_infos":[
+[
+    {
     "user_info":
     {
 
@@ -516,16 +465,12 @@ res:
         }
     },
        "pick_loction":
-        {
-            "id":1,
-            "latitude":12333.1231231,
-            "longtitude":1231231.1232,
-            "province_name":"湖南",
-            "city_name":"长沙",
-            "district_name":"雨花区",
-            "street_name":"芙蓉东路",
-            "location_name":"国际大厦"
-        },
+       {
+       "latitude":12333.1231231,
+       "longtitude":1231231.1232,
+       "name":"豪情酒吧",
+       "address":"工人体育场西路7号",
+       },,
         "status":"初检中",
         "keeper_name":"张师傅",
         "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
@@ -560,131 +505,13 @@ res:
         ]
 
     }
-    ]
-}
+]
 
 ```
 
 ##GET orders/:id
 res:
-```json
-{
-    "order_infos":[
-    "user_info":
-    {
-
-        "id":1,
-        ""
-        "basic":
-        {
-            "id":1233333,
-            "phone_number":"15010111335",
-            "name":"刘正青",
-            "gender":"male",
-            "avatar_img":"http://www.baidu.com/a.png",
-        },
-
-        "cars":
-        {
-            "id":1,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z", 
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://www.baidu.com/a.png",
-        }
-    },
-       "pick_loction":
-        {
-            "id":1,
-            "latitude":12333.1231231,
-            "longtitude":1231231.1232,
-            "province_name":"湖南",
-            "city_name":"长沙",
-            "district_name":"雨花区",
-            "street_name":"芙蓉东路",
-            "location_name":"国际大厦"
-        },
-        "checkspot_location":
-        {
-            "id":1,
-            "latitude":12333.1231231,
-            "longtitude":1231231.1232,
-            "province_name":"湖南",
-            "city_name":"长沙",
-            "district_name":"雨花区",
-            "street_name":"芙蓉东路",
-            "location_name":"国际大厦"
-        },
-        "paid":false,  //是否已支付
-        "name":"常规保养",
-        "status":"初检中",
-        "keeper_name":"张师傅",
-        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
-        "book_time":"2011-08-21T18:02:52.249Z", //   预约时间
-        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
-        "services":[
-            {
-               "type" :"maintanance",
-           "all_products":[
-            {
-                "type":"0",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            }
-        ]
-            }
-        ],
-        "service_flow":[
-            {
-                "id" : 1,
-                "name":"接车",
-                "status":"已完成",
-                "complete_time":"2011-08-21T18:02:52.249Z",
-                "location":"中关村南大街",
-                "imgs":[
-                "http://www.baidu.com/a.png",
-                "http://www.baidu.com/b.png",
-                ]
-            },
-            {
-                "id" : 2,
-                "name":"保养",
-                "status":"未完成",
-            }
-        ],
-        "client_feedback":
-        {
-            "comment":"非常不错,下次再来!",
-            "keeper_stars":4,
-            "order_stars":5,
-        }
-    }
-    ]
-}
-
-```
+<object type="text/html" data="orders.json" width=100% height="450"></object>
 
 ##POST services
 ```json
@@ -717,108 +544,36 @@ res:
 ]
 
 ```
+
 ##DELETE order/:order_id
-req:
-```json
-[
-1,2,  // 订单编号
-]
-```
-```json
 res:
-{
-    "status":"OK" 
-}
-```
-##DELETE service/:service_id
-res:
-
-```json
-
-{
-    "status":"OK" ,
-
-   "order":{
-        "id":1,
-        "name":"常规保养",
-        "status":"初检中",
-        "keeper_name":"张师傅",
-        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
-        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
-        "services":[
-        {
-        "id" :123,
-        "type" :"maintanance",
-        "name" :"保养",
-          "all_products":[
-            {
-                "type":"0",
-                "name":"机油",
-                "products":[
-                    {
-                        "id": 9,
-                        "name": "蓝壳",
-                        "description": "蓝壳",
-                        "create_time": "2011-08-21T18:02:52.249Z",
-                        "modified_time":"2011-08-21T18:02:52.249Z",
-                        "labour_price": 68.0,
-                        "unit":"升",
-                        "unit_count":1,
-                        "price": 68.0,
-                        "tax": 2.0
-                    }
-                ]
-            }
-        ]
-        }
-        ],
-        "service_flow":[
-            {
-                "id" : 1,
-                "name":"接车",
-                "status":"已完成",
-                "complete_time":"2011-08-21T18:02:52.249Z",
-                "location":"中关村南大街",
-                "imgs":[
-                "http://www.baidu.com/a.png",
-                "http://www.baidu.com/b.png",
-                ]
-            },
-            {
-                "id" : 2,
-                "name":"保养",
-                "status":"未完成",
-            }
-        ],
-        "client_feedback":
-        {
-            "comment":"非常不错,下次再来!",
-            "keeper_stars":4,
-            "order_stars":5,
-        }
-    "additonal_imgs"[
-    {
-    "description":"左前轮有点问题",
-    "url":"http://www.baidu.com/a.png",
-    }
-    ]
-    }
-}
-```
+<object type="text/html" data="orders.json" width=100% height="450"></object>
 
 
 ##POST cart
-   form_parameter |type|level  |  enum| description
+form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||json串
  req:
 ```json
 [
     {
+<<<<<<< HEAD
         "car_id":1,
         "service_type":0,
         "product_id":1,
         "quantity":1
+=======
+      "car_id": 1,
+      "service_type":0,
+      "products": [
+        {
+          "product_id":0,
+          "product_name": "机滤通用",
+          "unit_count": 1
+        }
+      ]
+>>>>>>> master_yangaiche
     }
 ]
 

@@ -1,335 +1,217 @@
-{
-"user_info":
-{
-    "basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
+﻿{
+  "user_info": {
+    "basic": {
+      "id": 1233333,
+      "phone_number": "15010111335",
+      "name": "刘正青",
+      "gender": "male",
+      "avatar_img": "http://www.baidu.com/a.png"
     },
-    "location":
-    [
-        {
+    "location": [
+    {
         "id":1,
         "latitude":12333.1231231,
         "longtitude":1231231.1232,
-        "province_name":"湖南",
-        "city_name":"长沙",
-        "district_name":"雨花区",
-        "stree_name":"芙蓉东路",
-        "location_name":"国际大厦"
-        }
+        "name":"豪情酒吧",
+        "address":"工人体育场西路7号"
+    }
     ],
-    "cars":
-    [
-        {
-            "id":1,
-            "disabled":false,
-            "licence":
+    "cars": [
+      {
+        "id": 1,
+        "disabled": false,
+        "licence": {
+          "province": "京",
+          "number": "RB0718"
+        },
+        "bought_time": "2011-08-21T18:02:52.249Z",
+        "miles": 12333,
+        "chassis_number": "HIBIY797DFS77",
+        "engine_number": "DFUSODFND567DFSDN-SDFC",
+        "brand": "大众",
+        "category": "途观",
+        "model": "豪华版 2.0T",
+        "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
+        "scores": {
+          "whole_score": 78,
+          "parts": [
             {
-                "province":"京",
-                "number":"RB0718"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
-
-            "scores":
-            {
-                "whole_score":78,
-                "parts":[
-                {
-                    "name":"轮胎",
-                    "status":"需更换",
-                    "used_hours":123,
-                    "usrd_miles":123,
-                    "score":80,
-                    "comment":"破损严重,建议更换"
-                }
-                ]
+              "name": "轮胎",
+              "status": "需更换",
+              "used_hours": 123,
+              "usrd_miles": 123,
+              "score": 80,
+              "comment": "破损严重,建议更换"
             }
-
+          ]
         }
+      }
     ],
-    "coupons":
-    [
-        {
-            "id":1,
-            "status":"已用",
-            "number":"37123322",
-            "value":99.00,
-            "expired_time":"2011-08-21T18:02:52.249Z"
-        },
-          {
-            "id":1,
-            "status":"过期",
-            "number":"37123322",
-            "value":99.00,
-            "expired_time":"2011-08-21T18:02:52.249Z"
-        },
-          {
-            "id":2,
-            "status":"未使用",
-            "number":"37123322",
-            "value":99.00,
-            "expired_time":"2011-08-21T18:02:52.249Z"
-        }
+    "coupons": [
+      {
+        "id": 1,
+        "status": "已用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      },
+      {
+        "id": 2,
+        "status": "过期",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      },
+      {
+        "id": 3,
+        "status": "未使用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      },
+      {
+        "id": 4,
+        "status": "未使用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      }
+      ,
+      {
+        "id": 5,
+        "status": "未使用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      },
+      {
+        "id": 6,
+        "status": "未使用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      }
     ],
-"check_reports":
-[
-    {
-        "id":1,
-        "name":"报告单",
-        "complete_time":"2011-08-21T18:02:52.249Z",
+    "check_reports": [
+      {
+        "id": 1,
+        "name": "报告单",
+        "complete_time": "2011-08-21T18:02:52.249Z",
         "car_id": 1,
-        "reports":
-        [
-            {
-                "name":"电瓶电压及寿命检测",
-                "status":"合格",
-                "stars":4,
-                "status_comment":"华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
-                "imgs":
-                [
-                    "http://www.baidu.com/a.png"
-                ]
-            }
-        ]
-    }
-]
-},
-"orders":[
-{
-    "id":1,
-    "name":"常规保养2",
-    "status":"初检中",
-    "keeper_basics":[
-	{
-		"id":1233333,
-		"phone_number":"15010111335",
-		"name":"张师傅",
-		"gender":"male",
-		"avatar_img":"http://www.baidu.com/a.png"
-	}
-    ]
-    
-    "client_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
-         "location":
-        {
-        "latitude":12333.1231231,
-        "longtitude":1231231.1232,
-        "province_name":"湖南",
-        "city_name":"长沙",
-        "district_name":"雨花区",
-        "stree_name":"芙蓉东路",
-        "location_name":"国际大厦"
-        }
-    },
-     "car_id":1,
-
-    "place_time":"2011-08-21T18:02:52.249Z",
-    "start_time":"2011-08-21T18:02:52.249Z",
-
-    "products":[
-            {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
-            }
-    ],
-    "service_flow":[
-        {
-            "id" : 1,
-            "name":"接车",
-            "status":"已完成",
-            "complete_time":"2011-08-21T18:02:52.249Z",
-            "location":"中关村南大街",
-            "imgs":[
-            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
-             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg",
-               "http://t3.qlogo.cn/mbloghead/b7cbb22b4465436e19a8/50.jpg",
-               "http://static.youku.com/index/img/header/yklogo.png"
+        "reports": [
+          {
+            "name": "电瓶电压及寿命检测",
+            "status": "合格",
+            "stars": 4,
+            "status_comment": "华晨宝马行驶20000公里后电瓶XXXX,经检测发现要爆炸,需要及时更换",
+            "imgs": [
+              "http://www.baidu.com/a.png"
             ]
+          }
+        ]
+      }
+    ]
+  },
+  "orders": [
+    {
+      "id": 1,
+      "name": "常规保养2",
+      "status": "初检中",
+      "keeper_basics": [
+        {
+          "id": 1233333,
+          "phone_number": "15010111335",
+          "name": "张师傅",
+          "gender": "male",
+          "avatar_img": "http://www.baidu.com/a.png"
+        }
+      ],
+      "client_basic": {
+        "id": 1233333,
+        "phone_number": "15010111335",
+        "name": "刘正青",
+        "gender": "male",
+        "avatar_img": "http://www.baidu.com/a.png",
+             "location":
+             {
+             "latitude":12333.1231231,
+             "longtitude":1231231.1232,
+             "name":"豪情酒吧",
+             "address":"工人体育场西路7号"
+             }
+      },
+      "car_id": 1,
+      "place_time": "2011-08-21T18:02:52.249Z",
+      "start_time": "2011-08-21T18:02:52.249Z",
+      "products": [
+        {
+          "name": "机滤通用",
+          "unit": "升",
+          "unit_count": 1,
+          "price": 123.00
+        }
+      ],
+      "service_flow": [
+        {
+          "id": 1,
+          "name": "接车",
+          "status": "已完成",
+          "complete_time": "2011-08-21T18:02:52.249Z",
+          "location": "中关村南大街",
+          "imgs": [
+            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
+            "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg",
+            "http://t3.qlogo.cn/mbloghead/b7cbb22b4465436e19a8/50.jpg",
+            "http://static.youku.com/index/img/header/yklogo.png"
+          ]
         },
         {
-            "id" : 2,
-            "name":"保养",
-            "status":"未完成",
-             "imgs":[
+          "id": 2,
+          "name": "保养",
+          "status": "未完成",
+          "imgs": [
             "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
-             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg"
-            ]
-
+            "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg"
+          ]
         }
-    ],
-    "client_feedback":
-    {
-        "comment":"非常不错,下次再来!",
-        "keeper_stars":4,
-        "order_stars":5
+      ],
+      "client_feedback": {
+        "comment": "非常不错,下次再来!",
+        "keeper_stars": 4,
+        "order_stars": 5
+      }
     }
-
-}
-],
-"cart":[
-   {"id":1,
-    "name":"常规保养2",
-    "status":"初检中",
-    "keeper_basic":
+  ],
+  "cart": [
     {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"张师傅",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
-    },
-    "client_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
-         "location":
+      "id": 1,
+      "car_id": 1,
+      "service_type":0,
+      "service_name":"保养",
+      "products": [
         {
-        "latitude":12333.1231231,
-        "longtitude":1231231.1232,
-        "province_name":"湖南",
-        "city_name":"长沙",
-        "district_name":"雨花区",
-        "stree_name":"芙蓉东路",
-        "location_name":"国际大厦"
+          "product_id":0,
+          "product_name": "机滤通用",
+          "unit":"升",
+          "unit_count": 1
         }
-    },
-     "car_id":1,
-
-    "place_time":"2011-08-21T18:02:52.249Z",
-    "start_time":"2011-08-21T18:02:52.249Z",
-
-    "products":[
-            {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
-            }
-    ]
-    },
-    {"id":1,
-    "name":"常规保养2",
-    "status":"初检中",
-    "keeper_basic":
+      ]
+    }
+  ],
+  "carcare_book": [
     {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"张师傅",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
-    },
-    "client_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
-         "location":
+      "car_id": 1,
+      "history": [
         {
-        "latitude":12333.1231231,
-        "longtitude":1231231.1232,
-        "province_name":"湖南",
-        "city_name":"长沙",
-        "district_name":"雨花区",
-        "stree_name":"芙蓉东路",
-        "location_name":"国际大厦"
-        }
-    },
-     "car_id":1,
-
-    "place_time":"2011-08-21T18:02:52.249Z",
-    "start_time":"2011-08-21T18:02:52.249Z",
-
-    "products":[
+          "miles": 10000,
+          "events": [
             {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
+              "name": "检测机滤",
+              "status": "未完成"
             }
-    ]
-},
-    {"id":1,
-    "name":"常规保养2",
-    "status":"初检中",
-    "keeper_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"张师傅",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
-    },
-    "client_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
-         "location":
-        {
-        "latitude":12333.1231231,
-        "longtitude":1231231.1232,
-        "province_name":"湖南",
-        "city_name":"长沙",
-        "district_name":"雨花区",
-        "stree_name":"芙蓉东路",
-        "location_name":"国际大厦"
+          ]
         }
-    },
-     "car_id":1,
-
-    "place_time":"2011-08-21T18:02:52.249Z",
-    "start_time":"2011-08-21T18:02:52.249Z",
-
-    "products":[
-            {
-                "name":"机滤通用",
-                "unit":"升",
-                "unit_count":1,
-                "price":123.00
-            }
-    ]
-}
-],
-"carcare_book":[
-{
-    "car_id":1,
-    "history":[
-        {
-            "miles":10000,
-            "events":[
-            {
-                "name":"检测机滤",
-                "status":"未完成"
-            }
-            ]
-        }
-    ]
-}
-]
+      ]
+    }
+  ]
 }
