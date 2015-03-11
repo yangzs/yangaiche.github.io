@@ -1,17 +1,17 @@
 [
     {
-        "type":"0",
+        "type":0,
         "name":"机油",
         "products": [
             {
-                "id": 9,
+                "type": 9,
                 "name": "蓝壳",
-                "recommanded":true,
+                "recommended":true,
                 "description": "蓝壳",
-                "labour_price": 68.0,//工时费
+                "labour_price":15.0,
                 "unit":"升",
                 "unit_count":1,
-                "price": 68.0//此为单价[总价=price*unit_count+labour_price]
+                "price": 68.0
             }
         ]
     }
