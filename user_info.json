@@ -116,6 +116,7 @@
       "id": 1,
       "name": "常规保养2",
       "status": "初检中",
+      "fee":23.00,
       "keeper_basics": [
         {
           "id": 1,
