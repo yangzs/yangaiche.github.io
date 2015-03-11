@@ -1,5 +1,5 @@
 {
-  "user_info": {
+ 
     "basic": {
       "id": 1233333,
       "phone_number": "15010111335",
@@ -110,8 +110,7 @@
           }
         ]
       }
-    ]
-  },
+    ],
   "orders": [
     {
       "id": 1,
@@ -119,11 +118,24 @@
       "status": "初检中",
       "keeper_basics": [
         {
-          "id": 1233333,
+          "id": 1,
+          "type":"keeper",
+          "star_count":4,
+          "ID_number":"430203199999991919233",
           "phone_number": "15010111335",
           "name": "张师傅",
           "gender": "male",
-          "avatar_img": "http://www.baidu.com/a.png"
+          "avatar_img": "http://gtms03.alicdn.com/tps/i3/TB1ZzVhFFXXXXXLbpXXkpw8JVXX-96-96.png"
+        },
+        {
+          "id": 2,
+          "type":"mechanic",
+          "star_count":4,
+          "ID_number":"430203199999991919233",
+          "phone_number": "15010111335",
+          "name": "刘师傅",
+          "gender": "male",
+          "avatar_img": "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg"
         }
       ],
       "client_basic": {
@@ -132,7 +144,7 @@
         "name": "刘正青",
         "gender": "male",
         "avatar_img": "http://www.baidu.com/a.png",
-             "location":
+        "location":
              {
              "latitude":12333.1231231,
              "longtitude":1231231.1232,
@@ -145,10 +157,14 @@
       "start_time": "2011-08-21T18:02:52.249Z",
       "products": [
         {
-          "name": "机滤通用",
-          "unit": "升",
-          "unit_count": 1,
-          "price": 123.00
+                "type": 9,
+                "name": "蓝壳",
+                "recommended":true,
+                "description": "蓝壳",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
         }
       ],
       "service_flow": [
