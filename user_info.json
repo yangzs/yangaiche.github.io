@@ -176,9 +176,9 @@
           "complete_time": "2011-08-21T18:02:52.249Z",
           "location": "中关村南大街",
           "imgs": [
-            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
+           "http://gtms03.alicdn.com/tps/i3/TB1t0tBHXXXXXaZXFXXKxcg2pXX-220-310.jpg",
             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg",
-            "http://t3.qlogo.cn/mbloghead/b7cbb22b4465436e19a8/50.jpg",
+            "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
             "http://static.youku.com/index/img/header/yklogo.png"
           ]
         },
@@ -186,6 +186,7 @@
           "id": 2,
           "name": "保养",
           "status": "未完成",
+          "complete_time": "2011-08-21T18:02:52.249Z",
           "imgs": [
             "http://t3.qlogo.cn/mbloghead/46eeecc06862f8293b28/50.jpg",
             "http://img1.gtimg.com/auto/pics/hv1/120/96/887/57701775.jpg"
@@ -193,6 +194,7 @@
         }
       ],
       "client_feedback": {
+        "if_feedback_commited":false,
         "comment": "非常不错,下次再来!",
         "keeper_stars": 4,
         "order_stars": 5
