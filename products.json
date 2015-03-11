@@ -1,111 +1,18 @@
 [
-{
-    "type":"0",
-    "name":"机油",
-    "products": [
     {
-        "id": 9,
-        "name": "蓝壳",
-        "recommanded":true,
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z", 
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    },
-    {
-        "id": 9,
-        "name": "灰壳",
-        "description": "蓝壳", 
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    },
-    {
-        "id": 9,
-        "name": "蓝壳",
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    },
-    {
-        "id": 9,
-        "name": "蓝壳",
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
+        "type":"0",
+        "name":"机油",
+        "products": [
+            {
+                "id": 9,
+                "name": "蓝壳",
+                "recommanded":true,
+                "description": "蓝壳",
+                "labour_price": 68.0,//工时费
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0//此为单价[总价=price*unit_count+labour_price]
+            }
+        ]
     }
-    ]
-},
-{
-    "type":"0",
-    "name":"机滤",
-    "products": [
-    {
-        "id": 9,
-        "name": "机滤通用",
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    }
-    ]
-},
-{
-    "type":"0",
-    "name":"空滤",
-    "products": [
-    {
-        "id": 9,
-        "name": "空滤侧耳",
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    }
-    ]
-},
-{
-    "type":"0",
-    "name":"汽滤",
-    "products": [
-    {
-        "id": 9,
-        "name": "汽滤通用",
-        "description": "蓝壳",
-        "create_time": "2011-08-21T18:02:52.249Z",
-        "modified_time":"2011-08-21T18:02:52.249Z",
-        "labour_price": 68.0,
-        "unit":"升",
-        "unit_count":1,
-        "price": 68.0,
-        "tax": 2.0
-    }
-    ]
-}
 ]
