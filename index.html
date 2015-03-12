@@ -170,7 +170,7 @@ res:
        "name":"途观",
        "models":[
           {
-            "id":1,  
+            "type":1,  
             "name":"豪华版 2.0T",
          }
        ],
@@ -218,11 +218,11 @@ res
 ```
 
 
-##DELETE products/:product_id
+##DELETE products/:product_type
 req:
 ```json
 [
-1,2,  //product_id
+1,2,  //product_type
 ]
 
 
@@ -281,7 +281,7 @@ req:
         "miles":12333,
         "chassis_number":"HIBIY797DFS77",
         "engine_number":"DFUSODFND567DFSDN-SDFC",
-        "model_id":10,
+        "car_type":10,
         "user_id":1
     }
 ]
@@ -301,6 +301,7 @@ res:
       "miles":12333,
       "chassis_number":"HIBIY797DFS77",
       "engine_number":"DFUSODFND567DFSDN-SDFC",
+      "car_type":1,
       "brand":"大众",
       "category":"途观",
       "model":"豪华版 2.0T",
@@ -380,7 +381,7 @@ meta return
 ##GET products
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **car_model_id**   |string|required   ||车第3级id类型
+ **car_type**   |string|required   ||车第3级车typed
  **service_type**   |string|required   ||服务类型
 res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
@@ -411,10 +412,12 @@ req:
       2
     ],
    "car_id",1,
+   "car_type":1,
     "service_type": "8",
     "products": [
       {
-       "type":1,
+      "part_type":1,
+       "product_type":1,
         "unit_count": 1
       }
     ]
@@ -478,10 +481,12 @@ res:
         {
            "id":1,
            "parent_id":0,
-           "type" :"maintanance",
+           "service_type" :"maintanance",
+           "car_type":1,
            "all_products":[
             {
-                "type":"0",
+               "part_type":0,
+                "product_type":0,
                 "name":"机油",
                 "products":[
                     {
@@ -516,15 +521,17 @@ res:
 [
         {
         "id" :123,
-        "type" :"maintanance",
+        "service_type" :"maintanance",
+        "car_type":1,
         "name" :"保养",
        "all_products":[
             {
-                "type":"0",
+                "part_type":0,
                 "name":"机油",
                 "products":[
                     {
                         "id": 9,
+                        "product_type":1,
                         "name": "蓝壳",
                         "description": "蓝壳",
                         "create_time": "2011-08-21T18:02:52.249Z",
@@ -548,7 +555,7 @@ res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
 
-##POST cart
+<!-- ##POST cart
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **data**   |json|required   ||json串
@@ -556,12 +563,7 @@ form_parameter |type|level  |  enum| description
 ```json
 [
     {
-<<<<<<< HEAD
-        "car_id":1,
-        "service_type":0,
-        "product_id":1,
-        "quantity":1
-=======
+ 
       "car_id": 1,
       "service_type":0,
       "products": [
@@ -571,7 +573,7 @@ form_parameter |type|level  |  enum| description
           "unit_count": 1
         }
       ]
->>>>>>> master_yangaiche
+ 
     }
 ]
 
@@ -582,7 +584,7 @@ res:
 {
     "status":"OK" 
 }
-``` 
+```  -->
 
 </xmp>
 <!-- <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script> -->

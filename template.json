@@ -59,6 +59,7 @@
             "miles":12333,
             "chassis_number":"HIBIY797DFS77",
             "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "car_type":1,
             "brand":"大众",
             "category":"途观",
             "model":"豪华版 2.0T",
@@ -72,8 +73,6 @@
 },
 "cart_item":
 {
-
-      "id": 1,
       "car_id": 1,
       "service_type":"保养",
       "products": [
@@ -87,8 +86,7 @@
     },
 "product":
     {
-                "id":0,
-                "typ":"0",
+                "type":0,
                 "name":"机滤通用",
                 "unit":"升",
                 "unit_count":1,

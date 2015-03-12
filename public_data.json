@@ -10,11 +10,11 @@
        "name":"途观",
        "models":[
         {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 2.0T"
          },
          {
-            "id":2,
+            "car_type":2,
             "name":"豪华版 3.0T"
          }
        ]
@@ -23,15 +23,15 @@
        "name":"途锐",
        "models":[
         {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 2.0T"
          },
           {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 3.0T"
          },
           {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 5.0T"
          }
        ]
@@ -47,7 +47,7 @@
        "name":"途观",
        "models":[
         {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 2.0T"
          }
        ]
@@ -63,7 +63,7 @@
        "name":"BenZ",
        "models":[
         {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 2.0T"
          }
        ]
@@ -79,7 +79,7 @@
        "name":"途观",
        "models":[
         {
-            "id":1,
+            "car_type":1,
             "name":"豪华版 2.0T"
          }
        ]

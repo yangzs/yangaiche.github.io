@@ -161,7 +161,7 @@
       "products": [
         {
                 "id":2,
-                "type": 9,
+                "product_type": 9,
                 "name": "蓝壳",
                 "recommended":true,
                 "description": "蓝壳",
