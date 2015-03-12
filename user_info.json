@@ -154,7 +154,19 @@
              "address":"工人体育场西路7号"
              }
       },
-      "car_id": 1,
+      "car":{
+        "id": 1,
+        "car_type":1,
+        "licence":
+        {
+          "province": "京",
+          "number": "RB0718"
+        },
+        "bought_time": "2011-08-21T18:02:52.249Z",
+        "miles": 12333,
+        "chassis_number": "HIBIY797DFS77",
+        "engine_number": "DFUSODFND567DFSDN-SDFC"
+      },
       "place_time": "2011-08-21T18:02:52.249Z",
       "start_time": "2011-08-21T18:02:52.249Z",
       "end_time":"2011-08-21T18:02:52.249Z",
