@@ -74,7 +74,8 @@
 "cart_item":
 {
       "car_id": 1,
-      "service_type":"保养",
+      "service_type":0,
+      "service_name":"保养",
       "products": [
         {
           "name": "机滤通用",

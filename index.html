@@ -381,8 +381,8 @@ meta return
 ##GET products
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **car_type**   |string|required   ||车第3级车typed
- **service_type**   |string|required   ||服务类型
+ **car_type**   |int|required   ||车第3级车typed
+ **service_type**   |int|required   ||服务类型
 res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
 
@@ -413,7 +413,7 @@ req:
     ],
    "car_id",1,
    "car_type":1,
-    "service_type": "8",
+    "service_type": 8,
     "products": [
       {
       "part_type":1,
@@ -481,7 +481,7 @@ res:
         {
            "id":1,
            "parent_id":0,
-           "service_type" :"maintanance",
+           "service_type" :8,
            "car_type":1,
            "all_products":[
             {
@@ -521,7 +521,7 @@ res:
 [
         {
         "id" :123,
-        "service_type" :"maintanance",
+        "service_type" :8,
         "car_type":1,
         "name" :"保养",
        "all_products":[
