@@ -40,6 +40,15 @@
              "address":"工人体育场西路7号"
              }
       },
+      "coupons":[
+      {
+        "id": 1,
+        "status": "已用",
+        "number": "37123322",
+        "value": 99.00,
+        "expired_time": "2011-08-21T18:02:52.249Z"
+      }
+      ],
      "car": {
         "id": 1,
         "disabled": false,

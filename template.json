@@ -22,55 +22,34 @@
             }
 
         },
-        "order":  {
-            "id":1,
-    "name":"常规保养2",
-    "status":"初检中",
-    "keeper_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"张师傅",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png"
-    },
-    "client_basic":
-    {
-        "id":1233333,
-        "phone_number":"15010111335",
-        "name":"刘正青",
-        "gender":"male",
-        "avatar_img":"http://www.baidu.com/a.png",
-         "location":
-        {
-        "latitude":12333.1231231,
-        "longtitude":1231231.1232,
-        "name":"豪情酒吧",
-        "address":"工人体育场西路7号"
-        }
-    },
-     "car":{
-            "car_id":2,
-            "licence":
-            {
-                "province":"京",
-                "number":"RB0788"
-            },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":12333,
-            "chassis_number":"HIBIY797DFS77",
-            "engine_number":"DFUSODFND567DFSDN-SDFC",
-            "car_type":1,
-            "brand":"大众",
-            "category":"途观",
-            "model":"豪华版 2.0T",
-            "brand_img_url":"http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
-        },
+"order":  {
 
-    "place_time":"2011-08-21T18:02:52.249Z",
-    "start_time":"2011-08-21T18:02:52.249Z",
+    "contact_name": "张三",
+    "phone_number": "1381111111",
+    "location": {
+      "latitude": 12333.1231231,
+      "longtitude": 1231231.1232,
+      "name": "豪情酒吧",
+      "address": "工人体育场西路7号"
+    },
+    "pick_time": "2011-08-21T18:02:52.249Z",
+    "pick_time_segment": "00:00-00:30",
+    "comment": "",
+    "coupon_id_used": [
+      1,
+      2
+    ],
+    "car_id":1,
+    "car_type":1,
+    "service_type": 8,
+    "products": [
+      {
+        "part_type":1,
+        "product_type":1,
+        "unit_count": 1
+      }
+    ]
 
-    "products":[]
 },
 "keeper": {
           "id": 1,
