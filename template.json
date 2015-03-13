@@ -12,6 +12,7 @@
             "brand":"",
             "category":"",
             "model":"",
+            "car_type":null,
             "brand_img_url":"",
 
             "scores":
@@ -71,26 +72,39 @@
 
     "products":[]
 },
+"keeper": {
+          "id": 1,
+          "type":"keeper",
+          "star_count":4,
+          "ID_number":"430203199999991919233",
+          "phone_number": "15010111335",
+          "name": "张师傅",
+          "car_exp_year":10,
+          "gender": "male",
+          "avatar_img": "http://gtms03.alicdn.com/tps/i3/TB1ZzVhFFXXXXXLbpXXkpw8JVXX-96-96.png"
+        },
 "cart_item":
 {
-      "car_id": 1,
-      "service_type":0,
-      "service_name":"保养",
-      "products": [
-        {
-          "name": "机滤通用",
-          "unit": "升",
-          "unit_count": 1,
-          "price": 123.00
-        }
-      ]
+      "name":null,
+      "status": null,
+      "fee":23.00,
+      "keeper_basics": [],
+      "client_basic": null,
+      "car": null,
+      "place_time": null,
+      "start_time": null,
+      "end_time":null,
+      "products": []
     },
 "product":
     {
-                "type":0,
-                "name":"机滤通用",
+               "product_type": 9,
+                "name": "蓝壳",
+                "recommended":true,
+                "description": "蓝壳",
+                "labour_price":15.0,
                 "unit":"升",
                 "unit_count":1,
-                "price":123.00
+                "price": 68.0
             }
     }

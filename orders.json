@@ -40,21 +40,21 @@
              "address":"工人体育场西路7号"
              }
       },
-       "car":{
+     "car": {
         "id": 1,
-        "car_type":1,
-        "licence":
-        {
+        "disabled": false,
+        "licence": {
           "province": "京",
           "number": "RB0718"
         },
-        "brand": "大众",
-        "category": "途观",
-        "model": "豪华版 2.0T",
         "bought_time": "2011-08-21T18:02:52.249Z",
         "miles": 12333,
         "chassis_number": "HIBIY797DFS77",
-        "engine_number": "DFUSODFND567DFSDN-SDFC"
+        "engine_number": "DFUSODFND567DFSDN-SDFC",
+        "brand": "大众",
+        "category": "途观",
+        "model": "豪华版 2.0T",
+        "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
       },
       "place_time": "2011-08-21T18:02:52.249Z",
       "start_time": "2011-08-21T18:02:52.249Z",
