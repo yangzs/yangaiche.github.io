@@ -1,5 +1,5 @@
  {
-        "car":{    "id":1,
+        "car":{    "car_id":1,
             "licence":
             {
                 "province":"京",
@@ -32,12 +32,10 @@
       "name": "豪情酒吧",
       "address": "工人体育场西路7号"
     },
-    "pick_time": "2011-08-21T18:02:52.249Z",
-    "pick_time_segment": "00:00-00:30",
+    "pick_time": "2011-08-21 周一",
+    "pick_time_segment": "00:00~00:30",
     "comment": "",
     "coupon_id_used": [
-      1,
-      2
     ],
     "car_id":1,
     "car_type":1,
@@ -52,7 +50,7 @@
 
 },
 "keeper": {
-          "id": 1,
+          "keeper_id": 1,
           "type":"keeper",
           "star_count":4,
           "ID_number":"430203199999991919233",
@@ -64,15 +62,14 @@
         },
 "cart_item":
 {
-      "name":null,
-      "status": null,
-      "fee":23.00,
+      "name":"",
+      "status": "",
+      "fee":0,
       "keeper_basics": [],
-      "client_basic": null,
-      "car": null,
-      "place_time": null,
-      "start_time": null,
-      "end_time":null,
+      "client_basic": {},
+      "place_time": "",
+      "start_time": "",
+      "end_time":"",
       "products": []
     },
 "product":
