@@ -1,5 +1,4 @@
 {
- 
     "basic": {
       "id": 1233333,
       "phone_number": "15010111335",
@@ -31,6 +30,7 @@
         "brand": "大众",
         "category": "途观",
         "model": "豪华版 2.0T",
+        "car_type":1,
         "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
         "scores": {
           "whole_score": 78,
@@ -154,7 +154,22 @@
              "address":"工人体育场西路7号"
              }
       },
-      "car_id": 1,
+      "car": {
+        "id": 1,
+        "disabled": false,
+        "licence": {
+          "province": "京",
+          "number": "RB0718"
+        },
+        "bought_time": "2011-08-21T18:02:52.249Z",
+        "miles": 12333,
+        "chassis_number": "HIBIY797DFS77",
+        "engine_number": "DFUSODFND567DFSDN-SDFC",
+        "brand": "大众",
+        "category": "途观",
+        "model": "豪华版 2.0T",
+        "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
+      },
       "place_time": "2011-08-21T18:02:52.249Z",
       "start_time": "2011-08-21T18:02:52.249Z",
       "end_time":"2011-08-21T18:02:52.249Z",
