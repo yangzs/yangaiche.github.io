@@ -17,7 +17,7 @@
     ],
     "cars": [
       {
-        "id": 1,
+        "car_id": 1,
         "disabled": false,
         "licence": {
           "province": "京",
@@ -66,14 +66,14 @@
         "id": 3,
         "status": "未使用",
         "number": "37123322",
-        "value": 99.00,
+        "value": 1.00,
         "expired_time": "2011-08-21T18:02:52.249Z"
       },
       {
         "id": 4,
         "status": "未使用",
         "number": "37123322",
-        "value": 99.00,
+        "value": 199.00,
         "expired_time": "2011-08-21T18:02:52.249Z"
       }
       ,
@@ -81,7 +81,7 @@
         "id": 5,
         "status": "未使用",
         "number": "37123322",
-        "value": 99.00,
+        "value": 992.00,
         "expired_time": "2011-08-21T18:02:52.249Z"
       },
       {
@@ -219,22 +219,7 @@
       }
     }
   ],
-  "cart": [
-    {
-      "id": 1,
-      "car_id": 1,
-      "service_type":0,
-      "service_name":"保养",
-      "products": [
-        {
-          "product_id":0,
-          "product_name": "机滤通用",
-          "unit":"升",
-          "unit_count": 1
-        }
-      ]
-    }
-  ],
+  "cart": [],
   "carcare_book": [
     {
       "car_id": 1,
