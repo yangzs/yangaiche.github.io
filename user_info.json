@@ -36,6 +36,7 @@
           "whole_score": 78,
           "parts": [
             {
+              "type":1,
               "name": "轮胎",
               "status": "需更换",
               "used_hours": 123,
