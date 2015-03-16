@@ -438,20 +438,21 @@ req:
     "pick_time": "2011-08-21T18:02:52.249Z",
     "pick_time_segment": "00:00-00:30",
     "comment": "早点来",
-    "coupon_id_used": [
-      1,
-      2
-    ],
-   "car_id",1,
-   "car_type":1,
-    "service_type": 8,
-    "products": [
-      {
-      "part_type":1,
-       "product_type":1,
-        "unit_count": 1
-      }
-    ]
+    "coupon_id_used": [1],
+     "car_id":1,
+     "car_type":1,
+      "services":[
+          {
+              "service_type":8,
+              "products": [
+                {
+                  "part_type":1,
+                  "product_type":1,
+                  "unit_count": 1
+                }
+              ]
+          }
+      ]
   }
 ]
 
@@ -584,6 +585,15 @@ res:
 ##DELETE order/:order_id
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
+
+
+##GET time_segments
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **service_type**   |String|required   |service enum|英文,分开。如 /time_segments?service_type=0,1
+
+res:
+<object type="text/html" data="time_segments.json" width=100% height="450"></object>
 
 
 <!-- ##POST cart

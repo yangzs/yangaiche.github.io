@@ -35,9 +35,18 @@
         "scores": {
           "whole_score": 78,
           "parts": [
+              {
+              "type":0,
+              "name": "左前轮胎",
+              "status": "需更换",
+              "used_hours": 123,
+              "usrd_miles": 123,
+              "score": 80,
+              "comment": "破损严重,建议更换"
+            },
             {
               "type":1,
-              "name": "轮胎",
+              "name": "右前轮胎",
               "status": "需更换",
               "used_hours": 123,
               "usrd_miles": 123,
