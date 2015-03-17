@@ -1,0 +1,99 @@
+
+{
+"code": "00000",
+"data":
+{
+    "fee":23.00,
+    "car_type":1,
+    "all_products":[
+    {
+        "part_type":0,
+        "name":"机油",
+        "products": [
+            {
+                "product_type": 9,
+                "name": "蓝壳",
+                "recommended":true,
+                "description": "蓝壳",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
+            },
+            {
+                "product_type": 9,
+                "name": "红壳",
+                "recommended":true,
+                "description": "红壳",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 98.0
+            },
+            {
+                "product_type": 9,
+                "name": "白壳",
+                "recommended":true,
+                "description": "红壳",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 198.0
+            }
+        ]
+    },
+      {
+        "part_type":1,
+        "name":"机滤",
+        "products": [
+            {
+                "product_type": 0,
+                "name": "神秘+3",
+                "recommended":true,
+                "description": "神秘+3",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
+            },
+            {
+                "product_type": 9,
+                "name": "神秘+5",
+                "recommended":true,
+                "description": "神秘+5",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
+            }
+        ]
+    },
+       {
+        "part_type":2,
+        "name":"刹车片",
+        "products": [
+            {
+                "product_type": 0,
+                "name": "防御+3",
+                "recommended":true,
+                "description": "防御+3",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
+            },
+            {
+                "product_type": 9,
+                "name": "防御+5",
+                "recommended":true,
+                "description": "防御+5",
+                "labour_price":15.0,
+                "unit":"升",
+                "unit_count":1,
+                "price": 68.0
+            }
+        ]
+    }
+]
+}
+}
