@@ -1,0 +1,633 @@
+﻿<!DOCTYPE html>
+<html>
+<title>YAC open API v1.0</title>
+<head>
+
+<meta http-equiv="content-type" content="charset=utf-8">
+</head>
+<xmp theme="Slate"  style="display:none;" toc>
+# basic
+## terminology
+ name          | description
+ --------------|-----------------------
+ product       | 商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为商品
+ service       | 服务,由n个**product**,按一定的线性时间结点组合而成,比如说保养,验车
+ order         | 订单,具有相应的支付状态的服务
+ package       | 包,由业务系统根据**order**里的服务时间结点上作优化,能合并则合并.只供管家看.
+ service_flow  | 服务流程,**service**的时间流程,线性时间结构
+ order_flow    | 订单流程(管家端数据结构) **order**的树状时间流程
+ <>            | 必填
+ {}            | 必须填以竖线分隔的某一项
+ []            | 选填
+
+
+
+##access token
+在报头 API-Access-Token中
+
+## version control
+在链接中指定
+http://192.168.1.1:8000/v1/xxx
+## type define
+### part type
+ description            | value 
+ -|-
+左前轮胎 | 0
+右前轮胎 | 1
+左后轮胎 | 2
+右后轮胎 | 3
+前刹车片| 4
+后刹车片 | 5
+雨刮片 | 6
+雨刮器| 7
+机油 | 8
+机滤| 9
+空气滤| 10
+燃油滤 | 11
+变速箱油| 12
+转向助力液| 13
+制动液| 14
+电瓶 | 15
+正时皮带| 16
+
+
+ description		        | value	| crm	| app	| h5
+ -|-|
+  保险续保			           |0		|√		  |		  |
+  车辆美容服务		        |1		|√		  |		  |
+  管家代办定损		        |2		|√		  |√		|√
+  管家保养维修		        |3		|√		  |√		|√
+  检测服务_接还车	        |4		|√		  |√		|√
+  上门救援服务		        |5		|√		  |√		|√
+  上门保养维修服务         |6		|√		  |√		|√
+  管家代办验车_上线验车		|7		|√		  |√		|√
+  管家4S店保养维修        |8		|√		  |		  |
+  检测服务_上门           |9    |√      |     |
+  管家代办验车_领检字      |10   |√      |     |
+
+##meta return
+right
+```json
+{
+    "code": "00000",//表示成功
+    "data":{}//data表示成功后的response，各个接口的response在下方定义
+}
+```
+error
+```json
+{
+    "code": "10001",//参见error code
+    "message": "error message"
+}
+```
+## error code
+ 错误代码说明 20502 
+
+ 2 |05|02
+ -|-|-|
+ 服务级错误（1为系统级错误）|服务模块代码|具体错误代码
+
+ 系统级错误代码
+
+ 错误代码 |错误信息|详细描述
+ -|-|-|
+ 10001|System error|系统错误
+
+ 服务级错误代码
+
+ 错误代码 |错误信息|详细描述
+ -|-|-|
+ 20001|IDs is null|IDs参数为空
+
+#API
+##GET open_id
+
+获得第三方渠道授权码
+
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **src**   |string|required   |ali,werxin|
+    **code**  |string|required   ||
+http://192.168.1.1:8000/auth_code?src=ali&code
+ 
+```json
+{
+"open_id":"12345"
+}
+```
+
+##POST media
+
+head:
+
+Content-Type|multipart/form-data
+-|-
+|
+
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **pics**   |binary|required   ||
+
+
+res:
+```json
+{
+    "id": 1,
+    "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+}
+```
+
+
+
+##POST register
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **name**   |string|required   ||名字
+     **gender**   |string|required   |male,female|性别
+      **phone_number**   |string|required   ||手机号
+       **open_id**   |string|optional   ||第三方id号
+ res:
+```json
+{
+    "id":1,//分配的用户id号
+}
+```
+
+##PUT login
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **open_id**   |string|optional   ||第三方id号
+
+ res:
+ ```json
+{
+    "id":1,//分配的用户id号
+}
+```
+ 
+
+ 
+##GET user_info/:id
+
+
+res:
+ <object type="text/html" data="user_info.json" width=100% height="450"></object>
+ 
+ 
+##GET public_data
+res:
+<object type="text/html" data="public_data.json" width=100% height="450"></object>
+
+##GET brands
+res:
+```json
+[
+   {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+          {
+            "type":1,  
+            "name":"豪华版 2.0T",
+         }
+       ],
+       }
+    ],
+   }
+]
+
+```
+ 
+ 
+##GET wechatpay/:orderid
+具体参看最新微信文档
+```json
+{
+"appId":"wxd930ea5d5a258f4f",
+"timeStamp": "1399514976",
+"nonceStr": "e7d161ac8d8a76529d39d9f5b4249ccb",
+"package":
+"bank_type=WX&body=%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95&fee_ty
+pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240b
+65810859cbf2a8d9f76a638c0a3&partner=1900000109&spbill_create_ip=196.168.1.1&total_fee=
+1&sign=7F77B507B755B3262884291517E380F8",
+"signType" : "SHA1",
+"paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
+}
+```
+res
+```json
+{
+    //todo @王帅
+}
+```
+
+##POST  payment
+  parameter |type|level  |  enum| description
+ -|-|-|-|-
+    **order_id**   |number|required || 订单号
+
+ res:
+```json
+{
+    "status":"OK"
+}
+```
+
+
+##DELETE products/:product_type
+req:
+```json
+[
+1,2,  //product_type
+]
+
+
+```
+
+
+res:
+```json
+{
+    "status":"OK"
+}
+```
+
+
+ 
+##PUT feedback
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+```json
+{
+    "order_id":1,
+    "client_feedback":
+    {
+        "comment":"非常不错,下次再来!",
+        "keeper_stars":4,
+        "order_stars":5,
+    }
+}
+```
+
+
+##DELETE cars/:car_id
+res:
+```json
+{
+    "status":"OK"
+}
+```
+##POST cars
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+req:
+```json
+[
+    {
+        "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
+            },
+        "bought_time":"2011-08-21T18:02:52.249Z", 
+        "miles":12333,
+        "chassis_number":"HIBIY797DFS77",
+        "engine_number":"DFUSODFND567DFSDN-SDFC",
+        "car_type":10,
+        "user_id":1
+    }
+]
+
+```
+res:
+```json
+[
+    {
+      "id":1,
+      "licence":
+      {
+          "province":"京",
+          "number":"RB0718"
+      },
+      "bought_time":"2011-08-21T18:02:52.249Z", 
+      "miles":12333,
+      "chassis_number":"HIBIY797DFS77",
+      "engine_number":"DFUSODFND567DFSDN-SDFC",
+      "car_type":1,
+      "brand":"大众",
+      "category":"途观",
+      "model":"豪华版 2.0T",
+      "brand_img_url":"http://www.baidu.com/a.png",
+    }
+]
+```
+ 
+
+##GET coupons
+res:
+```json 
+{
+ "coupons":
+    [
+        {
+            "id":1,
+            "status":"已用",
+            "number":"37123322",
+            "value":99.00,
+            "expired_time":"2011-08-21T18:02:52.249Z",
+        }
+    ]
+    }
+```
+
+##PUT coupons
+兑换优惠码
+ 
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+req:
+```json
+[
+    {
+        "track_id":12,
+        "code":"dfdfson",
+    }
+]
+```
+res:
+```json
+//返回所有的优惠券
+[
+    {
+        "track_id":12,
+        "id":1,
+        "status":"已用",
+        "number":"37123322",
+        "value":99.00,
+        "expired_time":"2011-08-21T18:02:52.249Z",
+    }
+
+]
+```
+
+##POST phone_code_request
+    请求手机验证码
+   form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **phone_number**   |string|required   ||手机号
+
+res:
+meta return
+
+##POST phone_code_confirmation
+    核实手机验证码
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **phone_code**   |string|required   ||手机验证码
+ **src**   |string|required   |ali,werxin|
+res:
+```json
+[
+    {
+        "user_id":1,
+        "src":"ali"
+        "access_token":"1231odsnfsdojfdsf",
+    }
+
+]
+```
+
+
+
+##GET products
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **car_type**   |int|required   ||车第3级车typed
+ **service_type**   |int|required   ||服务类型
+res:
+<object type="text/html" data="products.json" width=100% height="450"></object>
+
+
+ ##POST orders
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||请求参数,值为json串,见req
+
+req:
+```json
+[
+  {
+    "contact_name": "张三",
+    "phone_number": "1381111111",
+    "location": {
+      "latitude": 12333.1231231,
+      "longtitude": 1231231.1232,
+      "name": "豪情酒吧",
+      "address": "工人体育场西路7号"
+    },
+    "pick_time": "2011-08-21T18:02:52.249Z",
+    "pick_time_segment": "00:00-00:30",
+    "comment": "早点来",
+    "coupon_id_used": [1],
+     "car_id":1,
+     "car_type":1,
+      "services":[
+          {
+              "service_type":8,
+              "products": [
+                {
+                  "part_type":1,
+                  "product_type":1,
+                  "unit_count": 1
+                }
+              ]
+          }
+      ]
+  }
+]
+
+```
+res:
+<object type="text/html" data="orders.json" width=100% height="450"></object>
+
+##GET packages/:user_id
+res:
+```json
+[
+    {
+    "user_info":
+    {
+
+        "id":1,
+        ""
+        "basic":
+        {
+            "id":1233333,
+            "phone_number":"15010111335",
+            "name":"刘正青",
+            "gender":"male",
+            "avatar_img":"http://www.baidu.com/a.png",
+        },
+
+        "cars":
+        {
+            "id":1,
+            "licence":
+            {
+                "province":"京",
+                "number":"RB0718"
+            },
+            "bought_time":"2011-08-21T18:02:52.249Z",
+            "miles":12333,
+            "chassis_number":"HIBIY797DFS77",
+            "engine_number":"DFUSODFND567DFSDN-SDFC",
+            "brand":"大众",
+            "category":"途观",
+            "model":"豪华版 2.0T",
+            "brand_img_url":"http://www.baidu.com/a.png",
+        }
+    },
+       "pick_loction":
+       {
+       "latitude":12333.1231231,
+       "longtitude":1231231.1232,
+       "name":"豪情酒吧",
+       "address":"工人体育场西路7号",
+       },,
+        "status":"初检中",
+        "keeper_name":"张师傅",
+        "place_time":"2011-08-21T18:02:52.249Z", //  下单时间
+        "book_time":"2011-08-21T18:02:52.249Z", //   预约时间
+        "start_time":"2011-08-21T18:02:52.249Z",  // 接单时间
+        "orders":[
+        {
+           "id":1,
+           "parent_id":0,
+           "service_type" :8,
+           "car_type":1,
+           "all_products":[
+            {
+               "part_type":0,
+                "product_type":0,
+                "name":"机油",
+                "products":[
+                    {
+                        "id": 9,
+                        "name": "蓝壳",
+                        "description": "蓝壳",
+                        "create_time": "2011-08-21T18:02:52.249Z",
+                        "modified_time":"2011-08-21T18:02:52.249Z",
+                        "labour_price": 68.0,
+                        "unit":"升",
+                        "unit_count":1,
+                        "price": 68.0,
+                        "tax": 2.0
+                    }
+                ]
+            }
+        ]
+            }
+        ]
+
+    }
+]
+
+```
+
+##GET orders/:id
+res:
+<object type="text/html" data="orders.json" width=100% height="450"></object>
+
+##POST services
+```json
+[
+        {
+        "id" :123,
+        "service_type" :8,
+        "car_type":1,
+        "name" :"保养",
+       "all_products":[
+            {
+                "part_type":0,
+                "name":"机油",
+                "products":[
+                    {
+                        "id": 9,
+                        "product_type":1,
+                        "name": "蓝壳",
+                        "description": "蓝壳",
+                        "create_time": "2011-08-21T18:02:52.249Z",
+                        "modified_time":"2011-08-21T18:02:52.249Z",
+                        "labour_price": 68.0,
+                        "unit":"升",
+                        "unit_count":1,
+                        "price": 68.0,
+                        "tax": 2.0
+                    }
+                ]
+            }
+        ]
+    }
+]
+
+```
+
+##DELETE order/:order_id
+res:
+<object type="text/html" data="orders.json" width=100% height="450"></object>
+
+
+##GET time_segments
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **service_type**   |String|required   |service enum|英文,分开。如 /time_segments?service_type=0,1
+
+res:
+<object type="text/html" data="time_segments.json" width=100% height="450"></object>
+
+
+<!-- ##POST cart
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **data**   |json|required   ||json串
+ req:
+```json
+[
+    {
+ 
+      "car_id": 1,
+      "service_type":0,
+      "products": [
+        {
+          "product_id":0,
+          "product_name": "机滤通用",
+          "unit_count": 1
+        }
+      ]
+ 
+    }
+]
+
+```
+res:
+```json
+
+{
+    "status":"OK" 
+}
+```  -->
+
+</xmp>
+<!-- <script src="http://strapdownjs.com/v/0.2/strapdown.js"></script> -->
+<script src="http://ndossougbe.github.io/strapdown/dist/strapdown.js"></script>
+</html>
