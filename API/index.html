@@ -192,6 +192,43 @@ res:
 ]
 
 ```
+
+##PUT brands
+req:
+```json
+[
+  {
+    "brand_type":1,     //required
+    "category_type":1,  //optional
+    "model_type":1,     //optional
+    "name":"车系A"
+    "img_url":"http://www.baidu.com/a.png" //optional 不存在此字段则不更新img_url
+  }
+]
+```
+
+res:
+```json
+[
+   {
+    "name":"大众",
+    "img_url":"http://www.baidu.com/a.png",
+    "categories":
+    [
+       {
+       "name":"途观",
+       "models":[
+          {
+            "type":1,  
+            "name":"豪华版 2.0T",
+         }
+       ],
+       }
+    ],
+   }
+]
+```
+
  
  
 ##GET wechatpay/:orderid
@@ -632,27 +669,7 @@ res:
     }
 ]
 ```
-##POST car_series
-req:
-```json
-[
-  {
-    "brand_type":1,
-    "name":"车系A"
-  }
-]
-```
 
-res:
-```json
-[
-    {
-        "brand_type": 1, 
-        "series_type": 6, 
-        "name": "车系A"
-    }
-]
-```
 
 
 <!-- ##POST cart
