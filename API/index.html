@@ -30,7 +30,7 @@
 http://192.168.1.1:8000/v1/xxx
 ## type define
 ### part type
- description | value | description | value | description | value 
+ description | type_id | description | type_id | description | type_id 
  -|-|-|-|-|-
 左前轮胎 | 0 |右前轮胎 | 1| 左后轮胎 | 2
 右后轮胎 | 3|前刹车片| 4|后刹车片 | 5
@@ -120,10 +120,12 @@ Content-Type|multipart/form-data
 
 res:
 ```json
+[
 {
     "id": 1,
     "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
 }
+]
 ```
 
 
