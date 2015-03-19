@@ -584,6 +584,29 @@ url_parameter |type|level  |  enum| description
 res:
 <object type="text/html" data="time_segments.json" width=100% height="450"></object>
 
+##POST car_models
+req:
+```json
+[
+  {
+    "series_type":1,
+    "name":"自动型",
+    "engine_displacement ":"1.5T",
+    "first_maintenance_miles":1500.0,
+    "production_year":2015,
+    "producer":"xxx厂商",
+    "engine_oil_amount":5.0,
+    "parts":[
+      {
+        "part_type":1,
+        "cycle_miles":2000,
+        "cycle_days":50,
+        "labour_price":10.0,
+      }
+    ]
+  }
+]
+```
 
 <!-- ##POST cart
 form_parameter |type|level  |  enum| description
