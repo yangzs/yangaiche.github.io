@@ -20,6 +20,10 @@
  {}            | 必须填以竖线分隔的某一项
  []            | 选填
 
+## car
+* brand 品牌
+** categoery 分类
+*** model    型号
 
 
 ##access token
@@ -628,8 +632,7 @@ req:
 ```json
 [
   {
-    "series_type":1,
-    "name":"自动型",
+    "model_type":1,
     "engine_displacement ":"1.5T",
     "first_maintenance_miles":1500.0,
     "production_year":2015,
@@ -648,27 +651,9 @@ req:
 ```
 
 res:
-```json
-[
-    {
-        "series_type": 1, 
-        "name": "自动型", 
-        "engine_displacement": "1.5T", 
-        "first_maintenance_miles": 1500, 
-        "production_year": 2015, 
-        "producer": "xxx厂商", 
-        "engine_oil_amount": 5, 
-        "parts": [
-            {
-                "part_type": 1, 
-                "cycle_miles": 2000, 
-                "cycle_days": 50, 
-                "labour_price": 10
-            }
-        ]
-    }
-]
-```
+meta return 
+
+
 
 
 
