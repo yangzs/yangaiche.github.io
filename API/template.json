@@ -12,7 +12,7 @@
             "brand":"",
             "category":"",
             "model":"",
-            "car_type":null,
+            "car_type":-1,
             "brand_img_url":"",
 
                  "scores": {
