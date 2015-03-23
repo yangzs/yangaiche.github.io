@@ -214,10 +214,24 @@ res:
 }
 ```
  
+###GET phone_numbers
+url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+**seed**   |string|required   |查询串
+**size**  |int|required |返回最多条数
+res:
+ ```json
+[
+    "id":1,
+]
+```
 
  
-###GET user_info/:id
-
+###GET user_info
+url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+**user_id**   |int|optional   |user_id号
+**phone_numer**  |string|optional   |手机号
 
 res:
  <object type="text/html" data="user_info.json" width=100% height="450"></object>
@@ -350,10 +364,10 @@ res:
 url_parameter |type|level | description
  -|-|-|-|-
  **page**   |int |required   ||第几页
- **items**  |int |required   ||每页条数
+ **size**  |int |required   ||每页条数
 
  exp:
- http://192.168.1.1/v1/api/meta_brands?page=3&items=10
+ http://192.168.1.1/v1/api/meta_brands?page=3&size=10
  
  res:
  ```json
@@ -656,6 +670,7 @@ req:
 ]
 
 ```
+
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
