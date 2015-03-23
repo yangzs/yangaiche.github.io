@@ -668,8 +668,16 @@ req:
 ```json
 {
   "parent_type_id":0, //当前父节点0
-  "current_type_id":1, //可选,如果存在,则视为更新当前结点,不存在,则创建
+  "current_type_id":1, //可选,如果存在,则视为更新当前结点数据,不存在,则创建结点数据
   "name":"前胎",//当前结点名字
+  attributes:[
+  {
+    "name":"",//属性名称
+    "desc":"",//属性描述
+    "type":"",//数据类型   string  float  int time binary
+    "unit":"米" //单位
+  }
+  ]
 }
 ```
 
