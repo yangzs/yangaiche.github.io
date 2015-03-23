@@ -369,7 +369,14 @@ req:
 ```
 res:
 meta return
-###DELETE cars/:car_id
+###DELETE cars
+  form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **car_ids**   |int|required   ||车辆id
+
+exp:
+http://192.168.1.1/v1/api/cars?car_ids=1,2,3
+
 res:
 ```json
 {
