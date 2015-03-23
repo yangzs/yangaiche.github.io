@@ -369,6 +369,22 @@ req:
 ```
 res:
 meta return
+
+###DELETE meta_cars
+  url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **type_ids**   |int|required   ||车辆id
+
+exp:
+http://192.168.1.1/v1/api/meta_cars?type_ids=1,2,3
+res:
+```json
+{
+    "status":"OK"
+}
+```
+
+
 ###DELETE cars
   url_parameter |type|level  |  enum| description
  -|-|-|-|-
