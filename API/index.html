@@ -161,6 +161,19 @@ res:
 }
 ]
 ```
+##SKU
+## PUT sku
+```json
+[
+  {
+    "sku_parent_type":1,     //required
+    "category_type":1,  //optional
+    "model_type":1,     //optional
+    "name":"车系A"
+    "img_url":"http://www.baidu.com/a.png" //optional 不存在此字段则不更新img_url
+  }
+]
+```
 
 
 ## user
@@ -338,7 +351,6 @@ res:
 				"engine_displacement":"2.0T",
 				"production_year":2015,
 				"producer":"进口",
-				"model_type_name":"舒适型",
 				"engine_oil_amount":5.0T,
 			}
 		]
@@ -381,9 +393,11 @@ meta return
  -|-|-|-|-
  **brand_type**   |int|required   ||
  **category_type**   |int|optional   ||
-  **model_type**   |int|optional   ||如果model_type 存在,则category_type mted存在
+  **model_type**   |int|optional   ||如果model_type 存在,则category_type 必须存在
+  
 exp:
 http://192.168.1.1/v1/api/meta_cars?brand_type=1&category_type=1&model_type=1
+
 res:
 ```json
 {
