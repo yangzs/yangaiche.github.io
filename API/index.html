@@ -760,14 +760,11 @@ res:
 
 
 ###DELETE product
-req:
-```json
-{
-  "parent_type_id":0, 
-  "current_type_id":1, 
-}
-
-
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **parent_type_id**   |int|required   ||父级type_id
+ **current_type_id**   |int|required   ||子级type_id
+ 
 ```
 
 
