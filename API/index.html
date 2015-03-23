@@ -37,27 +37,27 @@ http://192.168.1.1:8000/v1/xxx
 ### part type
  description | type | description | type | description | type 
  -|-|-|-|-|-
-左前轮胎 | 0 |右前轮胎 | 1| 左后轮胎 | 2
-右后轮胎 | 3|前刹车片| 4|后刹车片 | 5
-雨刮片 | 6|雨刮器| 7|机油 | 8
-机滤| 9|空气滤| 10|燃油滤 | 11
-变速箱油| 12|转向助力液| 13|制动液| 14
-电瓶 | 15|正时皮带| 16
+左前轮胎 | 1 |右前轮胎 | 2| 左后轮胎 | 3
+右后轮胎 | 4|前刹车片| 5|后刹车片 | 6
+雨刮片 | 7|雨刮器| 8|机油 | 9
+机滤| 10|空气滤| 11|燃油滤 | 12
+变速箱油| 13|转向助力液| 14|制动液| 15
+电瓶 | 16|正时皮带| 17
 
 ### service type
  description		        | type	| backend	| app	| h5
  -|-|
-  保险续保			           |0		|√		  |		  |
-  车辆美容服务		        |1		|√		  |		  |
-  管家代办定损		        |2		|√		  |√		|√
-  管家保养维修		        |3		|√		  |√		|√
-  检测服务_接还车	        |4		|√		  |√		|√
-  上门救援服务		        |5		|√		  |√		|√
-  上门保养维修服务         |6		|√		  |√		|√
-  管家代办验车_上线验车		|7		|√		  |√		|√
-  管家4S店保养维修        |8		|√		  |		  |
-  检测服务_上门           |9    |√      |     |
-  管家代办验车_领检字      |10   |√      |     |
+  保险续保			           |1		|√		  |		  |
+  车辆美容服务		        |2		|√		  |		  |
+  管家代办定损		        |3		|√		  |√		|√
+  管家保养维修		        |4		|√		  |√		|√
+  检测服务_接还车	        |5		|√		  |√		|√
+  上门救援服务		        |6		|√		  |√		|√
+  上门保养维修服务         |7		|√		  |√		|√
+  管家代办验车_上线验车		|8		|√		  |√		|√
+  管家4S店保养维修        |9		|√		  |		  |
+  检测服务_上门           |10    |√      |     |
+  管家代办验车_领检字      |11   |√      |     |
 
 ##meta return
 right
@@ -351,7 +351,7 @@ res:
 				"engine_displacement":"2.0T",
 				"production_year":2015,
 				"producer":"进口",
-				"engine_oil_amount":5.0T,
+				"engine_oil_amount":5.0T
 			}
 		]
 	}
@@ -363,7 +363,7 @@ req:
 ```json
 [
   {
-    "brand_type":1,
+    "brand_type":1,     //不存在则创建
     "category_type":1,
     "model_type":1,
     "engine_displacement":"1.5T",
@@ -371,7 +371,7 @@ req:
     "production_year":2015,
     "producer":"xxx厂商",
     "engine_oil_amount":5.0,
-    "parts":[
+    "parts":[   //optional 根据part_type 创建或者更新
       {
         "part_type":1,
         "cycle_miles":2000,
@@ -394,7 +394,7 @@ meta return
  **brand_type**   |int|required   ||
  **category_type**   |int|optional   ||
   **model_type**   |int|optional   ||如果model_type 存在,则category_type 必须存在
-  
+
 exp:
 http://192.168.1.1/v1/api/meta_cars?brand_type=1&category_type=1&model_type=1
 
@@ -404,6 +404,7 @@ res:
     "status":"OK"
 }
 ```
+ 
 
 
 ###DELETE cars
@@ -581,7 +582,6 @@ req:
 ```
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
-
 
 ###GET orders/:id
 res:
