@@ -23,7 +23,7 @@
 
 ## car
 * brand 品牌
-* categoery 分类
+* category 分类
 * model    型号
 
 
@@ -322,26 +322,24 @@ res:
 {
     "code": "00000",//表示成功
     "data":
-    [
-     {
-    "brand_type_id":1,
-    "categoery_type_id":1,
-    "model_type_id":1,
-    "engine_displacement":"1.5T",
-    "first_maintenance_miles":1500.0,
-    "production_year":2015,
-    "producer":"xxx厂商",
-    "engine_oil_amount":5.0,
-    "parts":[
-      {
-        "part_type":1,
-        "cycle_miles":2000,
-        "cycle_days":50,
-        "labour_price":10.0,
-      }
-    ]
-  }
-    ]
+	{
+		cur_page:1,//当前查询页
+		page_items:10,//每页条数
+		total_items:20,//总记录数
+		total_page:2,//总页数
+		datas:[
+			{
+				"car_id":1234,
+				"brand_type_name":"奥迪",
+				"category_type_name":A6L,
+				"engine_displacement":"2.0T",
+				"production_year":2015,
+				"producer":"进口",
+				"model_type_name":"舒适型",
+				"engine_oil_amount":5.0T,
+			}
+		]
+	}
 }
 ```
 
@@ -351,7 +349,7 @@ req:
 [
   {
     "brand_type_id":1,
-    "categoery_type_id":1,
+    "category_type_id":1,
     "model_type_id":1,
     "engine_displacement":"1.5T",
     "first_maintenance_miles":1500.0,
