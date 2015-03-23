@@ -330,6 +330,37 @@ res:
     }
 }
 ```
+##brands
+###GET meta_cars/brands
+
+url_parameter |type|level | description
+ -|-|-|-|-
+ **page**   |int |required   ||第几页
+ **items**  |int |required   ||每页条数
+
+ exp:
+ http://192.168.1.1/v1/api/meta_cars/brands?page=3&items=10
+ 
+ res:
+ ```json
+ {
+	"code":"00000",//成功
+	"data":
+	{
+		"cur_page":1,//当前查询页
+		"page_size:10",//每页条数
+		"total_size:20",//总记录数
+		"total_pages":2,//总页数
+		items:[
+			"brand_type":123,
+			"logo_src":"http://ddd/test.jpg",
+			"brand_name":"奥迪"
+		]
+	}
+ }
+ 
+```
+
 ##cars
 
 
@@ -349,18 +380,18 @@ res:
     "code": "00000",//表示成功
     "data":
 	{
-		cur_page:1,//当前查询页
-		page_items:10,//每页条数
-		total_items:20,//总记录数
-		total_page:2,//总页数
-		datas:[
+		"cur_page":1,//当前查询页
+		"page_size:10",//每页条数
+		"total_size:20",//总记录数
+		"total_pages":2,//总页数
+		items:[
 			{
-        "brand_type":1,
-        "category_type":1,
-        "model_type":1,
-        "brand_name":"奥迪",
-        "category_name":"A6L",
-        "model_name":"2.0T 豪华版",
+				"brand_type":1,
+				"category_type":1,
+				"model_type":1,
+				"brand_name":"奥迪",
+				"category_name":"A6L",
+				"model_name":"2.0T 豪华版",
 				"engine_displacement":"2.0T",
 				"production_year":2015,
 				"producer":"进口",
