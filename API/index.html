@@ -22,6 +22,9 @@
  []            | 选填.
 
 ## car
+
+保持brand_type  category_type model_type 的全局唯一性
+
 * brand 品牌
 * category 分类
 * model    型号
@@ -336,15 +339,21 @@ res:
 }
 ```
 
-##brands
-###DELETE  meta_cars/brands?
+ 
+
+
+##cars
+
+
+###GET meta_brands
+
 url_parameter |type|level | description
  -|-|-|-|-
- **brand_type**   |int |required   ||brand type 
-
+ **page**   |int |required   ||第几页
+ **items**  |int |required   ||每页条数
 
  exp:
- http://192.168.1.1/v1/api/meta_cars/brands?page=3&items=10
+ http://192.168.1.1/v1/api/meta_brands?page=3&items=10
  
  res:
  ```json
@@ -364,39 +373,32 @@ url_parameter |type|level | description
   }
  }
  
-###GET meta_cars/brands
-
-url_parameter |type|level | description
- -|-|-|-|-
- **page**   |int |required   ||第几页
- **items**  |int |required   ||每页条数
-
- exp:
- http://192.168.1.1/v1/api/meta_cars/brands?page=3&items=10
- 
- res:
- ```json
- {
-	"code":"00000",//成功
-	"data":
-	{
-		"cur_page":3,//当前查询页
-		"page_size":10,//每页条数
-		"total_size":20,//总记录数
-		"total_pages":2,//总页数
-		items:[
-			"brand_type":123,
-			"img":"http://ddd/test.jpg",
-			"brand_name":"奥迪"
-		]
-	}
- }
- 
 ```
 
-##cars
+###PUT meta_brand
+req:
+```json
+  {
+    "brand_name":"大众"
+  }
 
+```
+res:
+```json
+  {
+    "brand_type":1,
+    "brand_name":"大众"
+  }
 
+```
+###DELETE meta_brand
+
+ url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **type**   |int|required   ||brand type
+
+exp:
+http://192.168.1.1/v1/api/meta_brand/2
 ###GET meta_cars
 
 url_parameter |type|level  |  enum| description
@@ -463,18 +465,14 @@ req:
 res:
 meta return
 
-###DELETE meta_car/2/2/2
+###DELETE meta_car
 
-删除某个车model,或者category,或者brand所有数据
-
-  url_parameter |type|level  |  enum| description
+ url_parameter |type|level  |  enum| description
  -|-|-|-|-
- **brand_type**   |int|required   ||
- **category_type**   |int|optional   ||
-  **model_type**   |int|optional   ||如果model_type 存在,则category_type 必须存在
+ **mode_type**   |int|required   ||model type
 
 exp:
-http://192.168.1.1/v1/api/meta_cars?brand_type=1&category_type=1&model_type=1
+http://192.168.1.1/v1/api/meta_model/2
 
 res:
 ```json
