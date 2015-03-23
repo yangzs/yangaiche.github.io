@@ -10,6 +10,7 @@
 ## terminology
  name          | description
  --------------|-----------------------
+ SKU           | Stock Keeping Unit(库存量单位)，即库存进出计量的单位，可以是以件，盒，托盘等为单位。
  product       | 商品,具体的服务商品,是**service**的子集,比如说机油,滤芯,接车,还车,结算统统为商品
  service       | 服务,由n个**product**,按一定的线性时间结点组合而成,比如说保养,验车
  order         | 订单,具有相应的支付状态的服务
@@ -111,6 +112,31 @@ http://192.168.1.1:8000/auth_code?src=ali&code
 "open_id":"12345"
 }
 ```
+
+ 
+###GET wechatpay/:orderid
+具体参看最新微信文档
+```json
+{
+"appId":"wxd930ea5d5a258f4f",
+"timeStamp": "1399514976",
+"nonceStr": "e7d161ac8d8a76529d39d9f5b4249ccb",
+"package":
+"bank_type=WX&body=%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95&fee_ty
+pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240b
+65810859cbf2a8d9f76a638c0a3&partner=1900000109&spbill_create_ip=196.168.1.1&total_fee=
+1&sign=7F77B507B755B3262884291517E380F8",
+"signType" : "SHA1",
+"paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
+}
+```
+res
+```json
+{
+    //todo @王帅
+}
+```
+
 ## media
 
 ###POST media
@@ -153,29 +179,7 @@ res:
 }
 ```
 
- 
-###GET wechatpay/:orderid
-具体参看最新微信文档
-```json
-{
-"appId":"wxd930ea5d5a258f4f",
-"timeStamp": "1399514976",
-"nonceStr": "e7d161ac8d8a76529d39d9f5b4249ccb",
-"package":
-"bank_type=WX&body=%E6%94%AF%E4%BB%98%E6%B5%8B%E8%AF%95&fee_ty
-pe=1&input_charset=UTF-8&notify_url=http%3A%2F%2Fweixin.qq.com&out_trade_no=7240b
-65810859cbf2a8d9f76a638c0a3&partner=1900000109&spbill_create_ip=196.168.1.1&total_fee=
-1&sign=7F77B507B755B3262884291517E380F8",
-"signType" : "SHA1",
-"paySign" : "8893870b9004ead28691b60db97a8d2c80dbfdc6"
-}
-```
-res
-```json
-{
-    //todo @王帅
-}
-```
+
 
 
 
@@ -302,6 +306,33 @@ res:
 ```
 ##cars
 
+
+###PUT meta_cars
+req:
+```json
+[
+  {
+    "brand_type_id":1,
+    "categoery_type_id":1,
+    "model_type_id":1,
+    "engine_displacement":"1.5T",
+    "first_maintenance_miles":1500.0,
+    "production_year":2015,
+    "producer":"xxx厂商",
+    "engine_oil_amount":5.0,
+    "parts":[
+      {
+        "part_type":1,
+        "cycle_miles":2000,
+        "cycle_days":50,
+        "labour_price":10.0,
+      }
+    ]
+  }
+]
+```
+res:
+meta return
 ###DELETE cars/:car_id
 res:
 ```json
@@ -611,35 +642,11 @@ url_parameter |type|level  |  enum| description
 res:
 <object type="text/html" data="time_segments.json" width=100% height="450"></object>
 
-## car_models
-###POST car_models
-req:
-```json
-[
-  {
-    "model_type":1,
-    "engine_displacement":"1.5T",
-    "first_maintenance_miles":1500.0,
-    "production_year":2015,
-    "producer":"xxx厂商",
-    "engine_oil_amount":5.0,
-    "parts":[
-      {
-        "part_type":1,
-        "cycle_miles":2000,
-        "cycle_days":50,
-        "labour_price":10.0,
-      }
-    ]
-  }
-]
-```
-res:
-meta return
+ 
 
 ##product
  
-###GET product
+###GET meta_product
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **page**   |int |required   ||第几页
@@ -674,7 +681,7 @@ res:
 }
 ```
 
-###PUT product
+###PUT meta_product
 req:
 ```json
 {
@@ -712,12 +719,13 @@ res:
 ```
 
 
-###DELETE products/:product_type
+###DELETE product
 req:
 ```json
-[
-1,2,  //product_type
-]
+{
+  "parent_type_id":0, 
+  "current_type_id":1, 
+}
 
 
 ```
