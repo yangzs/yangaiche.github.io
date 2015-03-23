@@ -47,13 +47,13 @@ http://192.168.1.1:8000/v1/xxx
 ### service type
  description		        | type	| backend	| app	| h5
  -|-|
-  保险续保			           |1		|√		  |		  |
+  保险续保			          |1		|√		  |		  |
   车辆美容服务		        |2		|√		  |		  |
   管家代办定损		        |3		|√		  |√		|√
   管家保养维修		        |4		|√		  |√		|√
   检测服务_接还车	        |5		|√		  |√		|√
   上门救援服务		        |6		|√		  |√		|√
-  上门保养维修服务         |7		|√		  |√		|√
+  上门保养维修服务        |7		|√		  |√		|√
   管家代办验车_上线验车		|8		|√		  |√		|√
   管家4S店保养维修        |9		|√		  |		  |
   检测服务_上门           |10    |√      |     |
@@ -222,6 +222,19 @@ res:
 res:
 <object type="text/html" data="public_data.json" width=100% height="450"></object>
 
+###GET version
+用于app端更新版本用
+url_parameter |type|level  |enum| description
+-|-|-|-|-
+**client**   |string|required   |client,keeper,weixin,xiaomi,|版本
+res:
+```json
+ {
+    "version":"v1"  //链接中的版本号
+ }
+```
+
+
 
 ###GET brands
 
@@ -274,7 +287,7 @@ res:
        "name":"途观",
        "models":[
           {
-            "type":1,  
+            "type":1,
             "name":"豪华版 2.0T",
          }
        ],
@@ -284,7 +297,7 @@ res:
 ]
 ```
 ##payment
- 
+
 ###POST  payment
   parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -358,12 +371,13 @@ res:
 }
 ```
 
+
 ###PUT meta_cars
 req:
 ```json
 [
   {
-    "brand_type":1,     //不存在则创建
+    "brand_type":1,
     "category_type":1,
     "model_type":1,
     "engine_displacement":"1.5T",
@@ -385,7 +399,7 @@ req:
 res:
 meta return
 
-###DELETE meta_car
+###DELETE meta_car/2/2/2
 
 删除某个车model,或者category,或者brand所有数据
 
@@ -820,6 +834,7 @@ url_parameter |type|level  |  enum| description
  **service_type**   |int|required   ||服务类型
 res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
+
 
 <!-- ##POST cart
 form_parameter |type|level  |  enum| description
