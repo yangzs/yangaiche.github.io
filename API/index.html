@@ -35,7 +35,7 @@
 http://192.168.1.1:8000/v1/xxx
 ## type define
 ### part type
- description | type_id | description | type_id | description | type_id 
+ description | type | description | type | description | type 
  -|-|-|-|-|-
 左前轮胎 | 0 |右前轮胎 | 1| 左后轮胎 | 2
 右后轮胎 | 3|前刹车片| 4|后刹车片 | 5
@@ -45,7 +45,7 @@ http://192.168.1.1:8000/v1/xxx
 电瓶 | 15|正时皮带| 16
 
 ### service type
- description		        | type_id	| backend	| app	| h5
+ description		        | type	| backend	| app	| h5
  -|-|
   保险续保			           |0		|√		  |		  |
   车辆美容服务		        |1		|√		  |		  |
@@ -348,9 +348,9 @@ req:
 ```json
 [
   {
-    "brand_type_id":1,
-    "category_type_id":1,
-    "model_type_id":1,
+    "brand_type":1,
+    "category_type":1,
+    "model_type":1,
     "engine_displacement":"1.5T",
     "first_maintenance_miles":1500.0,
     "production_year":2015,
@@ -370,17 +370,17 @@ req:
 res:
 meta return
 
-###DELETE meta_cars
+###DELETE meta_car
 
 删除某个车model,或者category,或者brand所有数据
 
   url_parameter |type|level  |  enum| description
  -|-|-|-|-
- **brand_type_id**   |int|required   ||
- **category_type_id**   |int|optional   ||
-  **model_type_id**   |int|optional   ||如果model_type_id 存在,则category_type_id mted存在
+ **brand_type**   |int|required   ||
+ **category_type**   |int|optional   ||
+  **model_type**   |int|optional   ||如果model_type 存在,则category_type mted存在
 exp:
-http://192.168.1.1/v1/api/meta_cars?type_ids=1,2,3
+http://192.168.1.1/v1/api/meta_cars?brand_type=1&category_type=1&model_type=1
 res:
 ```json
 {
@@ -725,8 +725,8 @@ res:
     "data":
     [
     {
-        "parent_type_id":0,
-        "current_type_id":1,
+        "parent_type":0,
+        "current_type":1,
         "name":"前胎",//当前结点名字
         attributes:[
           {
@@ -745,8 +745,8 @@ res:
 req:
 ```json
 {
-  "parent_type_id":0, //当前父节点0
-  "current_type_id":1, //可选,如果存在,则视为更新当前结点数据,不存在,则创建结点数据
+  "parent_type":0, //当前父节点0
+  "current_type":1, //可选,如果存在,则视为更新当前结点数据,不存在,则创建结点数据
   "name":"前胎",//当前结点名字
   attributes:[
   {
@@ -763,8 +763,8 @@ res:
 {
     "code": "00000",//表示成功
     "data":{
-        "parent_type_id":0,
-        "current_type_id":1,
+        "parent_type":0,
+        "current_type":1,
         "name":"前胎",//当前结点名字
         attributes:[
         {
@@ -782,8 +782,8 @@ res:
 ###DELETE product
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **parent_type_id**   |int|required   ||父级type_id
- **current_type_id**   |int|required   ||子级type_id
+ **parent_type**   |int|required   ||父级type
+ **current_type**   |int|required   ||子级type
  
 ```
 
