@@ -371,10 +371,14 @@ res:
 meta return
 
 ###DELETE meta_cars
+
+删除某个车model,或者category,或者brand所有数据
+
   url_parameter |type|level  |  enum| description
  -|-|-|-|-
- **type_ids**   |int|required   ||车辆id
-
+ **brand_type_id**   |int|required   ||
+ **category_type_id**   |int|optional   ||
+  **model_type_id**   |int|optional   ||如果model_type_id 存在,则category_type_id mted存在
 exp:
 http://192.168.1.1/v1/api/meta_cars?type_ids=1,2,3
 res:
