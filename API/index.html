@@ -27,8 +27,10 @@
 * model    型号
 
 
-##access token
-在报头 API-Access-Token中
+##access authentation
+HMAC 验证机制 @文燃
+
+<!-- 在报头 API-Access-Token中 -->
 
 ## version control
 在链接中指定
@@ -162,7 +164,7 @@ res:
 ]
 ```
 ##SKU
-## PUT sku
+### PUT sku
 ```json
 [
   {
@@ -223,10 +225,12 @@ res:
 <object type="text/html" data="public_data.json" width=100% height="450"></object>
 
 ###GET version
+
 用于app端更新版本用
+
 url_parameter |type|level  |enum| description
 -|-|-|-|-
-**client**   |string|required   |client,keeper,weixin,xiaomi,|版本
+**client**   |string|required   |client,keeper,weixin,xiaomi|版本
 res:
 ```json
  {
@@ -330,7 +334,35 @@ res:
     }
 }
 ```
+
 ##brands
+###DELETE  meta_cars/brands?
+url_parameter |type|level | description
+ -|-|-|-|-
+ **brand_type**   |int |required   ||brand type 
+
+
+ exp:
+ http://192.168.1.1/v1/api/meta_cars/brands?page=3&items=10
+ 
+ res:
+ ```json
+ {
+  "code":"00000",//成功
+  "data":
+  {
+    "cur_page":3,//当前查询页
+    "page_size":10,//每页条数
+    "total_size":20,//总记录数
+    "total_pages":2,//总页数
+    items:[
+      "brand_type":123,
+      "img":"http://ddd/test.jpg",
+      "brand_name":"奥迪"
+    ]
+  }
+ }
+ 
 ###GET meta_cars/brands
 
 url_parameter |type|level | description
@@ -347,13 +379,13 @@ url_parameter |type|level | description
 	"code":"00000",//成功
 	"data":
 	{
-		"cur_page":1,//当前查询页
-		"page_size:10",//每页条数
-		"total_size:20",//总记录数
+		"cur_page":3,//当前查询页
+		"page_size":10,//每页条数
+		"total_size":20,//总记录数
 		"total_pages":2,//总页数
 		items:[
 			"brand_type":123,
-			"logo_src":"http://ddd/test.jpg",
+			"img":"http://ddd/test.jpg",
 			"brand_name":"奥迪"
 		]
 	}
@@ -380,9 +412,9 @@ res:
     "code": "00000",//表示成功
     "data":
 	{
-		"cur_page":1,//当前查询页
-		"page_size:10",//每页条数
-		"total_size:20",//总记录数
+		"cur_page":3,//当前查询页
+		"page_size":10,//每页条数
+		"total_size":20,//总记录数
 		"total_pages":2,//总页数
 		items:[
 			{
