@@ -318,7 +318,7 @@ res:
 }
 ```
 ##brands
-###GET meta_cars/brand
+###GET meta_cars/brands
 
 url_parameter |type|level | description
  -|-|-|-|-
@@ -326,7 +326,7 @@ url_parameter |type|level | description
  **items**  |int |required   ||每页条数
 
  exp:
- http://192.168.1.1/v1/api/meta_cars/brand?page=3&items=10
+ http://192.168.1.1/v1/api/meta_cars/brands?page=3&items=10
  
  res:
  ```json
@@ -339,13 +339,15 @@ url_parameter |type|level | description
 		"total_size:20",//总记录数
 		"total_pages":2,//总页数
 		items:[
-			"brand_id":"123",
+			"brand_type":123,
 			"logo_src":"http://ddd/test.jpg",
 			"brand_name":"奥迪"
 		]
 	}
  }
+ 
 ```
+
 ##cars
 
 
