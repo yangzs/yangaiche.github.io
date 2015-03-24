@@ -973,6 +973,51 @@ res:
 }
 ```
 
+
+###PUT meta_product
+req:
+```json
+{
+  "id":1, 
+  "product_category_type":10,
+  "product_brand_type":10,
+  "name":"商品名",//required
+  "cost":12.5,
+  "price":125.0,
+  "attributes":[
+        {
+          "id":1,
+          "name":"",
+          "value":"",
+        }
+    ]
+}
+```
+res:
+```json
+{
+    "code": "00000",
+    "data":
+          {
+            "id":1, 
+            "product_category_type":10,
+            "product_brand_type":10,
+            "name":"商品名",
+            "cost":12.5,
+            "price":125.0,
+            "attributes":[
+                  {
+                    "id":1,
+                    "name":"",
+                    "value":"",
+                  }
+              ]
+          }
+}
+```
+
+
+
 ###DELETE product
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
