@@ -1061,6 +1061,57 @@ res:
 }
 ```
 
+###GET meta_model_part_product/:car_model_id
+res:
+```json
+{
+    "code": "00000",
+    "data":
+          [
+              {
+                "id":1,
+                "car_model_id":1,
+                "part_type":"1",
+                "part_name":"机油",
+                "product_id":10,
+                "product_name":"商品名",
+                "recommended":true
+              }
+          ]
+}
+```
+###PUT meta_model_part_product
+req:
+```json
+[
+  {
+    "id":1,
+    "car_model_id":1,
+    "part_type":"1",
+    "part_name":"机油",
+    "product_id":10,
+    "recommended":true
+  }
+]
+```
+res:
+```json
+{
+    "code": "00000",
+    "data":
+          [
+              {
+                "id":1,
+                "car_model_id":1,
+                "part_type":"1",
+                "part_name":"机油",
+                "product_id":10,
+                "product_name":"商品名",
+                "recommended":true
+              }
+          ]
+}
+```
 
 
 ###DELETE product
