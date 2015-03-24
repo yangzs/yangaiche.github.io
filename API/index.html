@@ -877,10 +877,11 @@ url_parameter |type|level  |  enum| description
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
  **key**   |String  |optional    ||搜索关键字
- **parent_id**   |int  |optional    ||父类型ID，为0则查所有一级分类
+ **parent_type**   |int  |optional    ||父类型ID，为0则查所有一级分类
+ **current_type**   |int  |optional    ||如果该项有值，则根据ID查询
 
 exp:
-http://192.168.1.1/v1/api/product?page=3&size=10&parent_id=1&key=搜索
+http://192.168.1.1/v1/api/product?page=3&size=10&current_type=10&parent_type=1&key=搜索
 
 res:
 ```json
@@ -895,6 +896,7 @@ res:
               "items":[
                         {
                             "parent_type":1, //可空
+                            "parent_name":"父分类名",
                             "current_type":10,
                             "supplier_type":"4s",//required
                             "name":"分类名",//required
