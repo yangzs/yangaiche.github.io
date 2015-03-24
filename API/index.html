@@ -398,6 +398,61 @@ res:
  url_parameter |type|level  |  enum| description
  -|-|-|-|-
  **type**   |int|required   ||brand type
+ 
+ ###GET meta_categorys
+
+url_parameter |type|level | description
+ -|-|-|-|-
+ **name**	|String |optional || 模糊收索字段
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+
+ exp:
+ http://192.168.1.1/v1/api/meta_brands?page=3&size=10
+ 
+ res:
+ ```json
+ {
+  "code":"00000",//成功
+  "data":
+  {
+    "cur_page":3,//当前查询页
+    "page_size":10,//每页条数
+    "total_size":20,//总记录数
+    "total_pages":2,//总页数
+    items:[
+      "category_type":123,
+      "category_name":"http://ddd/test.jpg",
+      "brand_name":"奥迪"
+    ]
+  }
+ }
+ 
+```
+
+###PUT meta_category
+req:
+```json
+  {
+    "category_type": 2,
+	"brand_type": 9,
+	"name": "测试3"
+  }
+
+```
+res:
+```json
+  {
+    "category_type":1,
+    "category_name":"大众"
+  }
+
+```
+###DELETE meta_category
+
+ url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **type**   |int|required   ||category type
 
 exp:
 http://192.168.1.1/v1/api/meta_brand/2
@@ -405,6 +460,7 @@ http://192.168.1.1/v1/api/meta_brand/2
 
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
+ **name**	|int |required	 ||模糊查询字段
  **page**   |int |required   ||第几页
  **items**  |int |required   ||每页条数
 
