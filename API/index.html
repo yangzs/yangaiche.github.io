@@ -894,42 +894,48 @@ res:
 }
 ```
 
-###PUT meta_product
+###PUT meta_product_category
 req:
 ```json
 {
-  "parent_type":0, //当前父节点0
-  "current_type":1, //可选,如果存在,则视为更新当前结点数据,不存在,则创建结点数据
-  "name":"前胎",//当前结点名字
-  attributes:[
-  {
-    "name":"",//属性名称
-    "desc":"",//属性描述
-    "type":"",//数据类型   string  float  int time binary
-    "unit":"米" //单位
-  }
-  ]
+  "parent_type":1, //可空
+  "current_type":10,
+  "supplier_type":"4s",//required
+  "name":"分类名",//required
+  "attributes":[
+        {
+          "id":1,
+          "name":"",//属性名称
+          "desc":"",//属性描述
+          "type":"",//数据类型 string  float  int time binary
+          "unit":"米" //单位
+        }
+    ]
 }
 ```
 res:
 ```json
 {
-    "code": "00000",//表示成功
-    "data":{
-        "parent_type":0,
-        "current_type":1,
-        "name":"前胎",//当前结点名字
-        attributes:[
-        {
-          "name":"",//属性名称
-          "desc":"",//属性描述
-          "type":"",//数据类型
-          "unit":"米" //单位
-        }
-    ]
-}
+    "code": "00000",
+    "data":
+          {
+            "parent_type":1, //可空
+            "current_type":10,
+            "supplier_type":"4s",//required
+            "name":"分类名",//required
+            "attributes":[
+                  {
+                    "id":1,
+                    "name":"",//属性名称
+                    "desc":"",//属性描述
+                    "type":"",//数据类型 string  float  int time binary
+                    "unit":"米"//单位
+                  }
+              ]
+          }
 }
 ```
+
 
 
 ###DELETE product
