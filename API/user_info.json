@@ -4,6 +4,7 @@
       "phone_number": "15010111335",
       "name": "刘正青",
       "gender": "male",
+      "source":"ali",
       "avatar_img": "http://www.baidu.com/a.png"
     },
     "location": [
