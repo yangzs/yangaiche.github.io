@@ -55,7 +55,23 @@
               "comment": "破损严重,建议更换"
             }
           ]
+        },
+       "carcare_book": [
+    {
+      "car_id": 1,
+      "history": [
+        {
+          "miles": 10000,
+          "events": [
+            {
+              "name": "检测机滤",
+              "status": "未完成"
+            }
+          ]
         }
+      ]
+    }
+  ]
       }
     ],
     "coupons": [
@@ -125,7 +141,7 @@
   "orders": [
     {
       "id": 1,
-      "name": "常规保养2",
+     
       "status": "初检中",
       "fee":23.00,
       "keeper_basics": [
@@ -230,21 +246,6 @@
       }
     }
   ],
-  "cart": [],
-  "carcare_book": [
-    {
-      "car_id": 1,
-      "history": [
-        {
-          "miles": 10000,
-          "events": [
-            {
-              "name": "检测机滤",
-              "status": "未完成"
-            }
-          ]
-        }
-      ]
-    }
-  ]
+  "cart": []
+ 
 }
