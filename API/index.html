@@ -973,6 +973,51 @@ res:
 }
 ```
 
+###GET meta_product
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **product_category_id**   |int  |optional    ||分类ID
+ **product_brand_id**   |int  |optional    ||品牌ID
+ **id**   |int  |optional    ||如果该项有值，则根据ID查询
+
+exp:
+http://192.168.1.1/v1/api/product?page=3&size=10&id=10&product_category_id=1&key=搜索
+
+res:
+```json
+{
+    "code": "00000",
+    "data":
+          {
+              "cur_page":3,
+              "page_size":10,
+              "total_size":20,
+              "total_pages":2,
+              "items":[
+                        {
+                            "id":1, 
+                            "name":"商品名",
+                            "product_category_id":10,
+                            "product_category_name":"分类名",
+                            "product_brand_id":10,
+                            "product_brand_name":"品牌名",                            
+                            "cost",1.1,
+                            "price":11,
+                            "attributes":[
+                                {
+                                  "id":1,
+                                  "name":"",
+                                  "value":"",
+                                }
+                            ]
+                        }
+              ]
+          }
+}
+```
 
 ###PUT meta_product
 req:
