@@ -57,9 +57,6 @@
           ]
         },
        "carcare_book": [
-    {
-      "car_id": 1,
-      "history": [
         {
           "miles": 10000,
           "events": [
@@ -68,9 +65,17 @@
               "status": "未完成"
             }
           ]
+        },
+          {
+          "miles": 10000,
+          "events": [
+            {
+              "name": "检测机滤",
+              "status": "未完成"
+            }
+          ]
         }
-      ]
-    }
+
   ]
       }
     ],
