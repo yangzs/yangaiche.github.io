@@ -871,35 +871,45 @@ res:
 }
 ```
 
-###GET meta_product
+###GET meta_product_category
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **page**   |int |required   ||第几页
- **items**  |int |required   ||每页条数
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **parent_id**   |int  |optional    ||父类型ID，为0则查所有一级分类
 
 exp:
-http://192.168.1.1/v1/api/product?page=3&items=10
+http://192.168.1.1/v1/api/product?page=3&size=10&parent_id=1&key=搜索
 
 res:
 ```json
 {
-    "code": "00000",//表示成功
+    "code": "00000",
     "data":
-    [
-    {
-        "parent_type":0,
-        "current_type":1,
-        "name":"前胎",//当前结点名字
-        attributes:[
           {
-            "name":"",//属性名称
-            "desc":"",//属性描述
-            "type":"",//数据类型
-            "unit":"米" //单位
+              "cur_page":3,
+              "page_size":10,
+              "total_size":20,
+              "total_pages":2,
+              "items":[
+                        {
+                            "parent_type":1, //可空
+                            "current_type":10,
+                            "supplier_type":"4s",//required
+                            "name":"分类名",//required
+                            "attributes":[
+                                {
+                                  "id":1,
+                                  "name":"",//属性名称
+                                  "desc":"",//属性描述
+                                  "type":"",//数据类型 string  float  int time binary
+                                  "unit":"米"//单位
+                                }
+                            ]
+                        }
+              ]
           }
-        ]
-    }
-    ]
 }
 ```
 
@@ -944,8 +954,22 @@ res:
           }
 }
 ```
-
-
+###DELETE meta_product_category/:id
+res:
+```json
+{
+  "code":"00000",
+  "data":
+}
+```
+###DELETE meta_product_category/attribute/:id
+res:
+```json
+{
+  "code":"00000",
+  "data":
+}
+```
 
 ###DELETE product
 url_parameter |type|level  |  enum| description
