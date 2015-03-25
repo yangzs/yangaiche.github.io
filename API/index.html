@@ -680,8 +680,65 @@ res:
 ]
 ```
 
+##suppliers
 
- 
+###PUT meta_supplier_type
+req:
+```json
+{
+  "supplier_type_type":1,
+  "supplier_type_name":"修理厂"
+}
+```
+
+res:
+```json
+{
+  "supplier_type_type":1,
+  "supplier_type_name":"修理厂"
+}
+```
+
+###GET meta_supplier_types
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **supplier_type_type**   |long  |optional    ||如果该项有值，则根据ID查询
+
+
+exp:
+http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
+
+res:
+```json
+{
+"code":"00000",//成功
+"data":
+    {
+        "cur_page":3,//当前查询页
+        "page_size":10,//每页条数
+        "total_size":20,//总记录数
+        "total_pages":2,//总页数
+        "items":[
+            {
+              "supplier_type_type":123,
+              "name":"奥迪"
+            }
+        ]
+    }
+}
+```
+###DELETE meta_supplier_types/:id
+res:
+```json
+{
+  "code":"00000",
+  "data":
+}
+```
+
 ##orders
 
 ###POST orders
