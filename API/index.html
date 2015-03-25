@@ -202,6 +202,30 @@ res:
 }
 ```
  
+###PUT login/keeper
+  form_parameter |type|level  |  enum| description
+  -|-|-|-|-
+  **phone_number**   |string|required   ||手机号
+  **password**   |string|required   ||密码
+
+ res:
+ ```json
+{
+    "id":1,
+    "name":"姓名",
+    "gender":"male",
+    "keeper_type":"keeper",
+    "layoff":false,
+    "rating":4,
+    "keeper_station":{
+        "name":"管家站名称",
+        "address":"地址",
+        "longitude":11.1,
+        "latitude":22.2
+    }
+}
+```
+ 
 ###GET phone_numbers
 url_parameter |type|level  |  enum| description
  -|-|-|-|-
