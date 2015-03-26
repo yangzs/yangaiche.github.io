@@ -202,6 +202,30 @@ res:
 }
 ```
  
+###PUT login/keeper
+  form_parameter |type|level  |  enum| description
+  -|-|-|-|-
+  **phone_number**   |string|required   ||手机号
+  **password**   |string|required   ||密码
+
+ res:
+ ```json
+{
+    "id":1,
+    "name":"姓名",
+    "gender":"male",
+    "keeper_type":"keeper",
+    "layoff":false,
+    "rating":4,
+    "keeper_station":{
+        "name":"管家站名称",
+        "address":"地址",
+        "longitude":11.1,
+        "latitude":22.2
+    }
+}
+```
+ 
 ###GET phone_numbers
 url_parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -681,8 +705,181 @@ res:
 ]
 ```
 
+##suppliers
 
- 
+###PUT meta_supplier_type
+req:
+```json
+{
+  "supplier_type_type":1,
+  "supplier_type_name":"修理厂"
+}
+```
+
+res:
+```json
+{
+  "supplier_type_type":1,
+  "supplier_type_name":"修理厂"
+}
+```
+
+###GET meta_supplier_types
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **supplier_type_type**   |long  |optional    ||如果该项有值，则根据ID查询
+
+
+exp:
+http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
+
+res:
+```json
+{
+"code":"00000",//成功
+"data":
+    {
+        "cur_page":3,//当前查询页
+        "page_size":10,//每页条数
+        "total_size":20,//总记录数
+        "total_pages":2,//总页数
+        "items":[
+            {
+              "supplier_type_type":123,
+              "name":"奥迪"
+            }
+        ]
+    }
+}
+```
+###DELETE meta_supplier_types/:id
+res:
+```json
+{
+  "code":"00000",
+  "data":
+}
+```
+
+
+###PUT meta_supplier
+req:
+```json
+{
+  "type":1,
+  "name":"修理厂",
+  "contact_name":"联系人",
+  "mobile_number":"138123",
+  "phone_number":"010-123",
+  "supplier_type_ids":[1,2,3],
+  "longitude":110.123,
+  "latitude":123.110,
+  "address_ame":"地址关键字",
+  "address":"地址详细地址",
+  "layoff":false,//true被停工，false正常状态
+  "layoff_start_time":"2011-08-21T18:02:52.249Z",
+  "layoff_end_time":"2011-08-21T18:02:52.249Z",
+  "car_keeper_id":1,//最后打分管家ID
+  "rating":4,//综合分,required
+  "time_socre":4,
+  "price_socre":4,
+  "service_socre":4,
+  "part_socre":4,
+  "work_socre":4,
+  "confirm_socre":4
+}
+```
+
+res:
+```json
+{
+  "type":1,
+  "name":"修理厂",
+  "contact_name":"联系人",
+  "mobile_number":"138123",
+  "phone_number":"010-123",
+  "supplier_type_ids":[1,2,3],
+  "longitude":110.123,
+  "latitude":123.110,
+  "address_ame":"地址关键字",
+  "address":"地址详细地址",
+  "layoff":false,//true被停工，false正常状态
+  "layoff_start_time":"2011-08-21T18:02:52.249Z",
+  "layoff_end_time":"2011-08-21T18:02:52.249Z",
+  "car_keeper_id":1,//最后打分管家ID
+  "rating":4,//综合分,required
+  "time_socre":4,
+  "price_socre":4,
+  "service_socre":4,
+  "part_socre":4,
+  "work_socre":4,
+  "confirm_socre":4
+}
+```
+
+###GET meta_suppliers
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **supplier_type**   |long  |optional    ||如果该项有值，则根据ID查询
+
+
+exp:
+http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
+
+res:
+```json
+{
+"code":"00000",
+"data":
+    {
+        "cur_page":3,
+        "page_size":10,
+        "total_size":20,
+        "total_pages":2,
+        "items":[
+            {
+              "type":1,
+              "name":"修理厂",
+              "contact_name":"联系人",
+              "mobile_number":"138123",
+              "phone_number":"010-123",
+              "supplier_type_ids":[1,2,3],
+              "longitude":110.123,
+              "latitude":123.110,
+              "address_ame":"地址关键字",
+              "address":"地址详细地址",
+              "layoff":false,//true被停工，false正常状态
+              "layoff_start_time":"2011-08-21T18:02:52.249Z",
+              "layoff_end_time":"2011-08-21T18:02:52.249Z",
+              "car_keeper_id":1,//最后打分管家ID
+              "rating":4,//综合分,required
+              "time_socre":4,
+              "price_socre":4,
+              "service_socre":4,
+              "part_socre":4,
+              "work_socre":4,
+              "confirm_socre":4
+            }
+        ]
+    }
+}
+```
+###DELETE meta_suppliers/:id
+res:
+```json
+{
+  "code":"00000",
+  "data":
+}
+```
+
+
 ##orders
 
 ###POST orders
@@ -718,6 +915,134 @@ req:
 
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
+
+###PUT orders
+
+req:
+```json
+{
+    "id": 1, 
+    "phone_number": "123456", 
+    "contact_name": "张三", 
+    "car_user_id": 10, 
+    "car_id": 1, 
+    "location": {
+        "latitude": 12333.1231231, 
+        "longtitude": 1231231.1232, 
+        "name": "豪情酒吧", 
+        "address": "工人体育场西路7号"
+    }, 
+    "pick_time": "2011-08-21T18:02:52.249Z", 
+    "pick_time_segment": "00:00-00:30", 
+    "operator_id": 1, 
+    "supplier_ids": [
+        1, 
+        2, 
+        3
+    ], 
+    "coupon_id": 1, 
+    "coupon_code": "abcde", 
+    "order_status": "pending", 
+    "comment": "备注信息", 
+    "supplier_rating": 3, 
+    "keeper_rating": 3, 
+    "order_rating": 3, 
+    "user_evaluation": "做的好", 
+    "total_price": 12.3, 
+    "source_ditch": "app、wechat、alipay、xiaomi、guoqing、callcenter、keeper", 
+    "source_order_id": 1, 
+    "products": [
+        {
+            "id": 1, 
+            "product_id": 1, 
+            "product_name": "商品名", 
+            "quantity": 2, 
+            "price": 11, 
+            "labour_price": 22, 
+            "total_price": 44, 
+            "comment": "说明", 
+            "souce_inspection": "发动机检测", 
+            "pic_id": [
+                1, 
+                2, 
+                3
+            ]
+        }
+    ], 
+    "inspections": {
+        "first_surface": [
+            {
+                "id": 1, 
+                "name": "初检外观—左侧", 
+                "pic_id": 1
+            }
+        ], 
+        "first_item": [
+            {
+                "id": 1, 
+                "name": "发动机", 
+                "comment": "说明", 
+                "result": true
+            }
+        ], 
+        "overall": [
+            {
+                "id": 1, 
+                "name": "发动机", 
+                "comment": "说明", 
+                "result": true, 
+                "pic_ids": [
+                    1, 
+                    2, 
+                    3
+                ]
+            }
+        ]
+    }
+}
+```
+
+###GET meta_orders
+url_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **page**   |int |required   ||第几页
+ **size**  |int |required   ||每页条数
+ **key**   |String  |optional    ||搜索关键字
+ **order_status**   |String  |optional    ||订单状态(未认领、未完成、已完成等enum)
+ **operator_type**   |String  |optional    ||客服类型(普通、主管)
+ **order_id**   |long  |optional    ||如果该项有值，则根据ID查询
+
+
+exp:
+http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
+
+res:
+```json
+{
+"code":"00000",
+"data":
+    {
+        "cur_page":3,
+        "page_size":10,
+        "total_size":20,
+        "total_pages":2,
+        "items":[
+            {
+              "id": 1, 
+              "order_number":"201201011",
+              "car_model_info":"车型信息",
+              "car_info":"车牌信息",
+              "user_name":"客户姓名",
+              "service_type":"接还车",
+              "source_ditch":"app",
+              "create_time":"2011-08-21T18:02:52.249Z",
+              "operator_info":"客服姓名",
+              "keeper_info":"管家信息"              
+          }
+        ]
+    }
+}
+```
 
 ###GET orders/:id
 res:
