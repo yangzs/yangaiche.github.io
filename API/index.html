@@ -375,6 +375,7 @@ res:
 
 url_parameter |type|level | description
  -|-|-|-|-
+ **key**	|String|optional ||模糊查询关键字
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
 
@@ -393,7 +394,7 @@ url_parameter |type|level | description
     "total_pages":2,//总页数
     items:[
       "brand_type":123,
-      "img":"http://ddd/test.jpg",
+      "bran_img":"http://ddd/test.jpg",
       "brand_name":"奥迪"
     ]
   }
@@ -405,7 +406,8 @@ url_parameter |type|level | description
 req:
 ```json
   {
-    "brand_name":"大众"
+    "brand_name":"大众",
+	"logo_attachment_type":1
   }
 
 ```
@@ -413,7 +415,8 @@ res:
 ```json
   {
     "brand_type":1,
-    "brand_name":"大众"
+    "brand_name":"大众",
+	"logo_attachment_type":1
   }
 
 ```
@@ -427,7 +430,7 @@ res:
 
 url_parameter |type|level | description
  -|-|-|-|-
- **name**	|String |optional || 模糊收索字段
+ **key**	|String |optional || 模糊收索字段
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
 
@@ -446,7 +449,7 @@ url_parameter |type|level | description
     "total_pages":2,//总页数
     items:[
       "category_type":123,
-      "category_name":"http://ddd/test.jpg",
+      "category_name":"车系",
       "brand_name":"奥迪"
     ]
   }
@@ -460,7 +463,7 @@ req:
   {
     "category_type": 2,
 	"brand_type": 9,
-	"name": "测试3"
+	"category_name": "测试3"
   }
 
 ```
@@ -468,6 +471,7 @@ res:
 ```json
   {
     "category_type":1,
+	"bran_type":2,
     "category_name":"大众"
   }
 
@@ -484,7 +488,7 @@ http://192.168.1.1/v1/api/meta_brand/2
 
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **name**	|int |required	 ||模糊查询字段
+ **key**	|int |required	 ||模糊查询字段
  **page**   |int |required   ||第几页
  **items**  |int |required   ||每页条数
 
@@ -503,8 +507,6 @@ res:
 		"total_pages":2,//总页数
 		items:[
 			{
-				"brand_type":1,
-				"category_type":1,
 				"model_type":1,
 				"brand_name":"奥迪",
 				"category_name":"A6L",
@@ -520,29 +522,28 @@ res:
 ```
 
 
-###PUT meta_cars
+###PUT meta_car
 req:
 ```json
-[
-  {
-    "brand_type":1,
-    "category_type":1,
-    "model_type":1,
-    "engine_displacement":"1.5T",
-    "first_maintenance_miles":1500.0,
-    "production_year":2015,
-    "producer":"xxx厂商",
-    "engine_oil_amount":5.0,
-    "parts":[   //optional 根据part_type 创建或者更新
-      {
-        "part_type":1,
-        "cycle_miles":2000,
-        "cycle_days":50,
-        "labour_price":10.0,
-      }
-    ]
-  }
-]
+
+{
+	"model_type":1,
+	"category_type":1,
+	"engine_displacement":"1.5T",
+	"first_maintenance_miles":1500.0,
+	"production_year":2015,
+	"producer":"xxx厂商",
+	"engine_oil_amount":5.0,
+	"parts":[   //optional 根据part_type 创建或者更新
+	  {
+		"part_type":1,
+		"cycle_miles":2000,
+		"cycle_days":50,
+		"labour_price":10.0
+	  }
+	]
+}
+
 ```
 res:
 meta return
@@ -559,7 +560,7 @@ http://192.168.1.1/v1/api/meta_model/2
 res:
 ```json
 {
-    "status":"OK"
+    "status":"00000"
 }
 ```
  
