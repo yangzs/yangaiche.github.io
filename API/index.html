@@ -920,7 +920,7 @@ req:
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
-###PUT orders
+###PUT order
 
 req:
 ```json
@@ -948,7 +948,8 @@ req:
     ], 
     "coupon_id": 1, 
     "coupon_code": "abcde", 
-    "order_status": "pending", 
+    "order_status": "pending",
+    "keeper_id":1,//在修改订单状态、创建初检检测项、添加订单项时不能为空
     "comment": "备注信息", 
     "supplier_rating": 3, 
     "keeper_rating": 3, 
