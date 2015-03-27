@@ -40,8 +40,7 @@
               "type":11,
               "name": "左前轮胎",
               "status": "需更换",
-              "used_hours": 1,
-              "usrd_miles": 123,
+              "used_miles": 123,
               "score": 20,
               "comment": "破损严重,建议更换",
               "last_update_time":"2011-08-21T18:02:52.249Z"
@@ -50,22 +49,19 @@
               "type":2,
               "name": "右前轮胎",
               "status": "需更换",
-              "used_hours": 123,
-              "usrd_miles": 123,
+              "used_miles": 123,
               "score": 8,
               "comment": "破损严重,建议更换2324234234234324234234324234234",
-               "last_update_time":"2011-08-21T18:02:52.249Z"
+              "last_update_time":"2011-08-21T18:02:52.249Z"
             },
             {
               "type":12,
               "name": "右前轮胎",
               "status": "需更换",
-              "used_hours": 123,
-              "usrd_miles": 123,
+              "used_miles": 123,
                "score": 48,
               "comment": "破损严重,建议更换",
               "last_update_time":"2011-08-21T18:02:52.249Z"
-             
             }
           ]
         },
