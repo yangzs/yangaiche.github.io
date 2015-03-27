@@ -37,41 +37,50 @@
           "whole_score": 78,
           "parts": [
               {
-              "type":0,
+              "type":11,
               "name": "左前轮胎",
               "status": "需更换",
-              "used_hours": 123,
+              "used_hours": 1,
               "usrd_miles": 123,
               "score": 20,
               "comment": "破损严重,建议更换"
             },
             {
-              "type":1,
+              "type":2,
               "name": "右前轮胎",
               "status": "需更换",
               "used_hours": 123,
               "usrd_miles": 123,
-              "score": 80,
+              "score": 8,
+              "comment": "破损严重,建议更换2324234234234324234234324234234"
+            },
+            {
+              "type":12,
+              "name": "右前轮胎",
+              "status": "需更换",
+              "used_hours": 123,
+              "usrd_miles": 123,
+              "score": 48,
               "comment": "破损严重,建议更换"
             }
           ]
         },
        "carcare_book": [
         {
-          "miles": 10000,
+          "miles": 7800,
           "events": [
             {
-              "name": "检测机滤",
+              "name": "检测",
               "status": "未完成"
             },
              {
-              "name": "检测机滤",
+              "name": "检测滤",
               "status": "未完成"
             }, {
-              "name": "检测机滤",
+              "name": "检测机",
               "status": "未完成"
             }, {
-              "name": "检测机滤",
+              "name": "检",
               "status": "未完成"
             }, {
               "name": "检测机滤",
@@ -80,9 +89,22 @@
           ]
         },
           {
-          "miles": 10000,
+          "miles": 10100,
           "events": [
             {
+              "name": "检测机滤",
+              "status": "未完成"
+            }
+          ]
+        },
+          {
+          "miles": 10200,
+          "events": [
+            {
+              "name": "检测机滤",
+              "status": "未完成"
+            },
+             {
               "name": "检测机滤",
               "status": "未完成"
             }

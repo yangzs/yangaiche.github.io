@@ -13,13 +13,14 @@
             "category":"",
             "model":"",
             "car_type":-1,
+            "carcare_book":[],
             "brand_img_url":"",
 
                  "scores": {
           "whole_score": 78,
           "parts": [
               {
-              "type":0,
+              "type":1,
               "name": "左前轮胎",
               "status": "需更换",
               "used_hours": 123,
@@ -28,7 +29,7 @@
               "comment": "破损严重,建议更换"
             },
             {
-              "type":1,
+              "type":2,
               "name": "右前轮胎",
               "status": "需更换",
               "used_hours": 123,

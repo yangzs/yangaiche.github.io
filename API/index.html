@@ -194,7 +194,7 @@ res:
 
 
 
-###PUT login
+###POST login
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **open_id**   |string|optional   ||第三方id号
@@ -299,7 +299,7 @@ res:
 
 ```
 
-###PUT brands
+###POST brands/update
 req:
 ```json
 [
@@ -352,7 +352,7 @@ res:
 
 ##feedback
  
-###PUT feedback
+###POST feedback
  
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -406,15 +406,11 @@ url_parameter |type|level | description
  
 ```
 
-###PUT meta_brand
-req:
-```json
-  {
-    "brand_name":"大众",
-	"logo_attachment_type":1
-  }
+###POST meta_brand
+ url_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **brand_name**   |int|required   ||brand type
 
-```
 res:
 ```json
   {
