@@ -948,7 +948,7 @@ req:
     ], 
     "coupon_id": 1, 
     "coupon_code": "abcde", 
-    "order_status": "1,接车;2,还车",
+    "order_status": "1，确认；2,接车;3,还车；4,已结算",
     "keeper_id":1,//在修改订单状态、创建初检检测项、添加订单项时不能为空
     "comment": "备注信息", 
     "supplier_rating": 3, 
@@ -968,7 +968,8 @@ req:
             "labour_price": 22, 
             "total_price": 44, 
             "comment": "说明", 
-            "source_inspection": "发动机检测", 
+            "source_inspection": "发动机检测",
+            "order_item_status":"0,未完成；1,已完成"
             "pic_id": [
                 1, 
                 2, 
