@@ -206,7 +206,7 @@ res:
 }
 ```
  
-###PUT login/keeper
+###POST login/keeper
   form_parameter |type|level  |  enum| description
   -|-|-|-|-
   **phone_number**   |string|required   ||手机号
@@ -420,11 +420,13 @@ res:
   }
 
 ```
-###DELETE meta_brand
-
- url_parameter |type|level  |  enum| description
+###POST meta_brand/delete
+form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **type**   |int|required   ||brand type
+
+ res:
+ meta reutrn
  
  ###GET meta_categorys
 
@@ -457,13 +459,13 @@ url_parameter |type|level | description
  
 ```
 
-###PUT meta_category
+###POST meta_category/update
 req:
 ```json
   {
-    "category_type": 2,
-	"brand_type": 9,
-	"category_name": "测试3"
+     "category_type": 2,
+	   "brand_type": 9,
+	   "category_name": "测试3"
   }
 
 ```
@@ -471,19 +473,20 @@ res:
 ```json
   {
     "category_type":1,
-	"bran_type":2,
+	  "bran_type":2,
     "category_name":"大众"
   }
 
 ```
-###DELETE meta_category
+###POST meta_category/delete
 
- url_parameter |type|level  |  enum| description
+ form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **type**   |int|required   ||category type
 
-exp:
-http://192.168.1.1/v1/api/meta_brand/2
+res:
+meta return
+
 ###GET meta_cars
 
 url_parameter |type|level  |  enum| description
@@ -521,8 +524,32 @@ res:
 }
 ```
 
+###POST meta_car/create
+req:
+```json
 
-###PUT meta_car
+{
+  "model_type":1,
+  "category_type":1,
+  "engine_displacement":"1.5T",
+  "first_maintenance_miles":1500.0,
+  "production_year":2015,
+  "producer":"xxx厂商",
+  "engine_oil_amount":5.0,
+  "parts":[   //optional 根据part_type 创建或者更新
+    {
+    "part_type":1,
+    "cycle_miles":2000,
+    "cycle_days":50,
+    "labour_price":10.0
+    }
+  ]
+}
+
+```
+res:
+meta return
+###POST meta_car/update
 req:
 ```json
 
@@ -548,14 +575,12 @@ req:
 res:
 meta return
 
-###DELETE meta_car
+###POST meta_car/delete
 
- url_parameter |type|level  |  enum| description
+ form_parameter |type|level  |  enum| description
  -|-|-|-|-
  **mode_type**   |int|required   ||model type
 
-exp:
-http://192.168.1.1/v1/api/meta_model/2
 
 res:
 ```json
@@ -566,13 +591,11 @@ res:
  
 
 
-###DELETE cars
-  url_parameter |type|level  |  enum| description
+###POST cars/delete
+  form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **car_ids**   |int|required   ||车辆id
+ **car_ids**   |int array|required   |[1,2,3]|车辆id
 
-exp:
-http://192.168.1.1/v1/api/cars?car_ids=1,2,3
 
 res:
 ```json
@@ -646,7 +669,7 @@ res:
     }
 ```
 
-###PUT coupons
+###POST coupons
 兑换优惠码
  
   form_parameter |type|level  |  enum| description
@@ -706,8 +729,22 @@ res:
 ```
 
 ##suppliers
+###POST meta_supplier_type/create
+req:
+```json
+{
+  "supplier_type_name":"修理厂"
+}
+```
+res:
+```json
+{
+  "supplier_type_type":1,
+  "supplier_type_name":"修理厂"
+}
+```
 
-###PUT meta_supplier_type
+###POST meta_supplier_type/update
 req:
 ```json
 {
@@ -716,13 +753,8 @@ req:
 }
 ```
 
-res:
-```json
-{
-  "supplier_type_type":1,
-  "supplier_type_name":"修理厂"
-}
-```
+meta return 
+
 
 ###GET meta_supplier_types
 url_parameter |type|level  |  enum| description
@@ -755,7 +787,10 @@ res:
     }
 }
 ```
-###DELETE meta_supplier_types/:id
+###POST meta_supplier_types/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **type**   |int |required   |[1,2,3]|types
 res:
 ```json
 {
@@ -765,7 +800,7 @@ res:
 ```
 
 
-###PUT meta_supplier
+###POST meta_supplier/update
 req:
 ```json
 {
@@ -870,7 +905,10 @@ res:
     }
 }
 ```
-###DELETE meta_suppliers/:id
+###POST meta_suppliers/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **ids**   |json|required   |[1,2,3]|supply ids
 res:
 ```json
 {
@@ -916,7 +954,7 @@ req:
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
-###PUT orders
+###POST orders/update
 
 req:
 ```json
@@ -1052,7 +1090,10 @@ res:
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
-###DELETE order/:order_id
+###POST order/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **order_id**   |json|required   ||order_id
 res:
 <object type="text/html" data="orders.json" width=100% height="450"></object>
 
@@ -1221,7 +1262,7 @@ res:
     }
 }
 ```
-###PUT meta_product_brand
+###POST meta_product_brands/update
 req:
 ```json
 [
@@ -1247,8 +1288,10 @@ res:
     ]
 }
 ```
-###DELETE meta_product_brands/:id
-
+###POST meta_product_brands/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **types**   |json|required   |[1,2,3]|
 res:
 ```json
 {
@@ -1301,7 +1344,7 @@ res:
 }
 ```
 
-###PUT meta_product_category
+###POST meta_product_category
 req:
 ```json
 {
@@ -1342,7 +1385,12 @@ res:
           }
 }
 ```
-###DELETE meta_product_category/:id
+
+###POST meta_product_category/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **type**   |int|required   ||category type
+
 res:
 ```json
 {
@@ -1350,7 +1398,12 @@ res:
   "data":
 }
 ```
-###DELETE meta_product_category/attribute/:id
+###POST meta_product_category/attribute/delete
+
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+  **attribute_type**   |int|required   ||attribute type
+ **category_type**   |int|required   ||category type
 res:
 ```json
 {
@@ -1405,7 +1458,7 @@ res:
 }
 ```
 
-###PUT meta_product
+###POST meta_product/update
 req:
 ```json
 {
@@ -1466,7 +1519,7 @@ res:
           ]
 }
 ```
-###PUT meta_model_part_product
+###POST meta_model_part_product/update
 req:
 ```json
 [
@@ -1500,8 +1553,8 @@ res:
 ```
 
 
-###DELETE product
-url_parameter |type|level  |  enum| description
+###POST product/delete
+form_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **parent_type**   |int|required   ||父级type
  **current_type**   |int|required   ||子级type
