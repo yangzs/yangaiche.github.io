@@ -1,7 +1,8 @@
 {
     "basic": {
-      "id": 1233333,
+      "id": 0,
       "phone_number": "15010111335",
+      "phone_verified":false,
       "name": "刘正青",
       "gender": "male",
       "source":"ali",
