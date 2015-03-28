@@ -1362,12 +1362,25 @@ res:
 ###POST meta_product_brands/delete
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **types**   |json|required   |[1,2,3]|
+ **type**   |json|required   |product_brand_type|
 res:
 ```json
 {
   "code":"00000",
   "data":
+}
+```
+###GET meta_product_brand/{type}
+res:
+```json
+{
+	"code": "00000",
+	"data": {
+		"prodcut_type": 1,
+		"product_name": "测试",
+		"logo_id": -1,
+		"logo_img_url": ""
+	}
 }
 ```
 
@@ -1377,8 +1390,6 @@ url_parameter |type|level  |  enum| description
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
  **key**   |String  |optional    ||搜索关键字
- **parent_type**   |int  |optional    ||父类型ID，为0则查所有一级分类
- **current_type**   |int  |optional    ||如果该项有值，则根据ID查询
 
 exp:
 http://192.168.1.1/v1/api/product?page=3&size=10&current_type=10&parent_type=1&key=搜索
@@ -1386,32 +1397,27 @@ http://192.168.1.1/v1/api/product?page=3&size=10&current_type=10&parent_type=1&k
 res:
 ```json
 {
-    "code": "00000",
-    "data":
-          {
-              "cur_page":3,
-              "page_size":10,
-              "total_size":20,
-              "total_pages":2,
-              "items":[
-                        {
-                            "parent_type":1, //可空
-                            "parent_name":"父分类名",
-                            "current_type":10,
-                            "supplier_type_id":1,
-                            "category_name":"分类名",//required
-                            "attributes":[
-                                {
-                                  "id":1,
-                                  "name":"",//属性名称
-                                  "desc":"",//属性描述
-                                  "type":"",//数据类型 string  float  int time binary
-                                  "unit":"米"//单位
-                                }
-                            ]
-                        }
-              ]
-          }
+	"code": "00000",
+	"data": {
+		"cur_page": 1,
+		"page_size": 2,
+		"total_size": 2,
+		"total_page": 1,
+		"items": [
+			{
+				"current_category_type": 2,
+				"parent_category_type": 1,
+				"parent_category_name": "分类名2",
+				"current_category_name": "分类名w2"
+			},
+			{
+				"current_category_type": 3,
+				"parent_category_type": 1,
+				"parent_category_name": "分类名2",
+				"current_category_name": "分类g名w2"
+			}
+		]
+	}
 }
 ```
 
@@ -1460,6 +1466,32 @@ res:
   "data":
 }
 ```
+###GET meta_product_category/{type}
+res:
+```json
+{
+	"code": "00000",
+	
+	"data": {
+		"product_category": {
+			"current_category_type": 2,
+			"parent_category_type": 1,
+			"category_name": "分类名w2",
+			"supplier_type_id": -1
+		},
+		"attributes": [
+			{
+				"id": 4,
+				"type": "String",
+				"describes": "ww",
+				"name": "ww",
+				"unit": "米"
+			}
+		]
+	}
+}
+```
+
 
 ###GET meta_products
 url_parameter |type|level  |  enum| description
@@ -1467,8 +1499,6 @@ url_parameter |type|level  |  enum| description
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
  **key**   |String  |optional    ||搜索关键字
- **product_category_id**   |int  |optional    ||分类ID
- **product_brand_id**   |int  |optional    ||品牌ID
 
 exp:
 http://192.168.1.1/v1/api/product?page=3&size=10&id=10&product_category_id=1&key=搜索
@@ -1550,6 +1580,51 @@ res:
 }
 ```
 
+###POST meta_product/delete
+form_parameter |type|level  |  enum| description
+ -|-|-|-|- 
+ **id**   |int|required   ||type
+ **type** |int|optional   ||当type为空时为逻辑删除。不为空时为物理删除
+
+res:
+```json
+{
+    "status":"OK"
+}
+```
+
+###GET meta_product/{id}
+res:
+```json
+{
+	"code": "00000",
+	"data": {
+		"product": {
+			"id": 1,
+			"cost": 12.5,
+			"price": 125,
+			"product_brand_type": 1,
+			"product_category_type": 1,
+			"product_name": "商品名21"
+		},
+		"properties": [
+			{
+				"id": 1,
+				"name": "属性",
+				"value": "12",
+				"product_id": 1
+			},
+			{
+				"id": 2,
+				"name": "属性",
+				"value": "123",
+				"product_id": 1
+			}
+		]
+	}
+}
+```
+
 ###GET meta_model_part_product/:car_model_id
 res:
 ```json
@@ -1599,22 +1674,6 @@ res:
                 "recommended":true
               }
           ]
-}
-```
-
-
-###POST product/delete
-form_parameter |type|level  |  enum| description
- -|-|-|-|- 
- **id**   |int|required   ||type
- **type** |int|optional   ||当type为空时为逻辑删除。不为空时为物理删除
-```
-
-
-res:
-```json
-{
-    "status":"OK"
 }
 ```
 
