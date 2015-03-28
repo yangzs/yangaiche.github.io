@@ -280,21 +280,66 @@ res:
     "version":"v1"  //链接中的版本号
  }
 ```
-
-
-
-###GET brands
+###GET models
+url_parameter |type|level  |enum| description
+-|-|-|-|-
+**brand_type**| int |required| |brand type
+**category_type**| int |required| | category type
 
 res:
 ```json
 [
+{
+            "type":1,
+            "name":"豪华版 2.0T",
+  }
+]
+
+```
+###GET categorys
+url_parameter |type|level  |enum| description
+-|-|-|-|-
+**brand_type**| int |required| |brand type
+**all**   |int|required   |0,1|是否包含model
+
+res:
+```json
+
+    [
+       {
+       "category_type":1,
+       "name":"途观",
+
+       "models":[
+          {
+            "type":1,
+            "name":"豪华版 2.0T",
+         }
+       ],
+       }
+    ],
+
+```
+
+
+###GET brands
+url_parameter |type|level  |enum| description
+-|-|-|-|-
+**all**   |int|required   |0,1|是否包含category model
+res:
+```json
+[
    {
+   "brand_type":1,
+   "letter":"D",
     "name":"大众",
     "img_url":"http://www.baidu.com/a.png",
     "categories":
     [
        {
+       "category_type":1,
        "name":"途观",
+
        "models":[
           {
             "type":1,  
