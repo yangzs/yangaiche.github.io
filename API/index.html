@@ -642,8 +642,29 @@ res:
     "status":"00000"
 }
 ```
- 
-
+###POST part/update
+form_parameter |type|level  |  enum| description
+ -|-|-|-|-
+ **car_id**   |int |required   |car id
+ **part_type** | int |required| part type
+ **miles**|int |required|里程数
+ **last_update_time**| string| required|部件更新UTC时间
+res:
+```json
+ {
+          "whole_score": 78,
+          "parts": [
+              {
+              "type":11,
+              "name": "左前轮胎",
+              "status": "需更换",
+              "used_miles": 123,
+              "score": 20,
+              "comment": "破损严重,建议更换",
+              "last_update_time":"2015-03-26T18:02:52.249Z"
+            },
+}
+```
 
 ###POST cars/delete
   form_parameter |type|level  |  enum| description
