@@ -1320,47 +1320,43 @@ http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
 res:
 ```json
 {
-"code":"00000",//成功
-"data":
-    {
-        "cur_page":3,//当前查询页
-        "page_size":10,//每页条数
-        "total_size":20,//总记录数
-        "total_pages":2,//总页数
-        "items":[
-            {
-              "id":123,
-              "logo_img_url":"http://ddd/test.jpg",
-              "name":"奥迪"
-            }
-        ]
-    }
+	"code": "00000",
+	"data": {
+		"cur_page": 1,
+		"page_size": 1,
+		"total_size": 1,
+		"total_page": 1,
+		"items": [
+			{
+				"prodcut_type": 1,//商品标识
+				"product_name": "测试",//商品名称
+				"logo_id": -1,//图标标识
+				"logo_img_url": ""//图标路径
+			}
+		]
+	}
 }
 ```
-###POST meta_product_brands/update
+###POST meta_product_brand
 req:
 ```json
-[
-  {
-    "id":1
-    "name":"米其林",
-    "logo_id":1
-  }
-]
+{
+    "product_brand_type":1,//商品品牌标识，只有在更新时此参数必须
+    "product_brand_name":"测试",//品牌名称
+	"logo_id": -1//图标标识
+}
 ```
 
 res:
 ```json
 {
-"code":"00000",
-"data":
-    [
-        {
-          "id":1,
-          "name":"米其林",
-          "logo_img_url":"http://ddd/test.jpg"          
-        }
-    ]
+	"code": "00000",
+	"data": {
+		"prodcut_brand_type": 1,//
+		"product_brand_name": "测试",
+		"logo_id": -1,
+		"logo_img_url": ""
+	}
 }
 ```
 ###POST meta_product_brands/delete
@@ -1375,7 +1371,7 @@ res:
 }
 ```
 
-###GET meta_product_category
+###GET meta_product_categorys
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **page**   |int |required   ||第几页
@@ -1403,7 +1399,7 @@ res:
                             "parent_name":"父分类名",
                             "current_type":10,
                             "supplier_type_id":1,
-                            "name":"分类名",//required
+                            "category_name":"分类名",//required
                             "attributes":[
                                 {
                                   "id":1,
@@ -1423,17 +1419,18 @@ res:
 req:
 ```json
 {
-  "parent_type":1, //可空
-  "current_type":10,
-  "supplier_type_id":1,
-  "name":"分类名",//required
+  "product_category":{
+        "current_category_type":2,//子类
+        "parent_category_type":1,//父类，如果没有父类，则先添加父类
+        "category_name":"分类名w2"//分类名
+		"supplier_type_id":""//支持的供应商
+  },
   "attributes":[
         {
-          "id":1,
-          "name":"",//属性名称
-          "desc":"",//属性描述
-          "type":"",//数据类型 string  float  int time binary
-          "unit":"米" //单位
+          "name":"ww",
+          "describes":"ww",
+          "type":"String",
+          "unit":"米"
         }
     ]
 }
@@ -1441,23 +1438,13 @@ req:
 res:
 ```json
 {
-    "code": "00000",
-    "data":
-          {
-            "parent_type":1, //可空
-            "current_type":10,
-            "supplier_type_id":1,
-            "name":"分类名",//required
-            "attributes":[
-                  {
-                    "id":1,
-                    "name":"",//属性名称
-                    "desc":"",//属性描述
-                    "type":"",//数据类型 string  float  int time binary
-                    "unit":"米"//单位
-                  }
-              ]
-          }
+	"code": "00000",
+	"data": {
+		"current_category_type": 3,
+		"parent_category_type": 1,
+		"category_name": "分类g名w2",
+		"supplier_type_id": -1
+	}
 }
 ```
 
@@ -1473,21 +1460,8 @@ res:
   "data":
 }
 ```
-###POST meta_product_category/attribute/delete
 
-form_parameter |type|level  |  enum| description
- -|-|-|-|-
-  **attribute_type**   |int|required   ||attribute type
- **category_type**   |int|required   ||category type
-res:
-```json
-{
-  "code":"00000",
-  "data":
-}
-```
-
-###GET meta_product
+###GET meta_products
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **page**   |int |required   ||第几页
@@ -1495,7 +1469,6 @@ url_parameter |type|level  |  enum| description
  **key**   |String  |optional    ||搜索关键字
  **product_category_id**   |int  |optional    ||分类ID
  **product_brand_id**   |int  |optional    ||品牌ID
- **id**   |int  |optional    ||如果该项有值，则根据ID查询
 
 exp:
 http://192.168.1.1/v1/api/product?page=3&size=10&id=10&product_category_id=1&key=搜索
@@ -1503,51 +1476,45 @@ http://192.168.1.1/v1/api/product?page=3&size=10&id=10&product_category_id=1&key
 res:
 ```json
 {
-    "code": "00000",
-    "data":
-          {
-              "cur_page":3,
-              "page_size":10,
-              "total_size":20,
-              "total_pages":2,
-              "items":[
-                        {
-                            "id":1, 
-                            "name":"商品名",
-                            "product_category_id":10,
-                            "product_category_name":"分类名",
-                            "product_brand_id":10,
-                            "product_brand_name":"品牌名",                            
-                            "cost",1.1,
-                            "price":11,
-                            "attributes":[
-                                {
-                                  "id":1,
-                                  "name":"",
-                                  "value":"",
-                                }
-                            ]
-                        }
-              ]
-          }
+	"code": "00000",
+	"data": {
+		"cur_page": 1,
+		"page_size": 1,
+		"total_size": 1,
+		"total_page": 1,
+		"items": [
+			{
+				"id": 1,//ID
+				"cost": 12.5,//成本
+				"price": 125,//售价
+				"product_brand_name": "测试",//品牌
+				"product_category_name": "分类名2",//类别
+				"product_name": "商品名21"//名称
+			}
+		]
+	}
 }
 ```
 
-###POST meta_product/update
+###POST meta_product
 req:
 ```json
 {
-  "id":1, 
-  "product_category_type":10,
-  "product_brand_type":10,
-  "name":"商品名",//required
-  "cost":12.5,
-  "price":125.0,
-  "attributes":[
+    "product":{
+        "product_category_type":1,
+        "product_brand_type":1,
+        "product_name":"商品名21",
+        "cost":12.5,
+        "price":125.0
+    },
+    "properties":[
         {
-          "id":1,
-          "name":"",
-          "value":"",
+          "name":"属性",
+          "value":"12"
+        },
+        {
+          "name":"属性",
+          "value":"123"
         }
     ]
 }
@@ -1555,23 +1522,31 @@ req:
 res:
 ```json
 {
-    "code": "00000",
-    "data":
-          {
-            "id":1, 
-            "product_category_type":10,
-            "product_brand_type":10,
-            "name":"商品名",
-            "cost":12.5,
-            "price":125.0,
-            "attributes":[
-                  {
-                    "id":1,
-                    "name":"",
-                    "value":"",
-                  }
-              ]
-          }
+	"code": "00000",
+	"data": {
+		"product": {
+			"id": 1,
+			"cost": 12.5,
+			"price": 125,
+			"product_brand_type": 1,//商品品牌标识
+			"product_category_type": 1,//商品类别标识
+			"product_name": "商品名21"
+		},
+		"properties": [
+			{
+				"id": 1,
+				"name": "属性",
+				"value": "12",
+				"product_id": 1
+			},
+			{
+				"id": 2,
+				"name": "属性",
+				"value": "123",
+				"product_id": 1
+			}
+		]
+	}
 }
 ```
 
@@ -1631,9 +1606,8 @@ res:
 ###POST product/delete
 form_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **parent_type**   |int|required   ||父级type
- **current_type**   |int|required   ||子级type
- 
+ **id**   |int|required   ||type
+ **type** |int|optional   ||当type为空时为逻辑删除。不为空时为物理删除
 ```
 
 
@@ -1644,13 +1618,6 @@ res:
 }
 ```
 
-
-###GET products
-url_parameter |type|level  |  enum| description
- -|-|-|-|- 
- **car_type**   |int|required   ||车第3级车typed
- **service_type**   |int|required   ||服务类型
-res:
 <object type="text/html" data="products.json" width=100% height="450"></object>
 
 
