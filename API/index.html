@@ -1028,7 +1028,7 @@ req:
     "pick_time_segment": "00:00-00:30", 
     "operator_id": 1,
     "order_type":"ss",
-    "service_type":"keeper/mechanic"
+    "service_type":"keeper/mechanic",
     "supplier_ids": [
         1, 
         2, 
@@ -1070,6 +1070,7 @@ req:
             "id": 10, 
             "car_inspection_type": "surface", //外观检测
             "description": "描述信息", 
+            "keeper_id":1,
             "items": [
                 {
                     "id": 1, 
@@ -1084,6 +1085,7 @@ req:
             "id": 10, 
             "car_inspection_type": "takeCar", //初检
             "description": "描述信息", 
+            "keeper_id":1,
             "items": [
                 {
                     "id": 1, 
@@ -1096,7 +1098,8 @@ req:
         {
             "id": 10, 
             "car_inspection_type": "garage", //全检
-            "description": "描述信息", 
+            "description": "描述信息",
+            "keeper_id":1, 
             "items": [
                 {
                     "id": 1, 
