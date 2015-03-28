@@ -1065,36 +1065,54 @@ req:
             ]
         }
     ], 
-    "inspections": {
-        "first_surface": [
-            {
-                "id": 1, 
-                "name": "初检外观—左侧", 
-                "pic_id": [1]
-            }
-        ], 
-        "first_item": [
-            {
-                "id": 1, 
-                "name": "发动机", 
-                "comment": "说明", 
-                "result": true
-            }
-        ], 
-        "overall": [
-            {
-                "id": 1, 
-                "name": "发动机", 
-                "comment": "说明", 
-                "result": true, 
-                "pic_id": [
-                    1, 
-                    2, 
-                    3
-                ]
-            }
-        ]
-    }
+    "inspections": [
+        {
+            "id": 10, 
+            "car_inspection_type": "surface", //外观检测
+            "description": "描述信息", 
+            "items": [
+                {
+                    "id": 1, 
+                    "name": "初检外观—左侧", 
+                    "pic_id": [
+                        1
+                    ]
+                }
+            ]
+        }, 
+        {
+            "id": 10, 
+            "car_inspection_type": "takeCar", //初检
+            "description": "描述信息", 
+            "items": [
+                {
+                    "id": 1, 
+                    "name": "发动机", 
+                    "comment": "说明", 
+                    "result": true
+                }
+            ]
+        }, 
+        {
+            "id": 10, 
+            "car_inspection_type": "garage", //全检
+            "description": "描述信息", 
+            "items": [
+                {
+                    "id": 1, 
+                    "name": "发动机", 
+                    "comment": "说明", 
+                    "result": true, 
+                    "pic_id": [
+                        1, 
+                        2, 
+                        3
+                    ]
+                }
+            ]
+        }
+    ]
+    
 }
 ```
 
