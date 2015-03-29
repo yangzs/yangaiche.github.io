@@ -99,17 +99,36 @@
       "start_time": "2011-08-21T18:02:52.249Z",
       "end_time":"2011-08-21T18:02:52.249Z",
       "products": [
-        {
-                "id":2,
-                "product_type": 9,
-                "name": "蓝壳",
-                "recommended":true,
-                "description": "蓝壳",
-                "labour_price":15.0,
-                "unit":"升",
-                "unit_count":1,
-                "price": 68.0
-        }
+              {
+                  "id": 32, 
+                  "product_type": 1, 
+                  "product_name": "管家接车", 
+                  "quantity": 2, 
+                  "price": 100, 
+                  "labour_price": 22, 
+                  "total_price": 44, 
+                  "comment": "说明111", 
+                  "source_inspection": "发动机检测",
+                  "complete":true
+              },
+              {
+                  "id": 1, 
+                  "product_type": 3, 
+                  "product_name": "轮胎A11", 
+                  "quantity": 1, 
+                  "price": 99, 
+                  "labour_price": 0, 
+                  "total_price": 44, 
+                  "comment": "说明111", 
+                  "source_inspection": "发动机检测",
+                  "pic_id":[
+                        {
+                          "id": 1,
+                          "thumbnail_pic":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
+                          "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+                        }
+                  ]
+              }
       ],
       "client_feedback": {
         "if_feedback_commited":false,
