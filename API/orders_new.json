@@ -52,7 +52,11 @@
             }
       ],
       "operator":{
-          
+          "id":1,
+          "name":"张三",
+          "gender":"male",
+          "type":"operator",
+          "avatar_img": "http://gtms03.alicdn.com/tps/i3/TB1ZzVhFFXXXXXLbpXXkpw8JVXX-96-96.png"
       },
       "client_basic": {
         "id": 1233333,
