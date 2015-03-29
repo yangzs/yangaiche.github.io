@@ -995,6 +995,7 @@ res:
 
 ##orders
 
+<!--
 ###POST orders
   form_parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -1023,11 +1024,8 @@ req:
       ]
   }
 ]
-
 ```
-
-res:
-<object type="text/html" data="orders.json" width=100% height="450"></object>
+-->
 
 ###POST orders/update
 
@@ -1140,6 +1138,9 @@ req:
 }
 ```
 
+res:
+<object type="text/html" data="orders_new.json" width=100% height="450"></object>
+
 ###GET meta_orders
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
@@ -1184,7 +1185,7 @@ res:
 
 ###GET orders/:id
 res:
-<object type="text/html" data="orders.json" width=100% height="450"></object>
+<object type="text/html" data="orders_new.json" width=100% height="450"></object>
 
 ###POST order/delete
 form_parameter |type|level  |  enum| description
