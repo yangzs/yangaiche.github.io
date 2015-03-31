@@ -1,0 +1,113 @@
+{
+    "code": "00000", 
+    "data": [
+        {
+            "key": "2015-03-31 周二", 
+            "total_keeper_size": 4, 
+            "data": [
+                {
+                    "segment": "08:00-09:00", 
+                    "free_keeper_size": 2
+                }, 
+                {
+                    "segment": "09:00-10:00", 
+                    "free_keeper_size": 3
+                }, 
+                {
+                    "segment": "10:00-11:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "11:00-12:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "12:00-13:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "13:00-14:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "14:00-15:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "15:00-16:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "16:00-17:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "17:00-18:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "18:00-19:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "19:00-20:00", 
+                    "free_keeper_size": 4
+                }
+            ]
+        }, 
+        {
+            "key": "2015-04-01 周三", 
+            "total_keeper_size": 4, 
+            "data": [
+                {
+                    "segment": "08:00-09:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "09:00-10:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "10:00-11:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "11:00-12:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "12:00-13:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "13:00-14:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "14:00-15:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "15:00-16:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "16:00-17:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "17:00-18:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "18:00-19:00", 
+                    "free_keeper_size": 4
+                }, 
+                {
+                    "segment": "19:00-20:00", 
+                    "free_keeper_size": 4
+                }
+            ]
+        }
+    ]
+}
