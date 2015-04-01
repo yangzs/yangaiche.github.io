@@ -1,0 +1,61 @@
+{
+    "code": "00000", 
+    "data": [
+        {
+            "id": 1, 
+            "status": "已过期", 
+            "name": "啊", 
+            "number": "123", 
+            "value": 20, 
+            "expired_time": "2015-03-31T14:45:29.000"
+        }, 
+        {
+            "id": 3, 
+            "status": "未使用", 
+            "name": "代金券50.0元", 
+            "number": "6jABRt", 
+            "value": 50, 
+            "expired_time": "2015-04-05T11:22:55.000"
+        }, 
+        {
+            "id": 10, 
+            "status": "未使用", 
+            "name": "代金券50.0元", 
+            "number": "3s1t82", 
+            "value": 50, 
+            "expired_time": "2015-04-05T11:22:55.000"
+        }, 
+        {
+            "id": 13, 
+            "status": "未使用", 
+            "name": "代金券20.0元", 
+            "number": "AcoRxL", 
+            "value": 20, 
+            "expired_time": "2015-04-07T11:22:55.000"
+        }, 
+        {
+            "id": 14, 
+            "status": "已过期", 
+            "name": "代金券50.0元", 
+            "number": "Rs06wm", 
+            "value": 50, 
+            "expired_time": "2015-03-05T11:22:55.000"
+        }, 
+        {
+            "id": 15, 
+            "status": "已过期", 
+            "name": "代金券50.0元", 
+            "number": "DOUkEU", 
+            "value": 50, 
+            "expired_time": "2015-03-05T11:22:55.000"
+        }, 
+        {
+            "id": 16, 
+            "status": "未使用", 
+            "name": "代金券20.0元", 
+            "number": "qhq93d", 
+            "value": 20, 
+            "expired_time": "2015-04-07T11:22:55.000"
+        }
+    ]
+}
