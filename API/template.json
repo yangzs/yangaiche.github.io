@@ -1,46 +1,31 @@
  {
-        "car":{    "car_id":2,
-            "licence":
+        "car":{
+        "licence":
             {
                 "province":"京",
-                "number":""
+                "number":"RB0718"
             },
-            "bought_time":"2011-08-21T18:02:52.249Z",
-            "miles":10000,
-            "chassis_number":"",
-            "engine_number":"",
-            "brand":"",
-            "category":"",
-            "model":"",
-            "car_type":-1,
-            "carcare_book":[],
-            "brand_img_url":"",
-
-                 "scores": {
-          "whole_score": 78,
-          "parts": [
-              {
-              "type":1,
-              "name": "左前轮胎",
-              "status": "需更换",
-              "used_hours": 123,
-              "usrd_miles": 123,
-              "score": 80,
-              "comment": "破损严重,建议更换"
-            },
-            {
-              "type":2,
-              "name": "右前轮胎",
-              "status": "需更换",
-              "used_hours": 123,
-              "usrd_miles": 123,
-              "score": 80,
-              "comment": "破损严重,建议更换"
-            }
-          ]
-        }
-
+        "bought_time":"2014-01-21T18:02:52.249Z",
+        "miles":1244,
+        "chassis_number":"",
+        "engine_number":"",
+        "model_type":1,
+        "user_id":1,
+        "brand":"",
+        "brand_img_url":"",
+        "category":"",
+        "model":"",
+        "parts": []
         },
+        "part": {
+                "id":1587,
+                "type": "1",
+                "name": "左前轮胎",
+                "used_miles": 18800,
+                "score": 70,
+                "status": "需检测",
+                "comment": "破损程度一般，建议检测"
+            },
 "order":  {
 
     "contact_name": "张三",
@@ -58,7 +43,6 @@
     ],
     "car_id":1,
     "car_type":1,
-    "service_type": 8,
     "products": [
       {
         "part_type":1,
@@ -81,15 +65,21 @@
         },
 "cart_item":
 {
-      "name":"",
-      "status": "",
-      "fee":0,
-      "keeper_basics": [],
-      "client_basic": {},
-      "place_time": "",
-      "start_time": "",
-      "end_time":"",
-      "products": []
+         "contact_name": "",
+    "phone_number": "",
+    "location": {
+      "latitude": 0,
+      "longtitude": 0,
+      "name": "某地",
+      "address": "某方"
+    },
+    "pick_time": "2011-08-21 周一",
+    "pick_time_segment": "00:00~00:30",
+    "comment": "",
+    "coupon_id_used": [],
+    "car_id":0,
+    "car_type":0,
+    "products":[]
     },
 "product":
     {
