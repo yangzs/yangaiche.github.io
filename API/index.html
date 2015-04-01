@@ -1134,15 +1134,17 @@ req:
 res:
 <object type="text/html" data="orders_new.json" width=100% height="450"></object>
 
-###GET meta_orders
+###GET orders
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
- **page**   |int |required   ||第几页
+ **page**   |int |required   ||第几页,不传则不分页
  **size**  |int |required   ||每页条数
+ **detail**  |Boolean |required   |true or false|是否返回订单详细信息，true返回订单详细信息，false返回订单部分信息用于分页
  **key**   |String  |optional    ||搜索关键字
  **order_status**   |String  |optional    ||订单状态(未认领、未完成、已完成等enum)
  **operator_type**   |String  |optional    ||客服类型(普通、主管)
- **order_id**   |long  |optional    ||如果该项有值，则根据ID查询
+ **order_id**   |long  |optional    ||如果该项有值，则只查询该ID的订单
+ **user_id**   |long  |optional    ||如果该项有值，则只查询该用户的订单
 
 
 exp:
@@ -1175,17 +1177,27 @@ res:
     }
 }
 ```
-
+<!--
 ###GET orders/:id
 res:
 <object type="text/html" data="orders_new.json" width=100% height="450"></object>
+-->
+
 
 ###POST order/delete
-form_parameter |type|level  |  enum| description
- -|-|-|-|-
- **order_id**   |json|required   ||order_id
+
+req:
+```json
+[1,2,3]
+```
+
 res:
-<object type="text/html" data="orders.json" width=100% height="450"></object>
+```json
+{
+  "code":"00000",
+  "data":""
+}
+```
 
 ##packages
 
