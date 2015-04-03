@@ -21,6 +21,9 @@
                 "model": "1款 1T 宝马型", 
                 "brand_img_url": ""
             }, 
+            "qualified_size":1,
+            "unqualified_size":2,
+            "total_size":3,
             "reports": [
                 {
                     "name": "发动机", 
@@ -54,6 +57,9 @@
                 "model": "1款 1T 宝马型", 
                 "brand_img_url": ""
             }, 
+            "qualified_size":1,
+            "unqualified_size":2,
+            "total_size":3,
             "reports": [
                 {
                     "name": "发动机", 
