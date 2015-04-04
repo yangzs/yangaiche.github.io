@@ -1,0 +1,18 @@
+{
+    "basic": {
+      "id": 1,
+      "phone_number": "",
+      "phone_verified":false,
+      "name": "",
+      "gender": "male",
+      "source":"app",
+      "avatar_img": "http://www.baidu.com/a.png"
+    },
+    "location": [],
+    "cars": [],
+    "coupons": [  
+       ],
+    "check_reports": [],
+    "orders": [],
+    "cart": []
+}
