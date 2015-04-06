@@ -42,7 +42,7 @@
     "coupon_id_used": [
     ],
     "car_id":1,
-    "car_type":1,
+     
     "products": [
       {
         "part_type":1,
@@ -63,24 +63,7 @@
           "gender": "male",
           "avatar_img": "http://gtms03.alicdn.com/tps/i3/TB1ZzVhFFXXXXXLbpXXkpw8JVXX-96-96.png"
         },
-"cart_item":
-{
-         "contact_name": "",
-    "phone_number": "",
-    "location": {
-      "latitude": 0,
-      "longtitude": 0,
-      "name": "某地",
-      "address": "某方"
-    },
-    "pick_time": "2011-08-21 周一",
-    "pick_time_segment": "00:00~00:30",
-    "comment": "",
-    "coupon_id_used": [],
-    "car_id":0,
-    "car_type":0,
-    "products":[]
-    },
+
 "product":
     {
                "product_type": 9,
