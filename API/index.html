@@ -1030,6 +1030,49 @@ req:
 ```
 -->
 
+###POST orders/create
+req:
+```json
+{ 
+    "phone_number": "123456", 
+    "contact_name": "张三22", 
+    "car_user_id": 1,
+    "car_id": 1, 
+    "location": {
+        "latitude": 12333.1231231, 
+        "longitude": 1231231.1232, 
+        "name": "豪情酒吧", 
+        "address": "工人体育场西路7号"
+    }, 
+    "pick_time": "2011-08-21 周一", 
+    "pick_time_segment": "08:00-09:00", 
+    "service_type": "keeper", 
+    "comment": "备注信息", 
+    "source_ditch": "app", 
+    "products": [
+        {
+            "product_id": 1, 
+            "part_type":1,
+            "unit_count": 2
+        },
+        {
+            "product_id": 3, 
+            "part_type":1,
+            "unit_count": 1
+        },
+        {
+            "id": 2, 
+            "product_id": 5, 
+            "part_type":1,
+            "unit_count": 1
+        }
+    ],
+    "product_comment":"商品说明"
+}
+```
+res:
+<object type="text/html" data="orders_new.json" width=100% height="450"></object>
+
 ###POST orders/update
 
 req:
