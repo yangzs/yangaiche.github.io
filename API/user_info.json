@@ -131,6 +131,7 @@
       "order_type": "ss",
       "service_type": "keeper",
       "source_ditch": "app", 
+      "status":"未付款",
       "source_order_id": 1,
       "keeper_basics": [
         {
