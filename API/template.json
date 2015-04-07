@@ -27,7 +27,7 @@
                 "comment": "破损程度一般，建议检测"
             },
 "order":  {
-
+	"status":"未支付",
     "contact_name": "张三",
     "phone_number": "1381111111",
     "location": {
@@ -43,13 +43,7 @@
     ],
     "car_id":1,
      
-    "products": [
-      {
-        "part_type":1,
-        "product_type":1,
-        "unit_count": 1
-      }
-    ]
+    "products": [ ]
 
 },
 "keeper": {
@@ -64,10 +58,16 @@
           "avatar_img": "http://gtms03.alicdn.com/tps/i3/TB1ZzVhFFXXXXXLbpXXkpw8JVXX-96-96.png"
         },
 
+"other_product":
+    {
+               "product_type": 0,
+                "name": ""
+        
+            },
 "product":
     {
-               "product_type": 9,
-                "name": "蓝壳",
+               "product_type": 0,
+                "name": "",
                 "recommended":true,
                 "description": "蓝壳",
                 "labour_price":15.0,
