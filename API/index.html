@@ -998,39 +998,7 @@ res:
 
 ##orders
 
-<!--
-###POST orders
-  form_parameter |type|level  |  enum| description
- -|-|-|-|-
- **data**   |json|required   ||请求参数,值为json串,见req
-
-req:
-```json
-[
-  {
-    "contact_name": "张三",
-    "phone_number": "1381111111",
-    "location": {
-      "latitude": 12333.1231231,
-      "longitude": 1231231.1232,
-      "name": "豪情酒吧",
-      "address": "工人体育场西路7号"
-    },
-    "pick_time": "2011-08-21T18:02:52.249Z",
-    "pick_time_segment": "00:00-00:30",
-    "comment": "早点来",ad,
-                  "product_type":1,
-                  "unit_count": 1
-                }
-              ]
-          }
-      ]
-  }
-]
-```
--->
-
-###POST orders/create
+###POST order/create
 req:
 ```json
 { 
@@ -1073,7 +1041,7 @@ req:
 res:
 <object type="text/html" data="orders_new.json" width=100% height="450"></object>
 
-###POST orders/update
+###POST order/update
 
 req:
 ```json
@@ -1237,7 +1205,7 @@ res:
 -->
 
 
-###POST order/delete
+###POST orders/delete
 
 req:
 ```json
