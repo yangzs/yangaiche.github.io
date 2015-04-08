@@ -1,7 +1,7 @@
 {
     "code": "00000", 
     "data": {
-        "product_package_id":1,
+        "product_package_type":1,
         "required_products": [
             {
                 "recommended": false, 
