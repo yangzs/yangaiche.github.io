@@ -29,47 +29,29 @@
 "create_order":{ 
     "phone_number": "123456", 
     "contact_name": "张三22", 
-    "car_user_id": 1,
+    "user_id": 1,
     "car_id": 1, 
     "location": {
-        "latitude": 12333.1231231, 
+        "latitude": 12333.1231231,
         "longitude": 1231231.1232, 
         "name": "豪情酒吧", 
         "address": "工人体育场西路7号"
     }, 
     "pick_time": "2011-08-21 周一", 
     "pick_time_segment": "08:00-09:00", 
-    "service_type": "keeper", 
     "comment": "备注信息", 
-    "source_ditch": "app", 
+    "peer_source": "app", 
     "products": [],
-    "product_comment":"商品说明"
+    "product_comment":"",
+    "coupon_id_used":-1
+
 },
 "create_product": {
             "product_type": 5, 
             "part_type":1,
             "unit_count": 1
         },
-"order":  {
-	"status":"未支付",
-    "contact_name": "张三",
-    "phone_number": "1381111111",
-    "location": {
-      "latitude": 12333.1231231,
-      "longtitude": 1231231.1232,
-      "name": "豪情酒吧",
-      "address": "工人体育场西路7号"
-    },
-    "pick_time": "2011-08-21 周一",
-    "pick_time_segment": "00:00~00:30",
-    "comment": "",
-    "coupon_id_used": [
-    ],
-    "car_id":1,
-     
-    "products": [ ]
 
-},
 "keeper": {
           "keeper_id": 1,
           "type":"keeper",
