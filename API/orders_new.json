@@ -1,5 +1,6 @@
 ﻿{
-      "id": 1,     
+      "id": 1,
+      "number":"20150409192354813",
       "order_type": "ss",
       "service_type": "keeper",
       "source_ditch": "app", 
@@ -103,7 +104,7 @@
                   "id": 32, 
                   "product_type": 1, 
                   "product_name": "管家接车", 
-                  "unit_count": 2, 
+                  "quantity": 2, 
                   "price": 100, 
                   "labour_price": 22, 
                   "total_price": 44, 
@@ -115,7 +116,7 @@
                   "id": 1, 
                   "product_type": 3, 
                   "product_name": "轮胎A11", 
-                  "unit_count": 1, 
+                  "quantity": 1, 
                   "price": 99, 
                   "labour_price": 0, 
                   "total_price": 44, 
@@ -129,10 +130,9 @@
                         }
                   ]
               }
-      ],      
-    "product_comment":"商品说明",
+      ],
       "client_feedback": {
-        "if_feedback_committed":false,
+        "if_feedback_commited":false,
         "comment": "非常不错,下次再来!",
         "keeper_stars": 4,
         "order_stars": 1

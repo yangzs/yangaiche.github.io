@@ -1179,8 +1179,9 @@ url_parameter |type|level  |  enum| description
  **size**  |int |required   ||每页条数
  **detail**  |Boolean |required   |true or false|是否返回订单详细信息，true返回订单详细信息，false返回订单部分信息用于分页
  **key**   |String  |optional    ||搜索关键字
- **order_status**   |String  |optional    ||订单状态(1,未认领;2,未完成;3,已完成)
- **operator_id**   |String  |optional    ||根据客服ID查询
+ **order_status**   |int  |optional    ||订单状态(1,未认领;2,未完成;3,已完成)
+ **operator_id**   |Long  |optional    ||根据客服ID查询
+ **keeper_id**   |Long  |optional    ||根据客服ID查询
  **order_id**   |long  |optional    ||如果该项有值，则只查询该ID的订单
  **user_id**   |long  |optional    ||如果该项有值，则只查询该用户的订单
 
