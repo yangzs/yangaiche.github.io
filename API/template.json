@@ -41,7 +41,7 @@
     "pick_time_segment": "08:00-09:00", 
     "service_type": "keeper", 
     "comment": "备注信息", 
-    "source_ditch": "app", 
+    "peer_source": "app", 
     "products": [],
     "product_comment":"商品说明"
 },
