@@ -781,35 +781,59 @@ res:
 //返回所有的优惠券
 <object type="text/html" data="coupons.json" width=100% height="450"></object>
 
-##phone_code
+##Login
 
-###POST phone_code_request
+###GET sign_verify_code/{phone_number}
     请求手机验证码
-   form_parameter |type|level  |  enum| description
+   get_parameter |type|level  |  enum| description
  -|-|-|-|-
  **phone_number**   |string|required   ||手机号
 
 res:
 meta return
 
-###POST phone_code_confirmation
-    核实手机验证码
+###POST car_user/sign_up
+    手机客户验证码登陆验证
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **phone_code**   |string|required   ||手机验证码
- **src**   |string|required   |ali,werxin|
+ **phone**   |string|required   ||手机号
+ **verify_code** |String|required || 验证码
+ **sign_origin**   |string|required   |alipay,weixin|
 res:
 ```json
-[
-    {
-        "user_id":1,
-        "src":"ali"
-        "access_token":"1231odsnfsdojfdsf",
-    }
-
-]
+{
+	"code": "00000",
+	"data": {
+		"userId": 1007,
+		"token": "36FF7814591B200F916BBFA724CBABDB",
+		"phone": "15202207925",
+		"verify_code": "029814",
+		"sign_origin": "wx"
+	}
+}
 ```
-
+###POST car_keeper/sign_in
+		管家端用户名密码登陆
+req:
+```json
+{  
+    "phone":"15202207926",
+    "password":"1234"
+}
+```
+res:
+```json
+{
+	"code": "00000",
+	"data": {
+		"phone": "15202207926",	
+		"userId": 1022,
+		"token": "43CCA4B3DE2097B9558EFEFD0ECC3588",
+		"name": "管家名称",
+		"gender": "male"
+	}
+}
+```
 ##suppliers
 ###POST meta_supplier_type/create
 req:
