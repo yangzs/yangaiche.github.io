@@ -5,6 +5,15 @@
       "service_type": "keeper",
       "source_ditch": "app", 
       "source_order_id": 1,
+      "place_time": "2011-08-21T18:02:52.249Z",
+      "start_time": "2011-08-21T18:02:52.249Z",
+      "end_time":"2011-08-21T18:02:52.249Z",
+      "fee":23.00,
+      "coupon_price":-50,
+      "total_price":200,
+      "paid":true,
+      "status":"已付款",
+      "product_comment":"商品说明",
       "keeper_basics": [
         {
           "id": 1,
@@ -96,9 +105,6 @@
         "model": "豪华版 2.0T",
         "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
       },
-      "place_time": "2011-08-21T18:02:52.249Z",
-      "start_time": "2011-08-21T18:02:52.249Z",
-      "end_time":"2011-08-21T18:02:52.249Z",
       "products": [
               {
                   "id": 32, 
@@ -137,10 +143,6 @@
         "keeper_stars": 4,
         "order_stars": 1
       },
-      "fee":23.00,
-      "coupon_price":-50,
-      "total_price":200,
-      "paid":10,
       "inspections": [
         {
             "id": 133, 
