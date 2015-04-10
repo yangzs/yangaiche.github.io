@@ -493,12 +493,13 @@ form_parameter |type|level  |  enum| description
  meta reutrn
  
  ###GET meta_categorys
-
+		获取车系列表信息，以下参数可以 选择传递，没有page 、size查询结果不带分页
 url_parameter |type|level | description
  -|-|-|-|-
  **key**	|String |optional || 模糊收索字段
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
+ **bran_type** |int| required||品牌id
 
  exp:
  http://192.168.1.1/v1/api/meta_brands?page=3&size=10
@@ -523,7 +524,8 @@ url_parameter |type|level | description
  
 ```
 
-###POST meta_category/update
+###POST meta_category
+	添加/更新车系信息（有category_type属性则被视为更新，无该属性视为添加）
 req:
 ```json
   {
@@ -552,12 +554,13 @@ res:
 meta return
 
 ###GET meta_cars
-
+	查询车型列表信息
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **key**	|int |required	 ||模糊查询字段
  **page**   |int |required   ||第几页
- **items**  |int |required   ||每页条数
+ **size**  |int |required   ||每页条数
+ **category_type**|int|required||车系id
 
 exp:
 http://192.168.1.1/v1/api/meta_cars?page=3&items=10
