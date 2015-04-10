@@ -177,72 +177,114 @@ res:
 
 ## user
 
-###POST register
-  form_parameter |type|level  |  enum| description
- -|-|-|-|-
-    **name**   |string|required   ||名字
-     **gender**   |string|required   |male,female|性别
-      **phone_number**   |string|required   ||手机号
-       **open_id**   |string|optional   ||第三方id号
- res:
-```json
-{
-    "id":1,//分配的用户id号
-}
-```
-
-
-
-
-
-###POST login
-  form_parameter |type|level  |  enum| description
- -|-|-|-|-
- **open_id**   |string|optional   ||第三方id号
-
- res:
+###POST /car_keeper/create
+	管家信息添加
+ req:
  ```json
 {
-    "id":1,//分配的用户id号
-}
-```
- 
-###POST login/keeper
-  form_parameter |type|level  |  enum| description
-  -|-|-|-|-
-  **phone_number**   |string|required   ||手机号
-  **password**   |string|required   ||密码
-
- res:
- ```json
-{
-    "id":1,
-    "name":"姓名",
-    "gender":"male",
-    "keeper_type":"keeper",
-    "layoff":false,
-    "rating":4,
-    "keeper_station":{
-        "name":"管家站名称",
+    "name":"管家名称",
+    "phone_num":"15202207922",
+    "lay_off":false,
+    "password":"12345",
+    "work_station":{
+        "name":"是的",
         "address":"地址",
-        "longitude":11.1,
-        "latitude":22.2
+        "longitude":1212.2,
+        "latitude":323232.2
     }
 }
 ```
- 
-###GET phone_numbers
-url_parameter |type|level  |  enum| description
- -|-|-|-|-
-**seed**   |string|required   |查询串
-**size**  |int|required |返回最多条数
-res:
- ```json
-[
-    "id":1,
-]
+ res:
+```json
+{
+	"code": "00000",
+	"data": 1033 //id
+}
 ```
 
+###POST /car_keeper/update
+	管家信息更新
+ req:
+ ```json
+{
+    "name":"管家名称",
+    "phone_num":"15202207922",
+    "lay_off":false,
+    "password":"12345",
+    "work_station":{
+        "name":"是的",
+        "address":"地址",
+        "longitude":1212.2,
+        "latitude":323232.2
+    }
+}
+```
+ res:
+```json
+{
+	"code": "00000",
+	"data": 1033 //id
+}
+```
+###GET /car_keeper/{keeper_id}
+res:
+```json
+{
+	"name": "管家B",
+	"rating": 5,
+	"keeper_id": 5,
+	"job_number": "2",
+	"phone_num": "13131313",
+	"attachment_id": -1,
+	"attachment_url": "",
+	"identity_card_number": "231231",
+	"driver_license": "",
+	"lay_off": false,
+	"password": "",
+	"work_station": {
+		"name": "存储",
+		"address": "存储",
+		"longitude": 116.222,
+		"latitude": 123.222,
+		"keeper_station_id": 2
+	}
+}
+```
+
+###GET /car_keepers
+	获取管家信息
+url_parameter |type|level  |  enum| description
+-|-|-|-|-
+**page**   |int|optional   |请求第几页
+**size**  |string|optional   |每页大小
+ res:
+ ```json
+{
+	"code": "00000",
+	"data": {
+		"cur_page": 1,
+		"page_size": 1,
+		"total_size": 20,
+		"total_page": 20,
+		"items": [
+			{
+				"car_keeper_id": 1036,
+				"name": "管家名称",
+				"phone": "15220227922",
+				"img_url": "",
+				"id_card": "",
+				"address": "地址",
+				"receive_orders": 0,
+				"user_rating": 4,
+				"lay_off": false
+			}
+		]
+	}
+}
+```
+ 
+ 
+ 
  
 ###GET user_info
 url_parameter |type|level  |  enum| description
@@ -262,8 +304,86 @@ url_parameter |type|level  |  enum| description
 res:
  <object type="text/html" data="check_reports.json" width=100% height="450"></object>
  
+##push_msg
+###POST push/notification_single
+	消息推送app,message：通知消息，content：为透传消息
+req:
+```json
+{
+    "clent_id":"",
+    "alias":"test01",
+    "message":"养爱车测试内容",
+    "content":""
+}
+```
+ res:
+```json
+{
+  "code": "00000",
+  "data": "成功"
+}
+```
+##APP version
+###POST app_version/create
+	添加版本信息
+req：
+```json
+{
+    "version": "2.0.1",
+    "enable": true,
+    "device_type": "ios",
+    "app_name":"yangaiche",
+    "download_url":"http://www.baidu.coom",
+    "version_log": "1.更新用户信息"
+}
+```
+res:
 
- 
+```json
+	{
+		"code": "00000",
+		"data": {
+			"id": 3,
+			"version": "2.0.1",
+			"enable": true,
+			"device_type": "ios",
+			"app_name": "yangaiche",
+			"version_log": "1.更新用户信息",
+			"download_url": "http://www.baidu.coom"
+		}
+	}
+```
+###POST app_version/update
+	更新版本信息
+req：
+```json
+{
+	"id":3,
+    "version": "2.0.1",
+    "enable": true,
+    "device_type": "ios",
+    "app_name":"yangaiche",
+    "download_url":"http://www.baidu.coom",
+    "version_log": "1.更新用户信息"
+}
+```
+res:
+
+```json
+	{
+		"code": "00000",
+		"data": {
+			"id": 3,
+			"version": "2.0.1",
+			"enable": true,
+			"device_type": "ios",
+			"app_name": "yangaiche",
+			"version_log": "1.更新用户信息",
+			"download_url": "http://www.baidu.coom"
+		}
+	}
+```
+
 ## public
 ###GET now
 ret:
