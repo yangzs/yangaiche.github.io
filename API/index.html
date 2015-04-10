@@ -499,6 +499,7 @@ url_parameter |type|level | description
  **key**	|String |optional || 模糊收索字段
  **page**   |int |required   ||第几页
  **size**  |int |required   ||每页条数
+ **bran_type** |int| required||品牌id
 
  exp:
  http://192.168.1.1/v1/api/meta_brands?page=3&size=10
@@ -523,7 +524,8 @@ url_parameter |type|level | description
  
 ```
 
-###POST meta_category/update
+###POST meta_category
+	添加/更新车系信息（有category_type属性则被视为更新，无该属性视为添加）
 req:
 ```json
   {
@@ -552,12 +554,13 @@ res:
 meta return
 
 ###GET meta_cars
-
+	查询车型列表信息
 url_parameter |type|level  |  enum| description
  -|-|-|-|- 
  **key**	|int |required	 ||模糊查询字段
  **page**   |int |required   ||第几页
- **items**  |int |required   ||每页条数
+ **size**  |int |required   ||每页条数
+ **category_type**|int|required||车系id
 
 exp:
 http://192.168.1.1/v1/api/meta_cars?page=3&items=10
@@ -781,35 +784,59 @@ res:
 //返回所有的优惠券
 <object type="text/html" data="coupons.json" width=100% height="450"></object>
 
-##phone_code
+##Login
 
-###POST phone_code_request
+###GET sign_verify_code/{phone_number}
     请求手机验证码
-   form_parameter |type|level  |  enum| description
+   get_parameter |type|level  |  enum| description
  -|-|-|-|-
  **phone_number**   |string|required   ||手机号
 
 res:
 meta return
 
-###POST phone_code_confirmation
-    核实手机验证码
+###POST car_user/sign_up
+    手机客户验证码登陆验证
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
- **phone_code**   |string|required   ||手机验证码
- **src**   |string|required   |ali,werxin|
+ **phone**   |string|required   ||手机号
+ **verify_code** |String|required || 验证码
+ **sign_origin**   |string|required   |alipay,weixin|
 res:
 ```json
-[
-    {
-        "user_id":1,
-        "src":"ali"
-        "access_token":"1231odsnfsdojfdsf",
-    }
-
-]
+{
+	"code": "00000",
+	"data": {
+		"userId": 1007,
+		"token": "36FF7814591B200F916BBFA724CBABDB",
+		"phone": "15202207925",
+		"verify_code": "029814",
+		"sign_origin": "wx"
+	}
+}
 ```
-
+###POST car_keeper/sign_in
+		管家端用户名密码登陆
+req:
+```json
+{  
+    "phone":"15202207926",
+    "password":"1234"
+}
+```
+res:
+```json
+{
+	"code": "00000",
+	"data": {
+		"phone": "15202207926",	
+		"userId": 1022,
+		"token": "43CCA4B3DE2097B9558EFEFD0ECC3588",
+		"name": "管家名称",
+		"gender": "male"
+	}
+}
+```
 ##suppliers
 ###POST meta_supplier_type/create
 req:
@@ -1020,7 +1047,7 @@ req:
     "pick_time_segment": "08:00-09:00", 
     "service_type": "keeper", 
     "comment": "备注信息", 
-    "source_ditch": "app", 
+    "peer_source": "app", 
     "products": [
         {
             "product_type": 1, 
@@ -1070,7 +1097,7 @@ req:
     "order_rating": 3, 
     "user_evaluation": "做的好", 
     "total_price": 12.3, 
-    "source_ditch": "app、wechat、alipay、xiaomi、guoqing、callcenter、keeper", 
+    "peer_source": "app、wechat、alipay、xiaomi、guoqing、callcenter、keeper", 
     "source_order_id": 1, 
     "products": [
         {
@@ -1155,8 +1182,9 @@ url_parameter |type|level  |  enum| description
  **size**  |int |required   ||每页条数
  **detail**  |Boolean |required   |true or false|是否返回订单详细信息，true返回订单详细信息，false返回订单部分信息用于分页
  **key**   |String  |optional    ||搜索关键字
- **order_status**   |String  |optional    ||订单状态(1,未认领;2,未完成;3,已完成)
- **operator_id**   |String  |optional    ||根据客服ID查询
+ **order_status**   |int  |optional    ||订单状态(1,未认领;2,未完成;3,已完成)
+ **operator_id**   |Long  |optional    ||根据客服ID查询
+ **keeper_id**   |Long  |optional    ||根据客服ID查询
  **order_id**   |long  |optional    ||如果该项有值，则只查询该ID的订单
  **user_id**   |long  |optional    ||如果该项有值，则只查询该用户的订单
 
@@ -1167,28 +1195,28 @@ http://192.168.1.1/v1/api/meta_product_brands?page=3&size=10&key=搜索
 res:
 ```json
 {
-"code":"00000",
-"data":
-    {
-        "cur_page":3,
-        "page_size":10,
-        "total_size":20,
-        "total_pages":2,
-        "items":[
-            {
-              "id": 1, 
-              "order_number":"201201011",
-              "car_model_info":"车型信息",
-              "car_info":"车牌信息",
-              "user_name":"客户姓名",
-              "service_type":"接还车",
-              "source_ditch":"app",
-              "create_time":"2011-08-21T18:02:52.249Z",
-              "operator_info":"客服姓名",
-              "keeper_info":"管家信息"              
-          }
-        ]
-    }
+    "code": "00000", 
+    "data": [
+        {
+            "id": 224, 
+            "number": "20150409172532191", 
+            "service_Type": "keeper", 
+            "status": "pending", 
+            "create_time": "2015-04-09T17:25:32.000", 
+            "start_time": "2015-04-09T17:25:32.000", 
+            "complete_time": "2015-04-09T17:25:32.000", 
+            "take_time": "2015-04-09T17:25:32.000", 
+            "give_back_time": "2015-04-09T17:25:32.000", 
+            "peer_source": "app", 
+            "car_id": 1, 
+            "customer_name": "张三22", 
+            "car_number": "京N123", 
+            "car_model": "奥迪 A6", 
+            "keeper": "张三，李四", 
+            "product_category": "轮胎，商品一级分类", 
+            "operator": "张三"
+        }
+    ]
 }
 ```
 <!--
