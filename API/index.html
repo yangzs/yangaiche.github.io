@@ -440,7 +440,7 @@ res:
 
 
 ###GET meta_brands
-
+	获取车辆品牌接口
 url_parameter |type|level | description
  -|-|-|-|-
  **key**	|String|optional ||模糊查询关键字
@@ -470,11 +470,17 @@ url_parameter |type|level | description
  
 ```
 
-###POST meta_brand
- url_parameter |type|level  |  enum| description
- -|-|-|-|-
- **brand_name**   |int|required   ||brand type
+###POST meta_brand/create
+	添加车辆品牌信息
+	
+req:
+```json
+  {
+    "brand_name":"大众",
+	"logo_attachment_type":1
+  }
 
+```
 res:
 ```json
   {
@@ -484,6 +490,28 @@ res:
   }
 
 ```
+
+###POST meta_brand/update
+	更新车辆品牌信息
+req:
+```json
+  {
+    "brand_type":1,
+    "brand_name":"大众",
+	"logo_attachment_type":1
+  }
+
+```
+res:
+```json
+  {
+    "brand_type":1,
+    "brand_name":"大众",
+	"logo_attachment_type":1
+  }
+
+```
+
 ###POST meta_brand/delete
 form_parameter |type|level  |  enum| description
  -|-|-|-|-
@@ -524,12 +552,11 @@ url_parameter |type|level | description
  
 ```
 
-###POST meta_category
-	添加/更新车系信息（有category_type属性则被视为更新，无该属性视为添加）
+###POST meta_category/create
+	添加车系信息
 req:
 ```json
   {
-     "category_type": 2,
 	   "brand_type": 9,
 	   "category_name": "测试3"
   }
@@ -539,7 +566,28 @@ res:
 ```json
   {
     "category_type":1,
-	  "bran_type":2,
+	"bran_type":2,
+    "category_name":"大众"
+  }
+
+```
+
+###POST meta_category/update
+	添加车系信息
+req:
+```json
+  {
+   "category_type":1,
+   "brand_type": 9,
+   "category_name": "测试3"
+  }
+
+```
+res:
+```json
+  {
+    "category_type":1,
+	"bran_type":2,
     "category_name":"大众"
   }
 
@@ -596,7 +644,6 @@ req:
 ```json
 
 {
-  "model_type":1,
   "category_type":1,
   "engine_displacement":"1.5T",
   "first_maintenance_miles":1500.0,
