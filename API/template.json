@@ -14,8 +14,8 @@
         "brand":"",
         "brand_img_url":{
             "id":1,
-            "thumbnail_img":"",
-            "original_img":""
+            "thumbnail_url":"",
+            "original_url":""
             },
         "category":"",
         "model":"",
