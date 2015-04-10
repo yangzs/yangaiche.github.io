@@ -33,7 +33,11 @@
         "category": "途观",
         "model": "豪华版 2.0T",
         "car_type":1,
-        "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg",
+        "brand_img_url": {
+            "id": 1,
+            "thumbnail_url": "",
+            "original_url": ""
+        },
         "whole_score": 78,
         "parts": [
             {
@@ -179,7 +183,11 @@
                   "brand": "宝马", 
                   "category": "宝马系", 
                   "model": "1款 1T 宝马型", 
-                  "brand_img_url": ""
+                  "brand_img_url": {
+                    "id": 1,
+                    "thumbnail_url": "",
+                    "original_url": ""
+                  }
               }, 
               "qualified_size":1,
               "unqualified_size":2,
@@ -294,7 +302,11 @@
             "brand": "大众",
             "category": "途观",
             "model": "豪华版 2.0T",
-            "brand_img_url": "http://img0.pcauto.com.cn/pcauto/zt/chebiao/deguo/1108/1446234_benz.jpg"
+            "brand_img_url": {
+              "id": 1,
+              "thumbnail_url": "",
+              "original_url": ""
+            }
           },
           "place_time": "2011-08-21T18:02:52.249Z",
           "start_time": "2011-08-21T18:02:52.249Z",
