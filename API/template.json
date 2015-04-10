@@ -12,7 +12,11 @@
         "model_type":1,
         "user_id":1,
         "brand":"",
-        "brand_img_url":"",
+        "brand_img_url":{
+            "id":1,
+            "thumbnail_img":"",
+            "original_img":""
+            },
         "category":"",
         "model":"",
         "parts": []
