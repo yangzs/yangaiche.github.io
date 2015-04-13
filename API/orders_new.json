@@ -5,6 +5,8 @@
       "service_type": "keeper",
       "source_ditch": "app", 
       "source_order_id": 1,
+      "pick_time": "2011-08-21 周一",
+      "pick_time_segment": "08:00-09:00",
       "place_time": "2011-08-21T18:02:52.249Z",
       "start_time": "2011-08-21T18:02:52.249Z",
       "end_time":"2011-08-21T18:02:52.249Z",
