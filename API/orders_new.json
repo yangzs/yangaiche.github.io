@@ -138,7 +138,7 @@
               }
       ],
       "client_feedback": {
-        "if_feedback_commited":false,
+        "if_feedback_committed":false,
         "comment": "非常不错,下次再来!",
         "keeper_stars": 4,
         "order_stars": 1
