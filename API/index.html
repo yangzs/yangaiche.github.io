@@ -31,8 +31,21 @@
 
 
 ##access authentation
-HMAC 验证机制 @文燃
 
+###App version check
+	版本检查头信息：
+	key|value|description
+	API-Client-Device-Type|ios/android/web|
+	API-Client-App-Name|eg:yangaiche|应用名，不建议使用中文，（ios/android）接口访问必须带的头信息，web端则不需要
+	API-Client-App-Version|x.x.x eg：(1.0.0)|版本号，（ios/android）接口访问必须带的头信息，web端则不需要
+	
+	注：创建更新版本信息请查阅APP version章节
+###HMAC 验证机制 @文燃
+	key|value|description
+	API-Access-Token|64位随机串|访问接口权限token
+	
+	注：申请接口请查阅Login章节
+	
 <!-- 在报头 API-Access-Token中 -->
 
 ## version control
