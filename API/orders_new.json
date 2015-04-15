@@ -79,7 +79,7 @@
         "location":
              {
              "latitude":12333.1231231,
-             "longtitude":1231231.1232,
+             "longitude":1231231.1232,
              "name":"豪情酒吧",
              "address":"工人体育场西路7号"
              }
@@ -109,27 +109,16 @@
       },
       "products": [
               {
-                  "id": 32, 
-                  "product_type": 1, 
-                  "product_name": "管家接车", 
-                  "quantity": 2, 
-                  "price": 100, 
-                  "labour_price": 22, 
-                  "total_price": 44, 
-                  "comment": "说明111", 
-                  "source_inspection": "发动机检测",
-                  "complete":true
-              },
-              {
                   "id": 1, 
                   "product_type": 3, 
                   "product_name": "轮胎A11", 
-                  "quantity": 1, 
+                  "unit_count": 1, 
                   "price": 99, 
                   "labour_price": 0, 
-                  "total_price": 44, 
                   "comment": "说明111", 
                   "source_inspection": "发动机检测",
+                  "comment": "",
+                  "complete": false,
                   "pic_id":[
                         {
                           "id": 1,
