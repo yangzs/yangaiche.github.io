@@ -57,7 +57,8 @@ API-Access-Token|64位随机串|访问接口权限token
 雨刮片 | 7|雨刮器| 8|机油 | 9
 机滤| 10|空气滤| 11|燃油滤 | 12
 变速箱油| 13|转向助力液| 14|制动液| 15
-电瓶 | 16|正时皮带| 17
+电瓶 | 16|正时皮带| 17|空滤| 18
+火花塞| 19
 
 ### service type
  description		        | type	| backend	| app	| h5
@@ -181,8 +182,8 @@ res:
 [
 {
     "id": 1,
-    "thumbnail_pic":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg", //微缩图 @王帅
-    "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+    "thumbnail_url":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg", //微缩图 @王帅
+    "original_url": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
 }
 ]
 ```
@@ -1369,7 +1370,7 @@ url_parameter |type|level  |  enum| description
  **key**   |String  |optional    ||搜索关键字
  **order_status**   |int  |optional    ||订单状态(1,未认领;2,未完成;3,已完成)
  **operator_id**   |Long  |optional    ||根据客服ID查询
- **keeper_id**   |Long  |optional    ||根据客服ID查询
+ **keeper_id**   |Long  |optional    ||根据管家ID查询
  **order_id**   |long  |optional    ||如果该项有值，则只查询该ID的订单
  **user_id**   |long  |optional    ||如果该项有值，则只查询该用户的订单
 
