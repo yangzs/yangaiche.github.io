@@ -123,8 +123,8 @@
                   "pics":[
                         {
                           "id": 1,
-                          "thumbnail_pic":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
-                          "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+                          "thumbnail_url":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
+                          "original_url": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
                         }
                   ]
               }
@@ -174,8 +174,8 @@
                     "pic_id": [
                         {
                           "id": 1,
-                          "thumbnail_pic":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
-                          "original_pic": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+                          "thumbnail_url":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
+                          "original_url": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
                        }
                     ]
                 }
