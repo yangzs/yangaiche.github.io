@@ -164,28 +164,34 @@ res
 
 ## media
 
-###POST media
+###GET media/uptoken
 
-head:
+res:
+```json:
+{
+  "code": "00000",
+  "data": "e_YzEWpfz2fIigElm"
+}
 
-Content-Type|multipart/form-data
--|-
-|
+```
 
-  parameter |type|level  |  enum| description
- -|-|-|-|-
-    **pics**   |binary|required   ||
+###POST upload.qiniu.com
 
+req:
+```json
+参考：http://developer.qiniu.com/docs/v6/api/reference/up/upload.html
+```
 
 res:
 ```json
-[
 {
-    "id": 1,
-    "thumbnail_url":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg", //微缩图 @王帅
-    "original_url": "http://ww2.sinaimg.cn/large/6b85067djw6dbydsnam1xj.jpg",
+  "code": "00000",
+  "data": {
+      "id": 16,
+      "original_url": "http://7xipyd.com1.z0.glb.clouddn.com/Fk29mwUQsqEDwtr_TgE6p8juK5LN/s1024.jpg",
+      "thumbnail_url": "http://7xipyd.com1.z0.glb.clouddn.com/Fk29mwUQsqEDwtr_TgE6p8juK5LN/s250.jpg"
+  }
 }
-]
 ```
  
 
@@ -1310,6 +1316,7 @@ req:
             "car_inspection_type": "surface", //外观检测
             "description": "描述信息", 
             "keeper_id":1,
+            "complete":true,
             "items": [
                 {
                     "id": 1, 
@@ -1325,6 +1332,7 @@ req:
             "car_inspection_type": "takeCar", //初检
             "description": "描述信息", 
             "keeper_id":1,
+            "complete":true,
             "items": [
                 {
                     "id": 1, 
@@ -1339,6 +1347,7 @@ req:
             "car_inspection_type": "garage", //全检
             "description": "描述信息",
             "keeper_id":1, 
+            "complete":true,
             "items": [
                 {
                     "id": 1, 
