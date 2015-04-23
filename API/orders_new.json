@@ -60,7 +60,7 @@
               "price_socre":4,
               "car_keeper_id":1,
               "layoff":false,
-              "type":["修理厂","汽车美容店"]
+              "type":"修理厂,汽车美容店"
             }
       ],
       "operator":{
