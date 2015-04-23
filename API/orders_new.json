@@ -146,6 +146,7 @@
             "id": 134, 
             "car_inspection_type": "takeCar", 
             "description": "描述信息", 
+            "complete":true,
             "items": [
                 {
                     "id": 147, 
@@ -165,6 +166,7 @@
             "id": 135, 
             "car_inspection_type": "garage",
             "description": "描述信息",
+            "complete":true,
             "items": [
                 {
                     "id": 148, 
