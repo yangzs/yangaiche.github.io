@@ -173,7 +173,8 @@
                     "name": "发动机23", 
                     "comment": "说明", 
                     "result": true, 
-                    "pic_id": [
+                    "pic_id":[1,2,3],
+                    "pics": [
                         {
                           "id": 1,
                           "thumbnail_url":"http://ww2.sinaimg.cn/small/6b85067djw6dbydsnam1xj.jpg",
