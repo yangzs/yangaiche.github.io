@@ -619,6 +619,35 @@ url_parameter |type|level | description
  
 ```
 
+###GET v2/meta_brands
+url_parameter |type|level | description
+ -|-|-|-|-
+ **key**  |String|optional ||模糊查询关键字
+
+ exp:
+ http://192.168.1.1/api/v2/meta_brands?key=宝马
+ 
+ res:
+ ```json
+ {
+  "code":"00000",//成功
+  "data":
+    [
+      {
+        "section":"A"
+      },
+     {
+      "brand_type": 1,
+      "brand_pinyin":"aodi",
+      "img_url": "http://7xiqd7.com2.z0.glb.qiniucdn.com/1634.jpg/s1024.jpg",
+      "brand_name": "奥迪",
+      "logo_attachment_id": 1634
+    }
+  ]
+ }
+ 
+```
+
 ###POST meta_brand/create
 	添加车辆品牌信息
 	
@@ -1251,7 +1280,9 @@ req:
         "longitude": 1231231.1232, 
         "name": "豪情酒吧", 
         "address": "工人体育场西路7号"
-    }, 
+    },     
+    "coupon_id": 1, 
+    "coupon_code": "abcde", 
     "pick_time": "2011-08-21 周一", 
     "pick_time_segment": "08:00-09:00", 
     "service_type": "keeper", 
