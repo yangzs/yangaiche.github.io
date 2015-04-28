@@ -21,7 +21,8 @@
       "total_price":200,
       "paid":true,
       "status":"已付款",
-      "product_comment":"商品说明",
+      "product_comment":"用户备注商品",
+      "operator_comment":"客服备注信息",
       "keeper_basics": [
         {
           "id": 1,
